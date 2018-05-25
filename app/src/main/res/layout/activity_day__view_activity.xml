@@ -5,9 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".DayView_activity"
-    tools:showIn="@layout/activity_day_view_activity">
+    tools:context=".Day_View_activity">
 
-
+    <TextView
+        android:id="@+id/dayview_date_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:textSize="60dp"
+        android:textStyle="bold" />
 </LinearLayout>

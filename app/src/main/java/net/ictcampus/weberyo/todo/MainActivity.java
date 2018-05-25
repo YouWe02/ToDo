@@ -1,4 +1,4 @@
-package net.ictcampus.beera.todo1;
+package net.ictcampus.weberyo.todo;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
