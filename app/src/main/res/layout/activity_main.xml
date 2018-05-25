@@ -4,7 +4,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     tools:context=".MainActivity"
     android:layout_height="match_parent"
-    android:layout_width="match_parent">
+    android:layout_width="match_parent"
+    android:id="@+id/grid">
 
     <TextView
         android:text="MON"
@@ -386,4 +387,24 @@
             android:textSize="12dp"
             />
 
+    <Button
+        android:id="@+id/kalendermonat36"
+        android:layout_width="58dp"
+        android:layout_height="75dp"
+        android:layout_marginLeft="3dp"
+        android:layout_column="0"
+        android:layout_row="6"
+        android:gravity="left|top"
+        android:text="36"
+        android:textSize="12dp"
+        />
+    <Button
+        android:id="@+id/kalendermonat37"
+        android:layout_width="58dp"
+        android:layout_height="75dp"
+        android:layout_row="6"
+        android:gravity="left|top"
+        android:text="37"
+        android:textSize="12dp"
+        />
 </GridLayout>
