@@ -24,13 +24,18 @@ public class ImportDates {
         String actualDateFormatted = dateFormatter.format(actualDate);
         try{
             Date date = dateFormatter.parse(actualDateFormatted);
-            maximalDate = new Date(date.getYear() + 1, date.getMonth(), date.getDate());
-            minimalDate = new Date(date.getYear() - 1, date.getMonth(), date.getDate());
+            if(date.getMonth() != 11) {
+                maximalDate = new Date(date.getYear() + 1, date.getMonth() + 1, 1);
+                minimalDate = new Date(date.getYear() - 1, date.getMonth(), 1);
+            }
+            else{
+                maximalDate = new Date(date.getYear() + 2, 0, 1);
+                minimalDate = new Date(date.getYear() - 1, date.getMonth(), 1);
+            }
         }
         catch (java.text.ParseException e){
             e.printStackTrace();
         }
-        Log.i("TAAAAAAG", dateFormatter.format(minimalDate) + "" + dateFormatter.format(maximalDate));
         return(getDatesBetween(minimalDate, maximalDate));
     }
 
