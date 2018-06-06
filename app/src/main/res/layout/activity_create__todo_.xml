@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Create_Todo_Activity"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="Title"
+            android:textSize="20dp"
+            android:paddingLeft="25dp"
+            android:paddingTop="15dp"/>
+
+        <EditText
+            android:id="@+id/Title_Todo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text|textPersonName"
+            android:background="@drawable/edit_text_border"
+            tools:layout_editor_absoluteX="153dp"
+            tools:layout_editor_absoluteY="16dp"
+            android:layout_marginRight="15dp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="Priority"
+            android:textSize="20dp"
+            android:paddingLeft="25dp"
+            android:paddingTop="15dp"/>
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="10dp"
+            android:paddingLeft="12dp">
+                <android.support.v7.widget.AppCompatRadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/radiobutton_priority_5"
+                    android:buttonTint="@color/priority5"></android.support.v7.widget.AppCompatRadioButton>
+                <android.support.v7.widget.AppCompatRadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/radiobutton_priority_4"
+                    android:buttonTint="@color/priority4"></android.support.v7.widget.AppCompatRadioButton>
+                <android.support.v7.widget.AppCompatRadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/radiobutton_priority_3"
+                    android:buttonTint="@color/priority3"></android.support.v7.widget.AppCompatRadioButton>
+                <android.support.v7.widget.AppCompatRadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/radiobutton_priority_2"
+                    android:buttonTint="@color/priority2"></android.support.v7.widget.AppCompatRadioButton>
+                <android.support.v7.widget.AppCompatRadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/radiobutton_priority_1"
+                    android:buttonTint="@color/priority1"></android.support.v7.widget.AppCompatRadioButton>
+        </RadioGroup>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Date"
+        android:textSize="20dp"
+        android:paddingLeft="25dp"
+        android:paddingTop="15dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <NumberPicker
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/datepicker_day"
+            android:background="@android:color/white"
+            android:layout_marginLeft="20dp"></NumberPicker>
+        <NumberPicker
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/datepicker_month"
+            android:background="@android:color/white"
+            android:layout_marginLeft="20dp"></NumberPicker>
+        <NumberPicker
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/datepicker_year"
+            android:background="@android:color/white"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"></NumberPicker>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="Date"
+            android:textSize="20dp"
+            android:paddingLeft="25dp"
+            android:paddingTop="15dp"/>
+
+        <PACKAGE_NAME.Fontawesome
+            android:id="@+id/category_todo"
+            android:text="&#xf015;"
+            android:layout_width = "wrap_content"
+            android:layout_height = "wrap_content"
+            />
+
+
+    </LinearLayout>
+</LinearLayout>

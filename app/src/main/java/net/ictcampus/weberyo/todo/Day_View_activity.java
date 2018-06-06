@@ -26,7 +26,7 @@ public class Day_View_activity extends AppCompatActivity {
         day = (TextView) findViewById(R.id.dayview_date_header);
         setDate("");
         ListView list = (ListView) findViewById(R.id.dayview_todo_list);
-        list.setAdapter(ArrayAdapter("2018-08-31 00:00:00.000"));
+        list.setAdapter(ArrayAdapter("2018-06-06 00:00:00.000"));
 
     }
 
