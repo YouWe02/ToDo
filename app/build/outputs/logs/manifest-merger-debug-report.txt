@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:2:1-28:12
+ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:2:1-27:12
+INJECTED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:2:1-27:12
+INJECTED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:2:1-27:12
+INJECTED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:2:1-27:12
 MERGED from [com.android.support:design:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\design-27.1.1.aar\e5afb371f4e9006d2effe38146e39910\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\10ca16b0616b83bacf96e8f33d79b18d\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support.constraint:constraint-layout:1.1.0] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.0.aar\7d2b1233aac912045717586507287e50\AndroidManifest.xml:2:1-11:12
@@ -24,27 +24,27 @@ MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\weberyo\.gradl
 MERGED from [android.arch.core:runtime:1.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\c266fd38254b976fa4c114882e55faf1\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\23dcbd688809403d99c946a1394a0dc6\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\eb88c2b0b521fe9f76e67d6c3c9b0fff\AndroidManifest.xml:17:1-22:12
-INJECTED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:2:1-28:12
+INJECTED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:2:1-27:12
+INJECTED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:2:1-27:12
+INJECTED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:2:1-27:12
 	package
 		ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:4:5-41
 		INJECTED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:2:1-28:12
+		ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:2:1-27:12
 		INJECTED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml
 	xmlns:tools
 		ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:3:5-51
 	android:versionCode
 		INJECTED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:2:1-28:12
+		ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:2:1-27:12
 		INJECTED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:2:11-69
 application
-ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:6:5-26:19
+ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:6:5-25:19
 MERGED from [com.android.support.constraint:constraint-layout:1.1.0] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.0.aar\7d2b1233aac912045717586507287e50\AndroidManifest.xml:9:5-20
 MERGED from [com.android.support.constraint:constraint-layout:1.1.0] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.0.aar\7d2b1233aac912045717586507287e50\AndroidManifest.xml:9:5-20
 	android:supportsRtl
@@ -60,33 +60,31 @@ MERGED from [com.android.support.constraint:constraint-layout:1.1.0] C:\Users\we
 	android:theme
 		ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:12:9-40
 activity#net.ictcampus.weberyo.todo.Create_Todo_Activity
-ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:13:9-18:20
+ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:13:9-17:20
 	android:screenOrientation
 		ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:16:13-49
-	android:parentActivityName
-		ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:17:13-55
 	android:label
 		ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:15:13-45
 	android:name
 		ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:14:13-49
 activity#net.ictcampus.weberyo.todo.wocheActivity
-ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:19:9-60
+ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:18:9-60
 	android:name
-		ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:19:19-48
+		ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:18:19-48
 activity#net.ictcampus.weberyo.todo.MainActivity
-ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:20:9-25:36
+ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:19:9-24:36
 	android:name
-		ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:20:19-47
+		ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:19:19-47
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:21:13-25:25
+ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:20:13-24:25
 action#android.intent.action.MAIN
-ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:22:13-65
+ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:21:13-65
 	android:name
-		ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:22:21-62
+		ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:21:21-62
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:24:13-73
+ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:23:13-73
 	android:name
-		ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:24:23-70
+		ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:23:23-70
 uses-sdk
 INJECTED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml

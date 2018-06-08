@@ -1,10 +1,14 @@
 package net.ictcampus.weberyo.todo;
 
+import android.app.ActionBar;
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -65,13 +69,8 @@ public class Create_Todo_Activity extends AppCompatActivity {
     }
 
     public void initToolbar(){
-        Toolbar toolbar = new Toolbar(this);
-        toolbar.setNavigationIcon(R.drawable.ic_left_arrow);
-        CharSequence title = "New ToDo";
-        toolbar.setTitle(title);
-        toolbar.setVisibility(View.VISIBLE);
-        this.setActionBar(toolbar);
-        this.getActionBar().show();
+        android.support.v7.app.ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
     }
     public void initDatePicker(){
@@ -287,5 +286,21 @@ public class Create_Todo_Activity extends AppCompatActivity {
         }catch (Exception e){
             Log.e("Create Todo", e.getMessage());
         }
+    }
+
+    @Override
+    public void onBackPressed(){
+        finish();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        switch (item.getItemId()){
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+        }
+
+        return  super.onOptionsItemSelected(item);
     }
 }

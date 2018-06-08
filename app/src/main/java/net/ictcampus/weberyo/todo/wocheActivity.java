@@ -1,5 +1,6 @@
 package net.ictcampus.weberyo.todo;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -16,6 +17,7 @@ import java.util.Date;
 import java.util.List;
 
 public class wocheActivity extends AppCompatActivity {
+    public static Activity activity;
     private List<Button> allWeekButtons = new ArrayList<Button>();
     private int resetMonth;
     private int resetYear;
@@ -31,8 +33,9 @@ public class wocheActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_woche);
+        activity = this;
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS, WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-        Intent intent = getIntent();
+        final Intent intent = getIntent();
         initFloatButton();
         resetMonth = intent.getIntExtra("Month", 5);
         resetYear = intent.getIntExtra("Year", 2);
@@ -116,7 +119,6 @@ public class wocheActivity extends AppCompatActivity {
         ConstraintLayout layout = (ConstraintLayout) findViewById(R.id.Constraint);
         layout.setOnTouchListener(new OnSwipeTouchListener(wocheActivity.this) {
             public void onSwipeTop() {
-
             }
 
             public void onSwipeRight() {
@@ -3870,6 +3872,7 @@ public class wocheActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), Create_Todo_Activity.class);
+                intent.putExtra("Activity", "week");
                 startActivity(intent);
             }
         });

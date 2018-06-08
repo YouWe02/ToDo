@@ -1,5 +1,6 @@
 package net.ictcampus.weberyo.todo;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.support.design.widget.CoordinatorLayout;
@@ -20,6 +21,7 @@ import java.util.Date;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+    public static Activity activity;
     Intent intentget;
     private SimpleDateFormat dateFormatter = new SimpleDateFormat("dd-MMM-yyyy");
     private Date actualDate;
@@ -38,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        activity = this;
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS, WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         initFloatButton();
         actualDate = Calendar.getInstance().getTime();
@@ -872,6 +875,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), Create_Todo_Activity.class);
+                intent.putExtra("Activity", "month");
                 startActivity(intent);
             }
         });

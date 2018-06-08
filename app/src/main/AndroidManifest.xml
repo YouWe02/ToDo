@@ -13,8 +13,7 @@
         <activity
             android:name=".Create_Todo_Activity"
             android:label="@string/app_name"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".MainActivity">
+            android:screenOrientation="portrait">
         </activity>
         <activity android:name=".wocheActivity"></activity>
         <activity android:name=".MainActivity">
