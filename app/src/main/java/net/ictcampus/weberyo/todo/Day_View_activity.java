@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import net.ictcampus.weberyo.todo.net.ictcampus.weberyo.todo.threads.Thread_CreateTodo;
@@ -44,9 +45,10 @@ public class Day_View_activity extends AppCompatActivity {
         resetWeek = intentget.getIntExtra("Week" , 1);
         resetDay = intentget.getIntExtra("Day" , 1);
         setDate();
+        setDate();
         ListView list = (ListView) findViewById(R.id.dayview_todo_list);
         list.setAdapter(ArrayAdapter(date));
-        final LinearLayout layout = (LinearLayout) findViewById(R.id.linear);
+        final RelativeLayout layout = (RelativeLayout) findViewById(R.id.linear);
         layout.setOnTouchListener(new OnSwipeTouchListener(Day_View_activity.this) {
             public void onSwipeTop() {
 

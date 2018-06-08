@@ -2,6 +2,7 @@ package net.ictcampus.weberyo.todo;
 
 import android.content.Intent;
 import android.support.constraint.ConstraintLayout;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -3871,6 +3872,16 @@ public class wocheActivity extends AppCompatActivity {
                 }
             }
         }
+    }
+    public void initFloatButton(){
+        FloatingActionButton button = (FloatingActionButton) findViewById(R.id.floatweek);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), Create_Todo_Activity.class);
+                startActivity(intent);
+            }
+        });
     }
 }
 

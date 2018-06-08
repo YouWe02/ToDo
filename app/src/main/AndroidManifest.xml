@@ -10,18 +10,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".MainActivity"
+        <activity android:name=".wocheActivity"></activity>
+        <activity android:name=".Day_View_activity"></activity>
+        <activity android:name=".Create_Todo_Activity"
+            android:parentActivityName=".MainActivity"></activity>
+        <activity android:name=".MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".wocheActivity"></activity>
-        <activity android:name=".Day_View_activity"></activity>
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter></activity>
+
     </application>
 
 </manifest>
