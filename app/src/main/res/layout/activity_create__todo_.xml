@@ -9,82 +9,111 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content">
 
         <TextView
-            android:layout_width="200dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Title"
-            android:textSize="20dp"
+            android:text="New Todo"
+            android:textSize="40dp"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding = "5dp">
+
+        <TextView
+            android:layout_width="165dp"
+            android:layout_height="wrap_content"
             android:paddingLeft="25dp"
-            android:paddingTop="15dp"/>
+            android:text="Title:"
+            android:textSize="22dp"
+            android:textColor="@android:color/black"/>
 
         <EditText
             android:id="@+id/Title_Todo"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
             android:ems="10"
             android:inputType="text|textPersonName"
             android:background="@drawable/edit_text_border"
-            tools:layout_editor_absoluteX="153dp"
-            tools:layout_editor_absoluteY="16dp"
             android:layout_marginRight="15dp" />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:padding = "5dp">
 
         <TextView
-            android:layout_width="200dp"
+            android:layout_width="165dp"
             android:layout_height="wrap_content"
-            android:text="Priority"
-            android:textSize="20dp"
             android:paddingLeft="25dp"
-            android:paddingTop="15dp"/>
+            android:text="Priority:"
+            android:textSize="22dp"
+            android:textColor="@android:color/black"/>
 
         <RadioGroup
+            android:id="@+id/radiobutton_priority"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:paddingTop="10dp"
-            android:paddingLeft="12dp">
-                <android.support.v7.widget.AppCompatRadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/radiobutton_priority_5"
-                    android:buttonTint="@color/priority5"></android.support.v7.widget.AppCompatRadioButton>
-                <android.support.v7.widget.AppCompatRadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/radiobutton_priority_4"
-                    android:buttonTint="@color/priority4"></android.support.v7.widget.AppCompatRadioButton>
-                <android.support.v7.widget.AppCompatRadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/radiobutton_priority_3"
-                    android:buttonTint="@color/priority3"></android.support.v7.widget.AppCompatRadioButton>
-                <android.support.v7.widget.AppCompatRadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/radiobutton_priority_2"
-                    android:buttonTint="@color/priority2"></android.support.v7.widget.AppCompatRadioButton>
-                <android.support.v7.widget.AppCompatRadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/radiobutton_priority_1"
-                    android:buttonTint="@color/priority1"></android.support.v7.widget.AppCompatRadioButton>
+            android:paddingLeft="5dp">
+
+            <android.support.v7.widget.AppCompatRadioButton
+                android:id="@+id/radiobutton_priority_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/priority5"
+                android:text="5"
+                android:textColor="@android:color/transparent"></android.support.v7.widget.AppCompatRadioButton>
+
+            <android.support.v7.widget.AppCompatRadioButton
+                android:id="@+id/radiobutton_priority_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/priority4"
+                android:text="4"
+                android:textColor="@android:color/transparent"></android.support.v7.widget.AppCompatRadioButton>
+
+            <android.support.v7.widget.AppCompatRadioButton
+                android:id="@+id/radiobutton_priority_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/priority3"
+                android:text="3"
+                android:textColor="@android:color/transparent"></android.support.v7.widget.AppCompatRadioButton>
+
+            <android.support.v7.widget.AppCompatRadioButton
+                android:id="@+id/radiobutton_priority_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/priority2"
+                android:text="2"
+                android:textColor="@android:color/transparent"></android.support.v7.widget.AppCompatRadioButton>
+
+            <android.support.v7.widget.AppCompatRadioButton
+                android:id="@+id/radiobutton_priority_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/priority1"
+                android:text="1"
+                android:textColor="@android:color/transparent"></android.support.v7.widget.AppCompatRadioButton>
         </RadioGroup>
     </LinearLayout>
 
     <TextView
-        android:layout_width="200dp"
+        android:layout_width="165dp"
         android:layout_height="wrap_content"
-        android:text="Date"
-        android:textSize="20dp"
+        android:text="Date:"
+        android:textSize="22dp"
         android:paddingLeft="25dp"
-        android:paddingTop="15dp"/>
+        android:textColor="@android:color/black"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -92,24 +121,26 @@
         android:orientation="horizontal">
 
         <NumberPicker
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
             android:id="@+id/datepicker_day"
-            android:background="@android:color/white"
-            android:layout_marginLeft="20dp"></NumberPicker>
-        <NumberPicker
             android:layout_width="100dp"
-            android:layout_height="wrap_content"
+            android:layout_height="139dp"
+            android:layout_marginLeft="20dp"
+            android:background="@android:color/white"></NumberPicker>
+
+        <NumberPicker
             android:id="@+id/datepicker_month"
-            android:background="@android:color/white"
-            android:layout_marginLeft="20dp"></NumberPicker>
-        <NumberPicker
             android:layout_width="100dp"
-            android:layout_height="wrap_content"
+            android:layout_height="139dp"
+            android:layout_marginLeft="20dp"
+            android:background="@android:color/white"></NumberPicker>
+
+        <NumberPicker
             android:id="@+id/datepicker_year"
-            android:background="@android:color/white"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:layout_marginLeft="20dp"></NumberPicker>
+            android:background="@android:color/white"></NumberPicker>
     </LinearLayout>
 
     <LinearLayout
@@ -118,20 +149,66 @@
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="200dp"
+            android:layout_width="165dp"
             android:layout_height="wrap_content"
-            android:text="Date"
-            android:textSize="20dp"
+            android:text="Category:"
+            android:textSize="22dp"
             android:paddingLeft="25dp"
-            android:paddingTop="15dp"/>
+            android:textColor="@android:color/black"/>
 
-        <PACKAGE_NAME.Fontawesome
-            android:id="@+id/category_todo"
-            android:text="&#xf015;"
-            android:layout_width = "wrap_content"
-            android:layout_height = "wrap_content"
-            />
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinner_category"
+            android:spinnerMode="dropdown">
+
+        </Spinner>
 
 
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="165dp"
+            android:layout_height="wrap_content"
+            android:text="Set private:"
+            android:textSize="22dp"
+            android:paddingLeft="25dp"
+            android:textColor="@android:color/black"/>
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25dp"
+            android:id="@+id/private_checkbox"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="165dp"
+        android:layout_height="wrap_content"
+        android:text="Description:"
+        android:textSize="22dp"
+        android:paddingLeft="25dp"
+        android:textColor="@android:color/black"/>
+
+    <EditText
+        android:id="@+id/Description_Todo"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        android:background="@drawable/edit_text_border"
+        android:layout_marginLeft="25dp" />
+
+    <Button
+        android:id="@+id/submit_todo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Do it!"
+        android:layout_marginLeft="140dp"/>
 </LinearLayout>

@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 #Fri Jun 08 09:11:45 CEST 2018
 base.0=C\:\\Users\\beera\\AndroidStudioProjects\\ToDo4Real\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\54
+=======
+#Fri Jun 08 09:09:22 CEST 2018
+base.0=C\:\\Users\\weberyo\\AndroidStudioProjects\\ToDo\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\4
+>>>>>>> 71466061d43ad75aa23bc698c7ece1d233f26d8c
 path.0=classes.dex
 renamed.0=classes.dex

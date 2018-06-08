@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
             actualMonth = "december";
         }
         intentget = getIntent();
-        resetMonth = intentget.getIntExtra("Month", 2);
+        resetMonth = intentget.getIntExtra("Month", date.getMonth());
         resetYear = intentget.getIntExtra("Year", 2);
         resetWeek = intentget.getIntExtra("Week", 1);
         resetDay = intentget.getIntExtra("Day", 2);
