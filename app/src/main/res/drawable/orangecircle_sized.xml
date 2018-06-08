@@ -4,8 +4,6 @@
         android:drawable="@drawable/orangecircle"
         android:width="20dp"
         android:height="20dp"
-        android:gravity="bottom"
-        android:id="@+id/orangecircle"
         />
 
 </layer-list >

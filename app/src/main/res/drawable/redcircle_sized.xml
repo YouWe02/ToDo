@@ -4,8 +4,6 @@
         android:drawable="@drawable/rescircle"
         android:width="20dp"
         android:height="20dp"
-        android:gravity="bottom"
-        android:id="@+id/redcircle"
         />
 
 </layer-list >
