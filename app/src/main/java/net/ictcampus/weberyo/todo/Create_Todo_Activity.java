@@ -1,14 +1,30 @@
 package net.ictcampus.weberyo.todo;
 
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.NumberPicker;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.Spinner;
+import android.widget.TextView;
 
+import net.ictcampus.weberyo.todo.net.ictcampus.weberyo.todo.threads.Thread_CreateTodo;
+
+import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
 import java.time.Year;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Dictionary;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Create_Todo_Activity extends AppCompatActivity {
@@ -23,11 +39,24 @@ public class Create_Todo_Activity extends AppCompatActivity {
     private NumberPicker picker_day;
     private NumberPicker picker_month;
     private NumberPicker picker_year;
+    private Spinner spinner_category;
+    private View.OnClickListener buttonListener;
+
+    //all final values to insert in db
+    private String title;
+    private String date;
+    private int priority;
+    private boolean privacy;
+    private String description;
+    private String category;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create__todo_);
         initDatePicker();
+        initCategorySpinner();
+        initListener();
     }
 
     public void initDatePicker(){
@@ -115,5 +144,110 @@ public class Create_Todo_Activity extends AppCompatActivity {
         picker_day.setDisplayedValues(null);
         picker_day.setMaxValue(days_array.length - 1);
         picker_day.setDisplayedValues(days_array);
+    }
+
+    public void initCategorySpinner(){
+        spinner_category = (Spinner) findViewById(R.id.spinner_category);
+        List<String> icons = new ArrayList<String>();
+        List<String> categories = new ArrayList<String>();
+        String[] icons_array;
+        String[] categories_array;
+        for (Field field : R.string.class.getDeclaredFields()){
+            if(Modifier.isStatic(field.getModifiers()) && !Modifier.isPrivate(field.getModifiers())){
+                try {
+                    if(field.getName().startsWith("category_")){
+                        int id = field.getInt(null);
+                        String[] name = field.getName().split("_");
+                        categories.add(name[1]);
+                        icons.add(getString(id));
+                    }
+                } catch (IllegalArgumentException e){
+
+                } catch (IllegalAccessException e){
+
+                }
+            }
+        }
+        icons_array = new String[icons.size()];
+        categories_array = new String[categories.size()];
+        icons_array = icons.toArray(icons_array);
+        categories_array = categories.toArray(categories_array);
+
+        ArrayAdapter_Spinner spinner = new ArrayAdapter_Spinner(this, icons_array, categories_array);
+        spinner_category.setAdapter(spinner);
+    }
+
+    public void initListener(){
+        buttonListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Read Date an do it in the right pattern:
+                picker_day = (NumberPicker) findViewById(R.id.datepicker_day);
+                picker_month = (NumberPicker) findViewById(R.id.datepicker_month);
+                picker_year = (NumberPicker) findViewById(R.id.datepicker_year);
+
+                String day = picker_day.getDisplayedValues()[picker_day.getValue()];
+                if(day.length() < 2){
+                    day = "0" + day;
+                }
+
+                String month = Integer.toString(picker_month.getValue() + 1);
+                if(month.length() < 2){
+                    month = "0" + month;
+                }
+
+                String year = picker_year.getDisplayedValues()[picker_year.getValue()];
+
+                date = year + "-" + month + "-" + day + " 00:00:00.000";
+
+                //Read Title
+                TextView title_todo = (TextView) findViewById(R.id.Title_Todo);
+                title = title_todo.getText().toString();
+
+                //Read Priority
+                RadioButton button;
+                RadioGroup prio_group = (RadioGroup) findViewById(R.id.radiobutton_priority);
+                int id = prio_group.getCheckedRadioButtonId();
+                int count = prio_group.getChildCount();
+                for (int i = 0; i < count; i++){
+                    if(id == prio_group.getChildAt(i).getId()){
+                        button = (RadioButton) prio_group.getChildAt(i);
+                        priority = Integer.parseInt(button.getText().toString());
+                    }
+                }
+
+                //Read privacy
+                CheckBox box = (CheckBox) findViewById(R.id.private_checkbox);
+                if(box.isChecked()){
+                    privacy = true;
+                }
+                else {
+                    privacy = false;
+                }
+
+                //Read description
+                TextView description_todo = (TextView) findViewById(R.id.Description_Todo);
+                description = description_todo.getText().toString();
+
+                //Read category
+                Spinner cat = (Spinner) findViewById(R.id.spinner_category);
+                category = cat.getSelectedItem().toString();
+                category = "category_" + category;
+
+                createTodo();
+            }
+        };
+        Button button = (Button) findViewById(R.id.submit_todo);
+        button.setOnClickListener(buttonListener);
+    }
+
+    public void createTodo(){
+        try {
+            Thread_CreateTodo createTodo = new Thread_CreateTodo(title, description, date, category, privacy, priority, this);
+            createTodo.start();
+            createTodo.join();
+        }catch (Exception e){
+            Log.e("Create Todo", e.getMessage());
+        }
     }
 }
