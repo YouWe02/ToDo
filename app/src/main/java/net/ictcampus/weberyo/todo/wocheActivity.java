@@ -54,6 +54,10 @@ public class wocheActivity extends AppCompatActivity {
             date = dateFormatter.parse(actualDateFormatted);
         } catch (java.text.ParseException e) {
         }
+        resetMonth = intent.getIntExtra("Month", date.getMonth());
+        resetYear = intent.getIntExtra("Year", 2);
+        resetWeek = intent.getIntExtra("Week", 1);
+        resetDay = intent.getIntExtra("Day", 1);
         if (date.getMonth() == 0) {
             actualMonth = "january";
         }
@@ -95,7 +99,12 @@ public class wocheActivity extends AppCompatActivity {
         for (Button a : allWeekButtons) {
             a.setOnTouchListener(new OnSwipeTouchListener(wocheActivity.this) {
                 public void onSwipeTop() {
-
+                    Intent intentset = new Intent(wocheActivity.this, Day_View_activity.class);
+                    intentset.putExtra("Year", resetYear);
+                    intentset.putExtra("Month", resetMonth);
+                    intentset.putExtra("Week", resetWeek);
+                    intentset.putExtra("Day", resetDay);
+                    startActivity(intentset);
                 }
 
                 public void onSwipeRight() {
@@ -119,6 +128,12 @@ public class wocheActivity extends AppCompatActivity {
         ConstraintLayout layout = (ConstraintLayout) findViewById(R.id.Constraint);
         layout.setOnTouchListener(new OnSwipeTouchListener(wocheActivity.this) {
             public void onSwipeTop() {
+                Intent intentset = new Intent(wocheActivity.this, Day_View_activity.class);
+                intentset.putExtra("Year", resetYear);
+                intentset.putExtra("Month", resetMonth);
+                intentset.putExtra("Week", resetWeek);
+                intentset.putExtra("Day", resetDay);
+                startActivity(intentset);
             }
 
             public void onSwipeRight() {

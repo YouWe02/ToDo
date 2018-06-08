@@ -1,6 +1,7 @@
 package net.ictcampus.weberyo.todo;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.support.design.widget.CoordinatorLayout;
@@ -35,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     private int resetYear;
     private int resetWeek;
     private int resetDay;
+    private Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
         resetMonth = intentget.getIntExtra("Month", date.getMonth());
         resetYear = intentget.getIntExtra("Year", 2);
         resetWeek = intentget.getIntExtra("Week", 1);
-        resetDay = intentget.getIntExtra("Day", 2);
+        resetDay = intentget.getIntExtra("Day", 1);
         setDatesToButtons(resetMonth, resetYear);
         getAllToDosMonth();
 
@@ -117,31 +119,51 @@ public class MainActivity extends AppCompatActivity {
             public void onSwipeBottom() {
             }
         });
-        for (Button a : allMonthButtons) {
-            a.setOnTouchListener(new OnSwipeTouchListener(MainActivity.this) {
-                public void onSwipeTop() {
-                    Intent intentset = new Intent(MainActivity.this, wocheActivity.class);
-                    intentset.putExtra("Year", resetYear);
-                    intentset.putExtra("Month", resetMonth);
-                    intentset.putExtra("Week", resetWeek);
-                    intentset.putExtra("Day", resetDay);
-                    startActivity(intentset);
-                }
 
-                public void onSwipeRight() {
-                    swipeRight();
-                    getAllToDosMonth();
-                }
-
-                public void onSwipeLeft() {
-                    swipeLeft();
-                    getAllToDosMonth();
-                }
-
-                public void onSwipeBottom() {
+        for (Button b : allMonthButtons) {
+            b.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Button c = (Button) v;
+                    int länge = c.getText().toString().length();
+                    String text = c.getText().toString();
+                    String dateFormatted = "default";
+                    String actualdate = "default";
+                    int year = 0;
+                    if (resetYear == 2) {
+                        year = date.getYear() + 1900;
+                    } else if (resetYear == 1) {
+                        year = date.getYear() + 1899;
+                    } else {
+                        year = date.getYear() + 1901;
+                    }
+                    if (länge < 2) {
+                        actualdate = 0 + "" + text;
+                        if (resetMonth + 1 < 10) {
+                            dateFormatted = year + "-" + "0" + (resetMonth + 1) + "-" + actualdate + " " + "00:00:00.000";
+                        } else {
+                            dateFormatted = year + "-" + (resetMonth + 1) + "-" + actualdate + " " + "00:00:00.000";
+                        }
+                    } else {
+                        actualdate = text + "";
+                        if (resetMonth + 1 < 10) {
+                            dateFormatted = year + "-" + "0" + (resetMonth + 1) + "-" + actualdate + " " + "00:00:00.000";
+                        } else {
+                            dateFormatted = year + "-" + (resetMonth + 1) + "-" + actualdate + " " + "00:00:00.000";
+                        }
+                    }
+                    Intent intent = new Intent(MainActivity.this, Day_View_activity.class);
+                    intent.putExtra("Year", resetYear);
+                    intent.putExtra("Month", resetMonth);
+                    intent.putExtra("Week", resetWeek);
+                    intent.putExtra("Day", resetDay);
+                    intent.putExtra("Date", dateFormatted);
+                    startActivity(intent);
                 }
             });
         }
+
+
     }
 
     public void setDatesToButtons(int month, int year) {
@@ -169,6 +191,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         }
+
         int i = 0;
         for (Date a : datesMonth) {
             if (i == 0) {
@@ -869,65 +892,69 @@ public class MainActivity extends AppCompatActivity {
             resetYear = 3;
         }
     }
+    public void getAllToDosMonth(){
+        int year = 0;
+        if (resetYear == 2) {
+            year = date.getYear() + 1900;
+        } else if (resetYear == 1) {
+            year = date.getYear() + 1899;
+        } else {
+            year = date.getYear() + 1901;
+        }
+        int i = 1;
+        Thread_GetTodayTodos thread_getTodayTodos = new Thread_GetTodayTodos("default", this);
+        for (Button b : buttonsactivated) {
+            String dateGetToDos = "default";
+            String actualdate = "default";
+            if (i < 10) {
+                actualdate = 0 + "" + i;
+                if (resetMonth + 1 < 10) {
+                    dateGetToDos = year + "-" + "0" + (resetMonth + 1) + "-" + actualdate + " " + "00:00:00.000";
+                } else {
+                    dateGetToDos = year + "-" + (resetMonth + 1) + "-" + actualdate + " " + "00:00:00.000";
+                }
+            } else {
+                actualdate = i + "";
+                if (resetMonth + 1 < 10) {
+                    dateGetToDos = year + "-" + "0" + (resetMonth + 1) + "-" + actualdate + " " + "00:00:00.000";
+                } else {
+                    dateGetToDos = year + "-" + (resetMonth + 1) + "-" + actualdate + " " + "00:00:00.000";
+                }
+            }
+            try {
+                thread_getTodayTodos.refreshThread(dateGetToDos);
+                thread_getTodayTodos.start();
+                thread_getTodayTodos.join();
+                List<Todo> todos = thread_getTodayTodos.getAll();
+                if (todos.size() == 0) {
+                    Drawable draw = getResources().getDrawable(R.drawable.greencircle_sized);
+                    b.setCompoundDrawablesWithIntrinsicBounds(null, null, draw, null);
+                } else if (todos.size() <= 2) {
+                    Drawable draw = getResources().getDrawable(R.drawable.yellowcircle_sized);
+                    b.setCompoundDrawablesWithIntrinsicBounds(null, null, draw, null);
+                } else if (todos.size() <= 5) {
+                    Drawable draw = getResources().getDrawable(R.drawable.orangecircle_sized);
+                    b.setCompoundDrawablesWithIntrinsicBounds(null, null, draw, null);
+                } else {
+                    Drawable draw = getResources().getDrawable(R.drawable.redcircle_sized);
+                    b.setCompoundDrawablesWithIntrinsicBounds(null, null, draw, null);
+                }
+            } catch (java.lang.InterruptedException e) {
+                e.printStackTrace();
+            }
+            i++;
+        }
+    }
+
     public void initFloatButton() {
         FloatingActionButton button = (FloatingActionButton) findViewById(R.id.floatmonth);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), Create_Todo_Activity.class);
-                intent.putExtra("Activity", "month");
                 startActivity(intent);
             }
         });
-    }
-
-    public void getAllToDosMonth(){
-        int year = 0;
-        if(resetYear == 2){
-            year = date.getYear() + 1900;
-        }
-        else if(resetYear == 1){
-            year = date.getYear() + 1899;
-        }
-        else{
-            year = date.getYear() + 1901;
-        }
-        int i = 1;
-        Thread_GetTodayTodos thread_getTodayTodos = new Thread_GetTodayTodos("default", this);
-        for(Button b:buttonsactivated){
-            String dateGetToDos = "default";
-            String actualdate = "default";
-            if(i < 10){
-                actualdate = 0 + "" + i;
-                dateGetToDos = year + "-" + (resetMonth + 1) + "-" + actualdate + " " + "00:00:00.000";
-            }
-            else{
-                actualdate = i +"";
-                dateGetToDos = year + "-" + (resetMonth + 1) + "-" + actualdate + " " + "00:00:00.000";
-            }
-            try{
-                thread_getTodayTodos.refreshThread(dateGetToDos);
-                thread_getTodayTodos.start();
-                thread_getTodayTodos.join();
-                List<Todo> todos = thread_getTodayTodos.getAll();
-                if(todos.size() <= 2){
-                    Drawable draw = getResources().getDrawable(R.drawable.greencircle_sized);
-                    b.setCompoundDrawablesWithIntrinsicBounds(null, null, draw, null);
-                }
-                else if(todos.size() <= 5){
-                    Drawable draw = getResources().getDrawable(R.drawable.orangecircle_sized);
-                    b.setCompoundDrawablesWithIntrinsicBounds(null, null, draw, null);
-                }
-                else if(todos.size() >= 6 ){
-                    Drawable draw = getResources().getDrawable(R.drawable.redcircle_sized);
-                    b.setCompoundDrawablesWithIntrinsicBounds(null, null, draw, null);
-                }
-            }
-            catch(java.lang.InterruptedException e){
-                e.printStackTrace();
-            }
-            i++;
-        }
     }
 }
 

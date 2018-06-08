@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Fri Jun 08 14:07:04 CEST 2018
+#Fri Jun 08 15:15:33 CEST 2018
 2.base=C\:\\Users\\weberyo\\AndroidStudioProjects\\ToDo\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\15
 0.path=fontawesome.otf
 2.baseType=DIRECTORY
