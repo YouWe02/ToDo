@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:2:1-28:12
+ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:2:1-31:12
+INJECTED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:2:1-31:12
+INJECTED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:2:1-31:12
+INJECTED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:2:1-31:12
 MERGED from [com.android.support:design:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\design-27.1.1.aar\779021e64fd3936dbbc112dfd0d9d0f7\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\a0831aa4a13638c740c4d0016e3b988e\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support.constraint:constraint-layout:1.1.0] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.0.aar\9007346d80b34f9782b1f4b18db02c2b\AndroidManifest.xml:2:1-11:12
@@ -24,27 +24,27 @@ MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\beera\.gradle\
 MERGED from [android.arch.core:runtime:1.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\340b99a3e2d5a24e51a4336458b3d6f0\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\2a5705aa1fececac97ea54031ff618d2\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\65fefb01e8b411e66366e4ad5f38b55f\AndroidManifest.xml:17:1-22:12
-INJECTED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:2:1-28:12
+INJECTED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:2:1-31:12
+INJECTED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:2:1-31:12
+INJECTED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:2:1-31:12
 	package
 		ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:4:5-41
 		INJECTED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:2:1-28:12
+		ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:2:1-31:12
 		INJECTED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml
 	xmlns:tools
 		ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:3:5-51
 	android:versionCode
 		INJECTED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:2:1-28:12
+		ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:2:1-31:12
 		INJECTED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:2:11-69
 application
-ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:6:5-26:19
+ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:6:5-29:19
 MERGED from [com.android.support.constraint:constraint-layout:1.1.0] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.0.aar\9007346d80b34f9782b1f4b18db02c2b\AndroidManifest.xml:9:5-20
 MERGED from [com.android.support.constraint:constraint-layout:1.1.0] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.0.aar\9007346d80b34f9782b1f4b18db02c2b\AndroidManifest.xml:9:5-20
 	android:supportsRtl
@@ -60,37 +60,41 @@ MERGED from [com.android.support.constraint:constraint-layout:1.1.0] C:\Users\be
 	android:theme
 		ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:12:9-40
 activity#net.ictcampus.weberyo.todo.wocheActivity
-ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:13:9-60
+ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:13:9-51
 	android:name
 		ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:13:19-48
 activity#net.ictcampus.weberyo.todo.Day_View_activity
-ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:14:9-64
+ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:14:9-55
 	android:name
 		ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:14:19-52
 activity#net.ictcampus.weberyo.todo.Create_Todo_Activity
-ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:15:9-16:67
+ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:15:9-17:58
 	android:parentActivityName
-		ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:16:13-55
+		ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:17:13-55
 	android:name
-		ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:15:19-55
+		ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:16:13-49
 activity#net.ictcampus.weberyo.todo.MainActivity
-ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:17:9-24:36
+ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:18:9-27:20
 	android:screenOrientation
-		ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:19:13-49
+		ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:21:13-49
 	android:label
-		ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:18:13-45
+		ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:20:13-45
 	android:name
-		ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:17:19-47
+		ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:19:13-41
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:20:13-24:25
+ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:22:13-26:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:21:13-65
+ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:23:17-69
 	android:name
-		ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:21:21-62
+		ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:23:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:23:13-73
+ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:25:17-77
 	android:name
-		ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:23:23-70
+		ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:25:27-74
+activity#net.ictcampus.weberyo.todo.ToDoDescribtion
+ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:28:9-62
+	android:name
+		ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:28:19-50
 uses-sdk
 INJECTED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml

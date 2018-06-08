@@ -1,4 +1,4 @@
-#Fri Jun 08 13:41:18 CEST 2018
+#Fri Jun 08 14:40:46 CEST 2018
 base.0=C\:\\Users\\beera\\AndroidStudioProjects\\ToDo4Real\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\8
 path.0=classes.dex
 renamed.0=classes.dex

@@ -1149,13 +1149,10 @@ public class wocheActivity extends AppCompatActivity {
                             setWeek(5, 11, 1);
                             resetMonth = 11;
                             resetYear = 1;
-
                         } else {
                             resetMonth = 11;
                             resetYear = 1;
-
                         }
-
                     } else if (getTitle().toString().toLowerCase().contains("week 2")) {
                         if (setWeek(1, 0, 2) == false) {
                             setWeek(6, 11, 1);

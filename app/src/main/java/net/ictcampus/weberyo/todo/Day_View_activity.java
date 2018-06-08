@@ -103,40 +103,40 @@ public class Day_View_activity extends AppCompatActivity {
             e.printStackTrace();
         }
         String actualMonth = "default";
-        if (date.getMonth() == 0) {
+        if (resetMonth == 0) {
             actualMonth = "January";
         }
-        if (date.getMonth() == 1) {
+        if (resetMonth == 1) {
             actualMonth = "February";
         }
-        if (date.getMonth() == 2) {
+        if (resetMonth == 2) {
             actualMonth = "March";
         }
-        if (date.getMonth() == 3) {
+        if (resetMonth == 3) {
             actualMonth = "April";
         }
-        if (date.getMonth() == 4) {
+        if (resetMonth == 4) {
             actualMonth = "May";
         }
-        if (date.getMonth() == 5) {
+        if (resetMonth == 5) {
             actualMonth = "June";
         }
-        if (date.getMonth() == 6) {
+        if (resetMonth == 6) {
             actualMonth = "July";
         }
-        if (date.getMonth() == 7) {
+        if (resetMonth == 7) {
             actualMonth = "August";
         }
-        if (date.getMonth() == 8) {
+        if (resetMonth == 8) {
             actualMonth = "September";
         }
-        if (date.getMonth() == 9) {
+        if (resetMonth == 9) {
             actualMonth = "October";
         }
-        if (date.getMonth() == 10) {
+        if (resetMonth == 10) {
             actualMonth = "November";
         }
-        if (date.getMonth() == 11) {
+        if (resetMonth == 11) {
             actualMonth = "December";
         }
         int year = 1;
