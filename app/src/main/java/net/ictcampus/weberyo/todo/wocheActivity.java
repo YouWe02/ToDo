@@ -2,6 +2,7 @@ package net.ictcampus.weberyo.todo;
 
 import android.content.Intent;
 import android.support.constraint.ConstraintLayout;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -32,6 +33,7 @@ public class wocheActivity extends AppCompatActivity {
         setContentView(R.layout.activity_woche);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS, WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         Intent intent = getIntent();
+        initFloatButton();
         resetMonth = intent.getIntExtra("Month", 5);
         resetYear = intent.getIntExtra("Year", 2);
         resetWeek = intent.getIntExtra("Week", 1);
@@ -3861,6 +3863,16 @@ public class wocheActivity extends AppCompatActivity {
                 }
             }
         }
+    }
+    public void initFloatButton(){
+        FloatingActionButton button = (FloatingActionButton) findViewById(R.id.floatweek);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), Create_Todo_Activity.class);
+                startActivity(intent);
+            }
+        });
     }
 }
 

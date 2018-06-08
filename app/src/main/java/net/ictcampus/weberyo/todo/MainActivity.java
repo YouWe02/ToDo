@@ -2,6 +2,7 @@ package net.ictcampus.weberyo.todo;
 
 import android.content.Intent;
 import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS, WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        initFloatButton();
         actualDate = Calendar.getInstance().getTime();
         actualDateFormatted = dateFormatter.format(actualDate);
         try {
@@ -853,5 +855,15 @@ public class MainActivity extends AppCompatActivity {
             resetMonth = date.getMonth();
             resetYear = 3;
         }
+    }
+    public void initFloatButton(){
+        FloatingActionButton button = (FloatingActionButton) findViewById(R.id.floatmonth);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), Create_Todo_Activity.class);
+                startActivity(intent);
+            }
+        });
     }
 }

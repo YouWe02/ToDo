@@ -1,5 +1,6 @@
 package net.ictcampus.weberyo.todo;
 
+import android.content.Context;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,6 +14,8 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
+import android.widget.Toolbar;
 
 import net.ictcampus.weberyo.todo.net.ictcampus.weberyo.todo.threads.Thread_CreateTodo;
 
@@ -43,7 +46,7 @@ public class Create_Todo_Activity extends AppCompatActivity {
     private View.OnClickListener buttonListener;
 
     //all final values to insert in db
-    private boolean allValuesRight = true;
+    private boolean allValuesRight;
     private String title;
     private String date;
     private int priority;
@@ -55,11 +58,22 @@ public class Create_Todo_Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create__todo_);
+        initToolbar();
         initDatePicker();
         initCategorySpinner();
         initListener();
     }
 
+    public void initToolbar(){
+        Toolbar toolbar = new Toolbar(this);
+        toolbar.setNavigationIcon(R.drawable.ic_left_arrow);
+        CharSequence title = "New ToDo";
+        toolbar.setTitle(title);
+        toolbar.setVisibility(View.VISIBLE);
+        this.setActionBar(toolbar);
+        this.getActionBar().show();
+
+    }
     public void initDatePicker(){
         picker_day = (NumberPicker) findViewById(R.id.datepicker_day);
         picker_month = (NumberPicker) findViewById(R.id.datepicker_month);
@@ -182,6 +196,8 @@ public class Create_Todo_Activity extends AppCompatActivity {
         buttonListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                allValuesRight = true;
+
                 //Read Date an do it in the right pattern:
                 picker_day = (NumberPicker) findViewById(R.id.datepicker_day);
                 picker_month = (NumberPicker) findViewById(R.id.datepicker_month);
@@ -202,10 +218,15 @@ public class Create_Todo_Activity extends AppCompatActivity {
                 date = year + "-" + month + "-" + day + " 00:00:00.000";
 
                 //Read Title
+                title = "";
                 TextView title_todo = (TextView) findViewById(R.id.Title_Todo);
                 title = title_todo.getText().toString();
+                if(title.length() < 1){
+                    allValuesRight = false;
+                }
 
                 //Read Priority
+                priority = 0;
                 RadioButton button;
                 RadioGroup prio_group = (RadioGroup) findViewById(R.id.radiobutton_priority);
                 int id = prio_group.getCheckedRadioButtonId();
@@ -215,6 +236,9 @@ public class Create_Todo_Activity extends AppCompatActivity {
                         button = (RadioButton) prio_group.getChildAt(i);
                         priority = Integer.parseInt(button.getText().toString());
                     }
+                }
+                if (priority == 0){
+                    allValuesRight = false;
                 }
 
                 //Read privacy
@@ -227,6 +251,7 @@ public class Create_Todo_Activity extends AppCompatActivity {
                 }
 
                 //Read description
+                description = "";
                 TextView description_todo = (TextView) findViewById(R.id.Description_Todo);
                 description = description_todo.getText().toString();
                 if(description.length() < 1){
@@ -238,7 +263,16 @@ public class Create_Todo_Activity extends AppCompatActivity {
                 category = cat.getSelectedItem().toString();
                 category = "category_" + category;
 
-                createTodo();
+                if (allValuesRight) {
+                    createTodo();
+                }
+                else{
+                    Context context = getApplicationContext();
+                    CharSequence text = "Please fill out all fields";
+                    int duration = Toast.LENGTH_LONG;
+                    Toast toast = Toast.makeText(context, text, duration);
+                    toast.show();
+                }
             }
         };
         Button button = (Button) findViewById(R.id.submit_todo);

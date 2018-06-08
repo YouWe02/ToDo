@@ -18,12 +18,10 @@ import java.util.List;
 
 public class Day_View_activity extends AppCompatActivity {
 
-    private TextView day;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_day__view_activity);
-        day = (TextView) findViewById(R.id.dayview_date_header);
         setDate("");
         ListView list = (ListView) findViewById(R.id.dayview_todo_list);
         list.setAdapter(ArrayAdapter("2018-06-06 00:00:00.000"));
@@ -53,7 +51,7 @@ public class Day_View_activity extends AppCompatActivity {
     public void setDate(String date){
         DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
         if(date.equals("")){
-            day.setText(dateFormat.format(new Date()));
+            this.setTitle(dateFormat.format(new Date()));
         }
 
     }
