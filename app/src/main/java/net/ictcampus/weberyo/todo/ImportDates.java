@@ -24,12 +24,16 @@ public class ImportDates {
         String actualDateFormatted = dateFormatter.format(actualDate);
         try{
             Date date = dateFormatter.parse(actualDateFormatted);
-            if(date.getMonth() != 11) {
-                maximalDate = new Date(date.getYear() + 1, date.getMonth() + 1, 1);
-                minimalDate = new Date(date.getYear() - 1, date.getMonth(), 1);
+            if(date.getMonth() != 11 & date.getMonth() != 0) {
+                maximalDate = new Date(date.getYear() + 1, date.getMonth() + 2, 1);
+                minimalDate = new Date(date.getYear() - 1, date.getMonth() - 1, 1);
             }
-            else{
-                maximalDate = new Date(date.getYear() + 2, 0, 1);
+            else if(date.getMonth() == 11){
+                maximalDate = new Date(date.getYear() + 2, 1, 1);
+                minimalDate = new Date(date.getYear() - 1, date.getMonth() - 1, 1);
+            }
+            else if(date.getMonth() == 0){
+                maximalDate = new Date(date.getYear() + 1, date.getMonth() + 2, 1);
                 minimalDate = new Date(date.getYear() - 1, date.getMonth(), 1);
             }
         }

@@ -1,9 +1,11 @@
 package net.ictcampus.weberyo.todo;
 
 import android.content.Intent;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.GridLayout;
 
@@ -23,11 +25,14 @@ public class MainActivity extends AppCompatActivity {
     private Date date;
     private int resetMonth;
     private int resetYear;
+    private int resetWeek;
+    private int resetDay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS, WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         actualDate = Calendar.getInstance().getTime();
         actualDateFormatted = dateFormatter.format(actualDate);
         try {
@@ -71,19 +76,21 @@ public class MainActivity extends AppCompatActivity {
             actualMonth = "december";
         }
         intentget = getIntent();
-        resetMonth = intentget.getIntExtra("Month", date.getMonth());
+        resetMonth = intentget.getIntExtra("Month", 2);
         resetYear = intentget.getIntExtra("Year", 2);
+        resetWeek = intentget.getIntExtra("Week", 1);
+        resetDay = intentget.getIntExtra("Day", 2);
         setDatesToButtons(resetMonth, resetYear);
 
-        final GridLayout layout = (GridLayout) findViewById(R.id.grid);
+        final CoordinatorLayout layout = (CoordinatorLayout) findViewById(R.id.grid);
         layout.setOnTouchListener(new OnSwipeTouchListener(MainActivity.this) {
             public void onSwipeTop() {
                 Intent intentset = new Intent(MainActivity.this, wocheActivity.class);
-                intentset.putExtra("Year",resetYear);
+                intentset.putExtra("Year", resetYear);
                 intentset.putExtra("Month", resetMonth);
+                intentset.putExtra("Week", resetWeek);
+                intentset.putExtra("Day", resetDay);
                 startActivity(intentset);
-                finish();
-                overridePendingTransition( R.anim.swipe_left_2, R.anim.swipe_left_1);
             }
 
             public void onSwipeRight() {
@@ -95,18 +102,17 @@ public class MainActivity extends AppCompatActivity {
             }
 
             public void onSwipeBottom() {
-
             }
         });
-        for(Button a:allMonthButtons){
+        for (Button a : allMonthButtons) {
             a.setOnTouchListener(new OnSwipeTouchListener(MainActivity.this) {
                 public void onSwipeTop() {
                     Intent intentset = new Intent(MainActivity.this, wocheActivity.class);
-                    intentset.putExtra("Year",resetYear);
+                    intentset.putExtra("Year", resetYear);
                     intentset.putExtra("Month", resetMonth);
+                    intentset.putExtra("Week", resetWeek);
+                    intentset.putExtra("Day", resetDay);
                     startActivity(intentset);
-                    finish();
-                    overridePendingTransition( R.anim.swipe_left_2, R.anim.swipe_left_1);
                 }
 
                 public void onSwipeRight() {
@@ -118,7 +124,6 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 public void onSwipeBottom() {
-
                 }
             });
         }
@@ -668,9 +673,7 @@ public class MainActivity extends AppCompatActivity {
                     resetYear = 3;
                 }
             }
-        }
-        else{
-            setDatesToButtons(date.getMonth(), 1);
+        } else {
             resetMonth = date.getMonth();
             resetYear = 1;
         }
@@ -846,9 +849,7 @@ public class MainActivity extends AppCompatActivity {
                     resetYear = 3;
                 }
             }
-        }
-        else{
-            setDatesToButtons(date.getMonth(), 3);
+        } else {
             resetMonth = date.getMonth();
             resetYear = 3;
         }
