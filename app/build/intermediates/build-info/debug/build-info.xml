@@ -6,9 +6,9 @@
     density="420dpi"
     format="10"
     plugin-version="3.1.2"
-    timestamp="1528449888966"
+    timestamp="1528457159199"
     token="3719747092568320158"
-    verifier="COLD_SWAP_REQUESTED" >
+    verifier="FULL_BUILD_REQUESTED" >
 
     <task
         name="javac"
@@ -18,13 +18,16 @@
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="0" />
+        duration="505" />
     <task
         name="verifier"
-        duration="0" />
+        duration="790" />
 
     <artifact
         location="C:\Users\weberyo\AndroidStudioProjects\ToDo\app\build\intermediates\split-apk\debug\dep\dependencies.apk"
+        type="SPLIT" />
+    <artifact
+        location="C:\Users\weberyo\AndroidStudioProjects\ToDo\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
         type="SPLIT" />
     <artifact
         location="C:\Users\weberyo\AndroidStudioProjects\ToDo\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
@@ -33,13 +36,10 @@
         location="C:\Users\weberyo\AndroidStudioProjects\ToDo\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
         type="SPLIT" />
     <artifact
-        location="C:\Users\weberyo\AndroidStudioProjects\ToDo\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
+        location="C:\Users\weberyo\AndroidStudioProjects\ToDo\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
         type="SPLIT" />
     <artifact
         location="C:\Users\weberyo\AndroidStudioProjects\ToDo\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
-        type="SPLIT" />
-    <artifact
-        location="C:\Users\weberyo\AndroidStudioProjects\ToDo\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
         type="SPLIT" />
     <artifact
         location="C:\Users\weberyo\AndroidStudioProjects\ToDo\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
@@ -51,10 +51,10 @@
         location="C:\Users\weberyo\AndroidStudioProjects\ToDo\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
         type="SPLIT" />
     <artifact
-        location="C:\Users\weberyo\AndroidStudioProjects\ToDo\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
+        location="C:\Users\weberyo\AndroidStudioProjects\ToDo\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
         type="SPLIT" />
     <artifact
-        location="C:\Users\weberyo\AndroidStudioProjects\ToDo\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
+        location="C:\Users\weberyo\AndroidStudioProjects\ToDo\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
         type="SPLIT" />
     <artifact
         location="C:\Users\weberyo\AndroidStudioProjects\ToDo\app\build\intermediates\instant-run-apk\debug\app-debug.apk"
@@ -62,10 +62,13 @@
 
     <build
         build-mode="FULL"
-        timestamp="1528449888966"
-        verifier="COLD_SWAP_REQUESTED" >
+        timestamp="1528457159199"
+        verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="C:\Users\weberyo\AndroidStudioProjects\ToDo\app\build\intermediates\split-apk\debug\dep\dependencies.apk"
+            type="SPLIT" />
+        <artifact
+            location="C:\Users\weberyo\AndroidStudioProjects\ToDo\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
             type="SPLIT" />
         <artifact
             location="C:\Users\weberyo\AndroidStudioProjects\ToDo\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
@@ -74,13 +77,10 @@
             location="C:\Users\weberyo\AndroidStudioProjects\ToDo\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
             type="SPLIT" />
         <artifact
-            location="C:\Users\weberyo\AndroidStudioProjects\ToDo\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
+            location="C:\Users\weberyo\AndroidStudioProjects\ToDo\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
             type="SPLIT" />
         <artifact
             location="C:\Users\weberyo\AndroidStudioProjects\ToDo\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
-            type="SPLIT" />
-        <artifact
-            location="C:\Users\weberyo\AndroidStudioProjects\ToDo\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
             type="SPLIT" />
         <artifact
             location="C:\Users\weberyo\AndroidStudioProjects\ToDo\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
@@ -92,10 +92,10 @@
             location="C:\Users\weberyo\AndroidStudioProjects\ToDo\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
             type="SPLIT" />
         <artifact
-            location="C:\Users\weberyo\AndroidStudioProjects\ToDo\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
+            location="C:\Users\weberyo\AndroidStudioProjects\ToDo\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
             type="SPLIT" />
         <artifact
-            location="C:\Users\weberyo\AndroidStudioProjects\ToDo\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
+            location="C:\Users\weberyo\AndroidStudioProjects\ToDo\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
             type="SPLIT" />
         <artifact
             location="C:\Users\weberyo\AndroidStudioProjects\ToDo\app\build\intermediates\instant-run-apk\debug\app-debug.apk"

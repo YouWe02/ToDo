@@ -79,9 +79,7 @@
             android:layout_row="1"
             android:gravity="left|top"
             android:text="2"
-            android:textSize="12dp"
-            android:visibility="visible"
-            android:drawableRight="@drawable/greencircle_sized" />
+            android:textSize="12dp" />
 
         <Button
             android:id="@+id/kalendermonat3"
