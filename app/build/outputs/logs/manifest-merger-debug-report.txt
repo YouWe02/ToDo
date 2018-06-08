@@ -1,137 +1,137 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:2:1-26:12
-INJECTED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:2:1-26:12
-INJECTED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:2:1-26:12
-INJECTED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:2:1-26:12
-MERGED from [com.android.support:design:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\design-27.1.1.aar\779021e64fd3936dbbc112dfd0d9d0f7\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\a0831aa4a13638c740c4d0016e3b988e\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support.constraint:constraint-layout:1.1.0] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.0.aar\9007346d80b34f9782b1f4b18db02c2b\AndroidManifest.xml:2:1-11:12
-MERGED from [android.arch.persistence.room:runtime:1.1.0] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\6a1c699c171e24b4dd07bc85105fb648\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-v4:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\454b3ea40583a65816cd6d82391ec34e\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\970b0eeb733bbfcd8e4d63e23b13d083\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\1a35a8d1e845066c29e1878d04168297\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.1.aar\6f27000cb4512ea75570e3bf78bf0c30\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:recyclerview-v7:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.1.aar\a52d64d9ea5e0c029ce13c8a8f222919\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:transition:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\transition-27.1.1.aar\ce704cff80989db5267a16918b0830e5\AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.persistence:db-framework:1.1.0] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\db-framework-1.1.0.aar\f87423564836876e617274a2023bf976\AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.persistence:db:1.1.0] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\db-1.1.0.aar\4846ad4470aaf53ecd972ec98a5acde5\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\32bf834de6646a7fd532346595d768b1\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\925b096d734f6d1782a73fa589ad9510\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\681dac15da215ec75a171162016cec81\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-compat:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\885ae8770ef352cf1ca7f10e013f9b9c\AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\bf82aa7510c73cd7271c62893c2b9323\AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.core:runtime:1.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\340b99a3e2d5a24e51a4336458b3d6f0\AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\2a5705aa1fececac97ea54031ff618d2\AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\65fefb01e8b411e66366e4ad5f38b55f\AndroidManifest.xml:17:1-22:12
-INJECTED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:2:1-26:12
-INJECTED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:2:1-26:12
-INJECTED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:2:1-26:12
+ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:2:1-26:12
+INJECTED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:2:1-26:12
+INJECTED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:2:1-26:12
+INJECTED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:2:1-26:12
+MERGED from [com.android.support:design:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\design-27.1.1.aar\e5afb371f4e9006d2effe38146e39910\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\10ca16b0616b83bacf96e8f33d79b18d\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support.constraint:constraint-layout:1.1.0] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.0.aar\7d2b1233aac912045717586507287e50\AndroidManifest.xml:2:1-11:12
+MERGED from [android.arch.persistence.room:runtime:1.1.0] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\fcd3c2367f464cbca840c34ea3208daf\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-v4:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\2acc945862d7b03f67b3923c7c7f9b0f\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\5f0bf2b13ecf296d9f4de61418fcf1e3\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\3fd1d3121f7c85d3600aecc17e703067\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.1.aar\573bda9b46b743fc418bd02f23c7a10d\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:recyclerview-v7:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.1.aar\ae7233cc2ff4c3f3f75c2973f6fbc468\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:transition:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\transition-27.1.1.aar\4b32c9dc7b60c87cfd41da3454e039a1\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.persistence:db-framework:1.1.0] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\db-framework-1.1.0.aar\cedcc5034c57882944ba2c300e25a12b\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.persistence:db:1.1.0] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\db-1.1.0.aar\20af6e4b5a4dcc0a0ddeaf6864232aeb\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\fca218217c0e9805320c47e7e5171841\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\e4c9bfea8339c06a9d72719501ce73b2\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\a6070aadf6e584e3f66b77d27a63d59f\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\84ee760eec271a8bd565c40d496dd2e6\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\6932776489cc8fb1ddb2ed8dbfad443c\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\c266fd38254b976fa4c114882e55faf1\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\23dcbd688809403d99c946a1394a0dc6\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\eb88c2b0b521fe9f76e67d6c3c9b0fff\AndroidManifest.xml:17:1-22:12
+INJECTED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:2:1-26:12
+INJECTED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:2:1-26:12
+INJECTED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:2:1-26:12
 	package
-		ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:4:5-41
-		INJECTED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:4:5-41
+		INJECTED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml
 	android:versionName
-		INJECTED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:2:1-26:12
-		INJECTED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:2:1-26:12
+		INJECTED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml
 	xmlns:tools
-		ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:3:5-51
+		ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:3:5-51
 	android:versionCode
-		INJECTED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:2:1-26:12
-		INJECTED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:2:1-26:12
+		INJECTED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml
 	xmlns:android
-		ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:2:11-69
+		ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:2:11-69
 application
-ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:6:5-24:19
-MERGED from [com.android.support.constraint:constraint-layout:1.1.0] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.0.aar\9007346d80b34f9782b1f4b18db02c2b\AndroidManifest.xml:9:5-20
-MERGED from [com.android.support.constraint:constraint-layout:1.1.0] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.0.aar\9007346d80b34f9782b1f4b18db02c2b\AndroidManifest.xml:9:5-20
+ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:6:5-24:19
+MERGED from [com.android.support.constraint:constraint-layout:1.1.0] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.0.aar\7d2b1233aac912045717586507287e50\AndroidManifest.xml:9:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.1.0] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.0.aar\7d2b1233aac912045717586507287e50\AndroidManifest.xml:9:5-20
 	android:supportsRtl
-		ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:11:9-35
+		ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:11:9-35
 	android:label
-		ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:9:9-41
+		ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:9:9-41
 	android:roundIcon
-		ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:10:9-54
+		ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:10:9-54
 	android:icon
-		ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:8:9-43
+		ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:8:9-43
 	android:allowBackup
-		ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:7:9-35
+		ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:7:9-35
 	android:theme
-		ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:12:9-40
-activity#net.ictcampus.weberyo.todo.MainActivity
-ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:13:9-22:20
+		ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:12:9-40
+activity#net.ictcampus.weberyo.todo.Create_Todo_Activity
+ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:13:9-22:20
 	android:screenOrientation
-		ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:16:13-49
+		ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:16:13-49
 	android:label
-		ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:15:13-45
+		ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:15:13-45
 	android:name
-		ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:14:13-41
+		ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:14:13-49
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:17:13-21:29
+ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:17:13-21:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:18:17-69
+ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:18:17-69
 	android:name
-		ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:18:25-66
+		ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:18:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:20:17-77
+ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:20:17-77
 	android:name
-		ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:20:27-74
+		ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:20:27-74
 activity#net.ictcampus.weberyo.todo.wocheActivity
-ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:23:9-60
+ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:23:9-60
 	android:name
-		ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:23:19-48
+		ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:23:19-48
 uses-sdk
-INJECTED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml
-INJECTED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml
-MERGED from [com.android.support:design:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\design-27.1.1.aar\779021e64fd3936dbbc112dfd0d9d0f7\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:design:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\design-27.1.1.aar\779021e64fd3936dbbc112dfd0d9d0f7\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\a0831aa4a13638c740c4d0016e3b988e\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\a0831aa4a13638c740c4d0016e3b988e\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support.constraint:constraint-layout:1.1.0] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.0.aar\9007346d80b34f9782b1f4b18db02c2b\AndroidManifest.xml:5:5-7:41
-MERGED from [com.android.support.constraint:constraint-layout:1.1.0] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.0.aar\9007346d80b34f9782b1f4b18db02c2b\AndroidManifest.xml:5:5-7:41
-MERGED from [android.arch.persistence.room:runtime:1.1.0] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\6a1c699c171e24b4dd07bc85105fb648\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.persistence.room:runtime:1.1.0] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\6a1c699c171e24b4dd07bc85105fb648\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-v4:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\454b3ea40583a65816cd6d82391ec34e\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-v4:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\454b3ea40583a65816cd6d82391ec34e\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\970b0eeb733bbfcd8e4d63e23b13d083\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\970b0eeb733bbfcd8e4d63e23b13d083\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\1a35a8d1e845066c29e1878d04168297\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\1a35a8d1e845066c29e1878d04168297\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.1.aar\6f27000cb4512ea75570e3bf78bf0c30\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.1.aar\6f27000cb4512ea75570e3bf78bf0c30\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:recyclerview-v7:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.1.aar\a52d64d9ea5e0c029ce13c8a8f222919\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:recyclerview-v7:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.1.aar\a52d64d9ea5e0c029ce13c8a8f222919\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:transition:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\transition-27.1.1.aar\ce704cff80989db5267a16918b0830e5\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:transition:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\transition-27.1.1.aar\ce704cff80989db5267a16918b0830e5\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.persistence:db-framework:1.1.0] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\db-framework-1.1.0.aar\f87423564836876e617274a2023bf976\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.persistence:db-framework:1.1.0] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\db-framework-1.1.0.aar\f87423564836876e617274a2023bf976\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.persistence:db:1.1.0] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\db-1.1.0.aar\4846ad4470aaf53ecd972ec98a5acde5\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.persistence:db:1.1.0] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\db-1.1.0.aar\4846ad4470aaf53ecd972ec98a5acde5\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\32bf834de6646a7fd532346595d768b1\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\32bf834de6646a7fd532346595d768b1\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\925b096d734f6d1782a73fa589ad9510\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\925b096d734f6d1782a73fa589ad9510\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\681dac15da215ec75a171162016cec81\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\681dac15da215ec75a171162016cec81\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-compat:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\885ae8770ef352cf1ca7f10e013f9b9c\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-compat:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\885ae8770ef352cf1ca7f10e013f9b9c\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\bf82aa7510c73cd7271c62893c2b9323\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\bf82aa7510c73cd7271c62893c2b9323\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.core:runtime:1.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\340b99a3e2d5a24e51a4336458b3d6f0\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.core:runtime:1.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\340b99a3e2d5a24e51a4336458b3d6f0\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\2a5705aa1fececac97ea54031ff618d2\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\2a5705aa1fececac97ea54031ff618d2\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\65fefb01e8b411e66366e4ad5f38b55f\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\65fefb01e8b411e66366e4ad5f38b55f\AndroidManifest.xml:20:5-44
-INJECTED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml
-INJECTED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml
+MERGED from [com.android.support:design:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\design-27.1.1.aar\e5afb371f4e9006d2effe38146e39910\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:design:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\design-27.1.1.aar\e5afb371f4e9006d2effe38146e39910\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\10ca16b0616b83bacf96e8f33d79b18d\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\10ca16b0616b83bacf96e8f33d79b18d\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support.constraint:constraint-layout:1.1.0] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.0.aar\7d2b1233aac912045717586507287e50\AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support.constraint:constraint-layout:1.1.0] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.0.aar\7d2b1233aac912045717586507287e50\AndroidManifest.xml:5:5-7:41
+MERGED from [android.arch.persistence.room:runtime:1.1.0] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\fcd3c2367f464cbca840c34ea3208daf\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.persistence.room:runtime:1.1.0] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\fcd3c2367f464cbca840c34ea3208daf\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\2acc945862d7b03f67b3923c7c7f9b0f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\2acc945862d7b03f67b3923c7c7f9b0f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\5f0bf2b13ecf296d9f4de61418fcf1e3\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\5f0bf2b13ecf296d9f4de61418fcf1e3\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\3fd1d3121f7c85d3600aecc17e703067\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\3fd1d3121f7c85d3600aecc17e703067\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.1.aar\573bda9b46b743fc418bd02f23c7a10d\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.1.aar\573bda9b46b743fc418bd02f23c7a10d\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.1.aar\ae7233cc2ff4c3f3f75c2973f6fbc468\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.1.aar\ae7233cc2ff4c3f3f75c2973f6fbc468\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\transition-27.1.1.aar\4b32c9dc7b60c87cfd41da3454e039a1\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\transition-27.1.1.aar\4b32c9dc7b60c87cfd41da3454e039a1\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.persistence:db-framework:1.1.0] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\db-framework-1.1.0.aar\cedcc5034c57882944ba2c300e25a12b\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.persistence:db-framework:1.1.0] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\db-framework-1.1.0.aar\cedcc5034c57882944ba2c300e25a12b\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.persistence:db:1.1.0] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\db-1.1.0.aar\20af6e4b5a4dcc0a0ddeaf6864232aeb\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.persistence:db:1.1.0] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\db-1.1.0.aar\20af6e4b5a4dcc0a0ddeaf6864232aeb\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\fca218217c0e9805320c47e7e5171841\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\fca218217c0e9805320c47e7e5171841\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\e4c9bfea8339c06a9d72719501ce73b2\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\e4c9bfea8339c06a9d72719501ce73b2\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\a6070aadf6e584e3f66b77d27a63d59f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\a6070aadf6e584e3f66b77d27a63d59f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\84ee760eec271a8bd565c40d496dd2e6\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\84ee760eec271a8bd565c40d496dd2e6\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\6932776489cc8fb1ddb2ed8dbfad443c\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\6932776489cc8fb1ddb2ed8dbfad443c\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\c266fd38254b976fa4c114882e55faf1\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\c266fd38254b976fa4c114882e55faf1\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\23dcbd688809403d99c946a1394a0dc6\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\23dcbd688809403d99c946a1394a0dc6\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\eb88c2b0b521fe9f76e67d6c3c9b0fff\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\eb88c2b0b521fe9f76e67d6c3c9b0fff\AndroidManifest.xml:20:5-44
+INJECTED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml
 	android:targetSdkVersion
-		INJECTED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml

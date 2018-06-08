@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\beera\\AndroidStudioProjects\\ToDo4Real\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v26\\values-v26.xml",
+            "outputFile": "C:\\Users\\weberyo\\AndroidStudioProjects\\ToDo\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v26\\values-v26.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\beera\\.gradle\\caches\\transforms-1\\files-1.1\\design-27.1.1.aar\\779021e64fd3936dbbc112dfd0d9d0f7\\res\\values-v26\\values-v26.xml",
+                    "source": "C:\\Users\\weberyo\\.gradle\\caches\\transforms-1\\files-1.1\\design-27.1.1.aar\\e5afb371f4e9006d2effe38146e39910\\res\\values-v26\\values-v26.xml",
                     "from": {
                         "startLines": "2,6",
                         "startColumns": "4,4",
@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\beera\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\a0831aa4a13638c740c4d0016e3b988e\\res\\values-v26\\values-v26.xml",
+                    "source": "C:\\Users\\weberyo\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\10ca16b0616b83bacf96e8f33d79b18d\\res\\values-v26\\values-v26.xml",
                     "from": {
                         "startLines": "2,3,4,8,12,16",
                         "startColumns": "4,4,4,4,4,4",

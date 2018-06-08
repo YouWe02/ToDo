@@ -43,6 +43,7 @@ public class Create_Todo_Activity extends AppCompatActivity {
     private View.OnClickListener buttonListener;
 
     //all final values to insert in db
+    private boolean allValuesRight = true;
     private String title;
     private String date;
     private int priority;
@@ -228,6 +229,9 @@ public class Create_Todo_Activity extends AppCompatActivity {
                 //Read description
                 TextView description_todo = (TextView) findViewById(R.id.Description_Todo);
                 description = description_todo.getText().toString();
+                if(description.length() < 1){
+                    allValuesRight = false;
+                }
 
                 //Read category
                 Spinner cat = (Spinner) findViewById(R.id.spinner_category);
