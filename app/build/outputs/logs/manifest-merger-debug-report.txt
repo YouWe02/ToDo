@@ -59,14 +59,14 @@ MERGED from [com.android.support.constraint:constraint-layout:1.1.0] C:\Users\be
 		ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:7:9-35
 	android:theme
 		ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:12:9-40
-activity#net.ictcampus.weberyo.todo.MainActivity
+activity#net.ictcampus.weberyo.todo.Create_Todo_Activity
 ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:13:9-22:20
 	android:screenOrientation
 		ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:16:13-49
 	android:label
 		ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:15:13-45
 	android:name
-		ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:14:13-41
+		ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:14:13-49
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
 ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:17:13-21:29
 action#android.intent.action.MAIN
