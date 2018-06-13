@@ -1,12 +1,12 @@
 #Internal package file, do not edit.
-#Fri Jun 08 15:15:33 CEST 2018
-2.base=C\:\\Users\\weberyo\\AndroidStudioProjects\\ToDo\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\15
+#Wed Jun 13 15:46:54 CEST 2018
+2.base=C\:\\Users\\weberyo\\AndroidStudioProjects\\ToDo\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\12
 0.path=fontawesome.otf
 2.baseType=DIRECTORY
-3.base=C\:\\Users\\weberyo\\AndroidStudioProjects\\ToDo\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\12
+3.base=C\:\\Users\\weberyo\\AndroidStudioProjects\\ToDo\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\13
 2.set=DEX
 1.path=classes.dex
-4.base=C\:\\Users\\weberyo\\AndroidStudioProjects\\ToDo\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\13
+4.base=C\:\\Users\\weberyo\\AndroidStudioProjects\\ToDo\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\11
 count=5
 2.path=classes.dex
 4.set=DEX

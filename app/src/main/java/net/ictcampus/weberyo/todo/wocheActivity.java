@@ -1,14 +1,24 @@
 package net.ictcampus.weberyo.todo;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+
+import net.ictcampus.weberyo.todo.net.ictcampus.weberyo.todo.threads.Thread_DeleteTodo;
+import net.ictcampus.weberyo.todo.net.ictcampus.weberyo.todo.threads.Thread_GetTodayTodos;
+import net.ictcampus.weberyo.todo.net.ictcampus.weberyo.todo.threads.Thread_GetTodayTodosLimit4;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -18,7 +28,7 @@ import java.util.List;
 
 public class wocheActivity extends AppCompatActivity {
     public static Activity activity;
-    private List<Button> allWeekButtons = new ArrayList<Button>();
+    private List<LinearLayout> allWeekButtons = new ArrayList<LinearLayout>();
     private int resetMonth;
     private int resetYear;
     private int resetWeek;
@@ -28,6 +38,7 @@ public class wocheActivity extends AppCompatActivity {
     private String actualDateFormatted;
     private String actualMonth;
     private Date date;
+    private ProgressDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,13 +52,13 @@ public class wocheActivity extends AppCompatActivity {
         resetYear = intent.getIntExtra("Year", 2);
         resetWeek = intent.getIntExtra("Week", 1);
         resetDay = intent.getIntExtra("Day", 1);
-        allWeekButtons.add((Button) findViewById(R.id.kalenderwoche1));
-        allWeekButtons.add((Button) findViewById(R.id.kalenderwoche2));
-        allWeekButtons.add((Button) findViewById(R.id.kalenderwoche3));
-        allWeekButtons.add((Button) findViewById(R.id.kalenderwoche4));
-        allWeekButtons.add((Button) findViewById(R.id.kalenderwoche5));
-        allWeekButtons.add((Button) findViewById(R.id.kalenderwoche6));
-        allWeekButtons.add((Button) findViewById(R.id.kalenderwoche7));
+        allWeekButtons.add((LinearLayout) findViewById(R.id.kalenderwoche1));
+        allWeekButtons.add((LinearLayout) findViewById(R.id.kalenderwoche2));
+        allWeekButtons.add((LinearLayout) findViewById(R.id.kalenderwoche3));
+        allWeekButtons.add((LinearLayout) findViewById(R.id.kalenderwoche4));
+        allWeekButtons.add((LinearLayout) findViewById(R.id.kalenderwoche5));
+        allWeekButtons.add((LinearLayout) findViewById(R.id.kalenderwoche6));
+        allWeekButtons.add((LinearLayout) findViewById(R.id.kalenderwoche7));
         actualDate = Calendar.getInstance().getTime();
         actualDateFormatted = dateFormatter.format(actualDate);
         try {
@@ -96,7 +107,7 @@ public class wocheActivity extends AppCompatActivity {
         }
         setWeek(1, resetMonth, resetYear);
 
-        for (Button a : allWeekButtons) {
+        for (LinearLayout a : allWeekButtons) {
             a.setOnTouchListener(new OnSwipeTouchListener(wocheActivity.this) {
                 public void onSwipeTop() {
                     Intent intentset = new Intent(wocheActivity.this, Day_View_activity.class);
@@ -156,12 +167,13 @@ public class wocheActivity extends AppCompatActivity {
     }
 
     public boolean setWeek(int woche, int monat, int jahr) {
-        for (Button b : allWeekButtons) {
+        for (LinearLayout b : allWeekButtons) {
             b.setVisibility(View.VISIBLE);
-            b.setText("default");
+            TextView day = (TextView)b.getChildAt(0);
+            day.setText("default");
         }
         boolean check = true;
-        SimpleDateFormat dateFormatter = new SimpleDateFormat("dd-MMM-yyyy");
+        SimpleDateFormat dateFormatter = new SimpleDateFormat("dd-MM-yyyy");
         Date actualDate = Calendar.getInstance().getTime();
         String actualDateFormatted = dateFormatter.format(actualDate);
         Date date;
@@ -747,37 +759,59 @@ public class wocheActivity extends AppCompatActivity {
                         String stringTitle = "Week 1 " + stringMonth + " " + (a.getYear() + 1900);
                         setTitle(stringTitle);
                         if (a.getDay() == 0) {
-                            Button button = (Button) findViewById(R.id.kalenderwoche7);
+                            LinearLayout button = (LinearLayout) findViewById(R.id.kalenderwoche7);
+                            deleteOldTodo(button);
                             String string = "SUN " + a.getDate();
-                            button.setText(string);
+                            TextView text = (TextView) button.getChildAt(0);
+                            text.setText(string);
+                            initGetTodosForThisButtons(button, a);
                         } else if (a.getDay() == 1) {
-                            Button button = (Button) findViewById(R.id.kalenderwoche1);
+                            LinearLayout button = (LinearLayout) findViewById(R.id.kalenderwoche1);
+                            deleteOldTodo(button);
                             String string = "MON " + a.getDate();
-                            button.setText(string);
+                            TextView text = (TextView) button.getChildAt(0);
+                            text.setText(string);
+                            initGetTodosForThisButtons(button, a);
                         } else if (a.getDay() == 2) {
-                            Button button = (Button) findViewById(R.id.kalenderwoche2);
+                            LinearLayout button = (LinearLayout) findViewById(R.id.kalenderwoche2);
+                            deleteOldTodo(button);
                             String string = "TUE " + a.getDate();
-                            button.setText(string);
+                            TextView text = (TextView) button.getChildAt(0);
+                            text.setText(string);
+                            initGetTodosForThisButtons(button, a);
                         } else if (a.getDay() == 3) {
-                            Button button = (Button) findViewById(R.id.kalenderwoche3);
+                            LinearLayout button = (LinearLayout) findViewById(R.id.kalenderwoche3);
+                            deleteOldTodo(button);
                             String string = "WED " + a.getDate();
-                            button.setText(string);
+                            TextView text = (TextView) button.getChildAt(0);
+                            text.setText(string);
+                            initGetTodosForThisButtons(button, a);
                         } else if (a.getDay() == 4) {
-                            Button button = (Button) findViewById(R.id.kalenderwoche4);
+                            LinearLayout button = (LinearLayout) findViewById(R.id.kalenderwoche4);
+                            deleteOldTodo(button);
                             String string = "THU " + a.getDate();
-                            button.setText(string);
+                            TextView text = (TextView) button.getChildAt(0);
+                            text.setText(string);
+                            initGetTodosForThisButtons(button, a);
                         } else if (a.getDay() == 5) {
-                            Button button = (Button) findViewById(R.id.kalenderwoche5);
+                            LinearLayout button = (LinearLayout) findViewById(R.id.kalenderwoche5);
+                            deleteOldTodo(button);
                             String string = "FRI " + a.getDate();
-                            button.setText(string);
+                            TextView text = (TextView) button.getChildAt(0);
+                            text.setText(string);
+                            initGetTodosForThisButtons(button, a);
                         } else {
-                            Button button = (Button) findViewById(R.id.kalenderwoche6);
+                            LinearLayout button = (LinearLayout) findViewById(R.id.kalenderwoche6);
+                            deleteOldTodo(button);
                             String string = "SAT " + a.getDate();
-                            button.setText(string);
+                            TextView text = (TextView) button.getChildAt(0);
+                            text.setText(string);
+                            initGetTodosForThisButtons(button, a);
                         }
                     }
-                    for (Button b : allWeekButtons) {
-                        if (b.getText().toString().toLowerCase().contains("default")) {
+                    for (LinearLayout b : allWeekButtons) {
+                        TextView text = (TextView) b.getChildAt(0);
+                        if (text.getText().toString().toLowerCase().contains("default")) {
                             b.setVisibility(View.INVISIBLE);
                         }
                     }
@@ -818,37 +852,59 @@ public class wocheActivity extends AppCompatActivity {
                         String stringTitle = "Week 2 " + stringMonth + " " + (a.getYear() + 1900);
                         setTitle(stringTitle);
                         if (a.getDay() == 0) {
-                            Button button = (Button) findViewById(R.id.kalenderwoche7);
+                            LinearLayout button = (LinearLayout) findViewById(R.id.kalenderwoche7);
+                            deleteOldTodo(button);
                             String string = "SUN " + a.getDate();
-                            button.setText(string);
+                            TextView text = (TextView) button.getChildAt(0);
+                            text.setText(string);
+                            initGetTodosForThisButtons(button, a);
                         } else if (a.getDay() == 1) {
-                            Button button = (Button) findViewById(R.id.kalenderwoche1);
+                            LinearLayout button = (LinearLayout) findViewById(R.id.kalenderwoche1);
+                            deleteOldTodo(button);
                             String string = "MON " + a.getDate();
-                            button.setText(string);
+                            TextView text = (TextView) button.getChildAt(0);
+                            text.setText(string);
+                            initGetTodosForThisButtons(button, a);
                         } else if (a.getDay() == 2) {
-                            Button button = (Button) findViewById(R.id.kalenderwoche2);
+                            LinearLayout button = (LinearLayout) findViewById(R.id.kalenderwoche2);
+                            deleteOldTodo(button);
                             String string = "TUE " + a.getDate();
-                            button.setText(string);
+                            TextView text = (TextView) button.getChildAt(0);
+                            text.setText(string);
+                            initGetTodosForThisButtons(button, a);
                         } else if (a.getDay() == 3) {
-                            Button button = (Button) findViewById(R.id.kalenderwoche3);
+                            LinearLayout button = (LinearLayout) findViewById(R.id.kalenderwoche3);
+                            deleteOldTodo(button);
                             String string = "WED " + a.getDate();
-                            button.setText(string);
+                            TextView text = (TextView) button.getChildAt(0);
+                            text.setText(string);
+                            initGetTodosForThisButtons(button, a);
                         } else if (a.getDay() == 4) {
-                            Button button = (Button) findViewById(R.id.kalenderwoche4);
+                            LinearLayout button = (LinearLayout) findViewById(R.id.kalenderwoche4);
+                            deleteOldTodo(button);
                             String string = "THU " + a.getDate();
-                            button.setText(string);
+                            TextView text = (TextView) button.getChildAt(0);
+                            text.setText(string);
+                            initGetTodosForThisButtons(button, a);
                         } else if (a.getDay() == 5) {
-                            Button button = (Button) findViewById(R.id.kalenderwoche5);
+                            LinearLayout button = (LinearLayout) findViewById(R.id.kalenderwoche5);
+                            deleteOldTodo(button);
                             String string = "FRI " + a.getDate();
-                            button.setText(string);
+                            TextView text = (TextView) button.getChildAt(0);
+                            text.setText(string);
+                            initGetTodosForThisButtons(button, a);
                         } else {
-                            Button button = (Button) findViewById(R.id.kalenderwoche6);
+                            LinearLayout button = (LinearLayout) findViewById(R.id.kalenderwoche6);
+                            deleteOldTodo(button);
                             String string = "SAT " + a.getDate();
-                            button.setText(string);
+                            TextView text = (TextView) button.getChildAt(0);
+                            text.setText(string);
+                            initGetTodosForThisButtons(button, a);
                         }
                     }
-                    for (Button b : allWeekButtons) {
-                        if (b.getText().toString().toLowerCase().contains("default")) {
+                    for (LinearLayout b : allWeekButtons) {
+                        TextView text = (TextView) b.getChildAt(0);
+                        if (text.getText().toString().toLowerCase().contains("default")) {
                             b.setVisibility(View.INVISIBLE);
                         }
                     }
@@ -889,37 +945,59 @@ public class wocheActivity extends AppCompatActivity {
                         String stringTitle = "Week 3 " + stringMonth + " " + (a.getYear() + 1900);
                         setTitle(stringTitle);
                         if (a.getDay() == 0) {
-                            Button button = (Button) findViewById(R.id.kalenderwoche7);
+                            LinearLayout button = (LinearLayout) findViewById(R.id.kalenderwoche7);
+                            deleteOldTodo(button);
                             String string = "SUN " + a.getDate();
-                            button.setText(string);
+                            TextView text = (TextView) button.getChildAt(0);
+                            text.setText(string);
+                            initGetTodosForThisButtons(button, a);
                         } else if (a.getDay() == 1) {
-                            Button button = (Button) findViewById(R.id.kalenderwoche1);
+                            LinearLayout button = (LinearLayout) findViewById(R.id.kalenderwoche1);
+                            deleteOldTodo(button);
                             String string = "MON " + a.getDate();
-                            button.setText(string);
+                            TextView text = (TextView) button.getChildAt(0);
+                            text.setText(string);
+                            initGetTodosForThisButtons(button, a);
                         } else if (a.getDay() == 2) {
-                            Button button = (Button) findViewById(R.id.kalenderwoche2);
+                            LinearLayout button = (LinearLayout) findViewById(R.id.kalenderwoche2);
+                            deleteOldTodo(button);
                             String string = "TUE " + a.getDate();
-                            button.setText(string);
+                            TextView text = (TextView) button.getChildAt(0);
+                            text.setText(string);
+                            initGetTodosForThisButtons(button, a);
                         } else if (a.getDay() == 3) {
-                            Button button = (Button) findViewById(R.id.kalenderwoche3);
+                            LinearLayout button = (LinearLayout) findViewById(R.id.kalenderwoche3);
+                            deleteOldTodo(button);
                             String string = "WED " + a.getDate();
-                            button.setText(string);
+                            TextView text = (TextView) button.getChildAt(0);
+                            text.setText(string);
+                            initGetTodosForThisButtons(button, a);
                         } else if (a.getDay() == 4) {
-                            Button button = (Button) findViewById(R.id.kalenderwoche4);
+                            LinearLayout button = (LinearLayout) findViewById(R.id.kalenderwoche4);
+                            deleteOldTodo(button);
                             String string = "THU " + a.getDate();
-                            button.setText(string);
+                            TextView text = (TextView) button.getChildAt(0);
+                            text.setText(string);
+                            initGetTodosForThisButtons(button, a);
                         } else if (a.getDay() == 5) {
-                            Button button = (Button) findViewById(R.id.kalenderwoche5);
+                            LinearLayout button = (LinearLayout) findViewById(R.id.kalenderwoche5);
+                            deleteOldTodo(button);
                             String string = "FRI " + a.getDate();
-                            button.setText(string);
+                            TextView text = (TextView) button.getChildAt(0);
+                            text.setText(string);
+                            initGetTodosForThisButtons(button, a);
                         } else {
-                            Button button = (Button) findViewById(R.id.kalenderwoche6);
+                            LinearLayout button = (LinearLayout) findViewById(R.id.kalenderwoche6);
+                            deleteOldTodo(button);
                             String string = "SAT " + a.getDate();
-                            button.setText(string);
+                            TextView text = (TextView) button.getChildAt(0);
+                            text.setText(string);
+                            initGetTodosForThisButtons(button, a);
                         }
                     }
-                    for (Button b : allWeekButtons) {
-                        if (b.getText().toString().toLowerCase().contains("default")) {
+                    for (LinearLayout b : allWeekButtons) {
+                        TextView text = (TextView) b.getChildAt(0);
+                        if (text.getText().toString().toLowerCase().contains("default")) {
                             b.setVisibility(View.INVISIBLE);
                         }
                     }
@@ -960,37 +1038,59 @@ public class wocheActivity extends AppCompatActivity {
                         String stringTitle = "Week 4 " + stringMonth + " " + (a.getYear() + 1900);
                         setTitle(stringTitle);
                         if (a.getDay() == 0) {
-                            Button button = (Button) findViewById(R.id.kalenderwoche7);
+                            LinearLayout button = (LinearLayout) findViewById(R.id.kalenderwoche7);
+                            deleteOldTodo(button);
                             String string = "SUN " + a.getDate();
-                            button.setText(string);
+                            TextView text = (TextView) button.getChildAt(0);
+                            text.setText(string);
+                            initGetTodosForThisButtons(button, a);
                         } else if (a.getDay() == 1) {
-                            Button button = (Button) findViewById(R.id.kalenderwoche1);
+                            LinearLayout button = (LinearLayout) findViewById(R.id.kalenderwoche1);
+                            deleteOldTodo(button);
                             String string = "MON " + a.getDate();
-                            button.setText(string);
+                            TextView text = (TextView) button.getChildAt(0);
+                            text.setText(string);
+                            initGetTodosForThisButtons(button, a);
                         } else if (a.getDay() == 2) {
-                            Button button = (Button) findViewById(R.id.kalenderwoche2);
+                            LinearLayout button = (LinearLayout) findViewById(R.id.kalenderwoche2);
+                            deleteOldTodo(button);
                             String string = "TUE " + a.getDate();
-                            button.setText(string);
+                            TextView text = (TextView) button.getChildAt(0);
+                            text.setText(string);
+                            initGetTodosForThisButtons(button, a);
                         } else if (a.getDay() == 3) {
-                            Button button = (Button) findViewById(R.id.kalenderwoche3);
+                            LinearLayout button = (LinearLayout) findViewById(R.id.kalenderwoche3);
+                            deleteOldTodo(button);
                             String string = "WED " + a.getDate();
-                            button.setText(string);
+                            TextView text = (TextView) button.getChildAt(0);
+                            text.setText(string);
+                            initGetTodosForThisButtons(button, a);
                         } else if (a.getDay() == 4) {
-                            Button button = (Button) findViewById(R.id.kalenderwoche4);
+                            LinearLayout button = (LinearLayout) findViewById(R.id.kalenderwoche4);
+                            deleteOldTodo(button);
                             String string = "THU " + a.getDate();
-                            button.setText(string);
+                            TextView text = (TextView) button.getChildAt(0);
+                            text.setText(string);
+                            initGetTodosForThisButtons(button, a);
                         } else if (a.getDay() == 5) {
-                            Button button = (Button) findViewById(R.id.kalenderwoche5);
+                            LinearLayout button = (LinearLayout) findViewById(R.id.kalenderwoche5);
+                            deleteOldTodo(button);
                             String string = "FRI " + a.getDate();
-                            button.setText(string);
+                            TextView text = (TextView) button.getChildAt(0);
+                            text.setText(string);
+                            initGetTodosForThisButtons(button, a);
                         } else {
-                            Button button = (Button) findViewById(R.id.kalenderwoche6);
+                            LinearLayout button = (LinearLayout) findViewById(R.id.kalenderwoche6);
+                            deleteOldTodo(button);
                             String string = "SAT " + a.getDate();
-                            button.setText(string);
+                            TextView text = (TextView) button.getChildAt(0);
+                            text.setText(string);
+                            initGetTodosForThisButtons(button, a);
                         }
                     }
-                    for (Button b : allWeekButtons) {
-                        if (b.getText().toString().toLowerCase().contains("default")) {
+                    for (LinearLayout b : allWeekButtons) {
+                        TextView text = (TextView) b.getChildAt(0);
+                        if (text.getText().toString().toLowerCase().contains("default")) {
                             b.setVisibility(View.INVISIBLE);
                         }
                     }
@@ -1031,37 +1131,59 @@ public class wocheActivity extends AppCompatActivity {
                         String stringTitle = "Week 5 " + stringMonth + " " + (a.getYear() + 1900);
                         setTitle(stringTitle);
                         if (a.getDay() == 0) {
-                            Button button = (Button) findViewById(R.id.kalenderwoche7);
+                            LinearLayout button = (LinearLayout) findViewById(R.id.kalenderwoche7);
+                            deleteOldTodo(button);
                             String string = "SUN " + a.getDate();
-                            button.setText(string);
+                            TextView text = (TextView) button.getChildAt(0);
+                            text.setText(string);
+                            initGetTodosForThisButtons(button, a);
                         } else if (a.getDay() == 1) {
-                            Button button = (Button) findViewById(R.id.kalenderwoche1);
+                            LinearLayout button = (LinearLayout) findViewById(R.id.kalenderwoche1);
+                            deleteOldTodo(button);
                             String string = "MON " + a.getDate();
-                            button.setText(string);
+                            TextView text = (TextView) button.getChildAt(0);
+                            text.setText(string);
+                            initGetTodosForThisButtons(button, a);
                         } else if (a.getDay() == 2) {
-                            Button button = (Button) findViewById(R.id.kalenderwoche2);
+                            LinearLayout button = (LinearLayout) findViewById(R.id.kalenderwoche2);
+                            deleteOldTodo(button);
                             String string = "TUE " + a.getDate();
-                            button.setText(string);
+                            TextView text = (TextView) button.getChildAt(0);
+                            text.setText(string);
+                            initGetTodosForThisButtons(button, a);
                         } else if (a.getDay() == 3) {
-                            Button button = (Button) findViewById(R.id.kalenderwoche3);
+                            LinearLayout button = (LinearLayout) findViewById(R.id.kalenderwoche3);
+                            deleteOldTodo(button);
                             String string = "WED " + a.getDate();
-                            button.setText(string);
+                            TextView text = (TextView) button.getChildAt(0);
+                            text.setText(string);
+                            initGetTodosForThisButtons(button, a);
                         } else if (a.getDay() == 4) {
-                            Button button = (Button) findViewById(R.id.kalenderwoche4);
+                            LinearLayout button = (LinearLayout) findViewById(R.id.kalenderwoche4);
+                            deleteOldTodo(button);
                             String string = "THU " + a.getDate();
-                            button.setText(string);
+                            TextView text = (TextView) button.getChildAt(0);
+                            text.setText(string);
+                            initGetTodosForThisButtons(button, a);
                         } else if (a.getDay() == 5) {
-                            Button button = (Button) findViewById(R.id.kalenderwoche5);
+                            LinearLayout button = (LinearLayout) findViewById(R.id.kalenderwoche5);
+                            deleteOldTodo(button);
                             String string = "FRI " + a.getDate();
-                            button.setText(string);
+                            TextView text = (TextView) button.getChildAt(0);
+                            text.setText(string);
+                            initGetTodosForThisButtons(button, a);
                         } else {
-                            Button button = (Button) findViewById(R.id.kalenderwoche6);
+                            LinearLayout button = (LinearLayout) findViewById(R.id.kalenderwoche6);
+                            deleteOldTodo(button);
                             String string = "SAT " + a.getDate();
-                            button.setText(string);
+                            TextView text = (TextView) button.getChildAt(0);
+                            text.setText(string);
+                            initGetTodosForThisButtons(button, a);
                         }
                     }
-                    for (Button b : allWeekButtons) {
-                        if (b.getText().toString().toLowerCase().contains("default")) {
+                    for (LinearLayout b : allWeekButtons) {
+                        TextView text = (TextView) b.getChildAt(0);
+                        if (text.getText().toString().toLowerCase().contains("default")) {
                             b.setVisibility(View.INVISIBLE);
                         }
                     }
@@ -1102,37 +1224,59 @@ public class wocheActivity extends AppCompatActivity {
                         String stringTitle = "Week 6 " + stringMonth + " " + (a.getYear() + 1900);
                         setTitle(stringTitle);
                         if (a.getDay() == 0) {
-                            Button button = (Button) findViewById(R.id.kalenderwoche7);
+                            LinearLayout button = (LinearLayout) findViewById(R.id.kalenderwoche7);
+                            deleteOldTodo(button);
                             String string = "SUN " + a.getDate();
-                            button.setText(string);
+                            TextView text = (TextView) button.getChildAt(0);
+                            text.setText(string);
+                            initGetTodosForThisButtons(button, a);
                         } else if (a.getDay() == 1) {
-                            Button button = (Button) findViewById(R.id.kalenderwoche1);
+                            LinearLayout button = (LinearLayout) findViewById(R.id.kalenderwoche1);
+                            deleteOldTodo(button);
                             String string = "MON " + a.getDate();
-                            button.setText(string);
+                            TextView text = (TextView) button.getChildAt(0);
+                            text.setText(string);
+                            initGetTodosForThisButtons(button, a);
                         } else if (a.getDay() == 2) {
-                            Button button = (Button) findViewById(R.id.kalenderwoche2);
+                            LinearLayout button = (LinearLayout) findViewById(R.id.kalenderwoche2);
+                            deleteOldTodo(button);
                             String string = "TUE " + a.getDate();
-                            button.setText(string);
+                            TextView text = (TextView) button.getChildAt(0);
+                            text.setText(string);
+                            initGetTodosForThisButtons(button, a);
                         } else if (a.getDay() == 3) {
-                            Button button = (Button) findViewById(R.id.kalenderwoche3);
+                            LinearLayout button = (LinearLayout) findViewById(R.id.kalenderwoche3);
+                            deleteOldTodo(button);
                             String string = "WED " + a.getDate();
-                            button.setText(string);
+                            TextView text = (TextView) button.getChildAt(0);
+                            text.setText(string);
+                            initGetTodosForThisButtons(button, a);
                         } else if (a.getDay() == 4) {
-                            Button button = (Button) findViewById(R.id.kalenderwoche4);
+                            LinearLayout button = (LinearLayout) findViewById(R.id.kalenderwoche4);
+                            deleteOldTodo(button);
                             String string = "THU " + a.getDate();
-                            button.setText(string);
+                            TextView text = (TextView) button.getChildAt(0);
+                            text.setText(string);
+                            initGetTodosForThisButtons(button, a);
                         } else if (a.getDay() == 5) {
-                            Button button = (Button) findViewById(R.id.kalenderwoche5);
+                            LinearLayout button = (LinearLayout) findViewById(R.id.kalenderwoche5);
+                            deleteOldTodo(button);
                             String string = "FRI " + a.getDate();
-                            button.setText(string);
+                            TextView text = (TextView) button.getChildAt(0);
+                            text.setText(string);
+                            initGetTodosForThisButtons(button, a);
                         } else {
-                            Button button = (Button) findViewById(R.id.kalenderwoche6);
+                            LinearLayout button = (LinearLayout) findViewById(R.id.kalenderwoche6);
+                            deleteOldTodo(button);
                             String string = "SAT " + a.getDate();
-                            button.setText(string);
+                            TextView text = (TextView) button.getChildAt(0);
+                            text.setText(string);
+                            initGetTodosForThisButtons(button, a);
                         }
                     }
-                    for (Button b : allWeekButtons) {
-                        if (b.getText().toString().toLowerCase().contains("default")) {
+                    for (LinearLayout b : allWeekButtons) {
+                        TextView text = (TextView) b.getChildAt(0);
+                        if (text.getText().toString().toLowerCase().contains("default")) {
                             b.setVisibility(View.INVISIBLE);
                         }
                     }
@@ -3892,5 +4036,162 @@ public class wocheActivity extends AppCompatActivity {
             }
         });
     }
-}
 
+    public void getTodosForThisButton(String dateOfLayout, LinearLayout layout){
+
+        List<Todo> todos;
+        LinearLayout layout1 = (LinearLayout) layout.getChildAt(1);
+        LinearLayout layout2 = (LinearLayout) layout.getChildAt(3);
+        LinearLayout layout3 = (LinearLayout) layout.getChildAt(5);
+        LinearLayout layout4 = (LinearLayout) layout.getChildAt(7);
+
+        FontAwesome icon1 = (FontAwesome) layout1.getChildAt(0);
+        FontAwesome icon2 = (FontAwesome) layout2.getChildAt(0);
+        FontAwesome icon3 = (FontAwesome) layout3.getChildAt(0);
+        FontAwesome icon4 = (FontAwesome) layout4.getChildAt(0);
+
+        TextView prio1 = (TextView) layout1.getChildAt(1);
+        TextView prio2 = (TextView) layout2.getChildAt(1);
+        TextView prio3 = (TextView) layout3.getChildAt(1);
+        TextView prio4 = (TextView) layout4.getChildAt(1);
+
+        Thread_GetTodayTodosLimit4 getTodayTodos = new Thread_GetTodayTodosLimit4(dateOfLayout, this);
+
+        try {
+            getTodayTodos.start();
+            getTodayTodos.join();
+        } catch (Exception e){
+
+        }
+        todos = getTodayTodos.getAll();
+
+        if(todos.size() > 0) {
+            icon1.setText(getStringIdentifier(this, todos.get(0).getTheme()));
+            switch (todos.get(0).getPriority()){
+                case 1:
+                    prio1.setBackgroundColor(getResources().getColor(R.color.priority1));
+                    break;
+                case 2:
+                    prio1.setBackgroundColor(getResources().getColor(R.color.priority2));
+                    break;
+                case 3:
+                    prio1.setBackgroundColor(getResources().getColor(R.color.priority3));
+                    break;
+                case 4:
+                    prio1.setBackgroundColor(getResources().getColor(R.color.priority4));
+                    break;
+                case 5:
+                    prio1.setBackgroundColor(getResources().getColor(R.color.priority5));
+                    break;
+            }
+        }
+        if(todos.size() > 1) {
+            icon2.setText(getStringIdentifier(this, todos.get(1).getTheme()));
+            switch (todos.get(1).getPriority()){
+                case 1:
+                    prio2.setBackgroundColor(getResources().getColor(R.color.priority1));
+                    break;
+                case 2:
+                    prio2.setBackgroundColor(getResources().getColor(R.color.priority2));
+                    break;
+                case 3:
+                    prio2.setBackgroundColor(getResources().getColor(R.color.priority3));
+                    break;
+                case 4:
+                    prio2.setBackgroundColor(getResources().getColor(R.color.priority4));
+                    break;
+                case 5:
+                    prio2.setBackgroundColor(getResources().getColor(R.color.priority5));
+                    break;
+            }
+        }
+
+        if(todos.size() > 2){
+            icon3.setText(getStringIdentifier(this, todos.get(2).getTheme()));
+            switch (todos.get(2).getPriority()){
+                case 1:
+                    prio3.setBackgroundColor(getResources().getColor(R.color.priority1));
+                    break;
+                case 2:
+                    prio3.setBackgroundColor(getResources().getColor(R.color.priority2));
+                    break;
+                case 3:
+                    prio3.setBackgroundColor(getResources().getColor(R.color.priority3));
+                    break;
+                case 4:
+                    prio3.setBackgroundColor(getResources().getColor(R.color.priority4));
+                    break;
+                case 5:
+                    prio3.setBackgroundColor(getResources().getColor(R.color.priority5));
+                    break;
+            }
+        }
+        if(todos.size() > 3){
+            icon4.setText(getStringIdentifier(this, todos.get(3).getTheme()));
+            switch (todos.get(3).getPriority()){
+                case 1:
+                    prio4.setBackgroundColor(getResources().getColor(R.color.priority1));
+                    break;
+                case 2:
+                    prio4.setBackgroundColor(getResources().getColor(R.color.priority2));
+                    break;
+                case 3:
+                    prio4.setBackgroundColor(getResources().getColor(R.color.priority3));
+                    break;
+                case 4:
+                    prio4.setBackgroundColor(getResources().getColor(R.color.priority4));
+                    break;
+                case 5:
+                    prio4.setBackgroundColor(getResources().getColor(R.color.priority5));
+                    break;
+            }
+        }
+        dialog.dismiss();
+
+    }
+
+    public static int getStringIdentifier(Context context, String name) {
+        return context.getResources().getIdentifier(name, "string", context.getPackageName());
+    }
+
+    public void initGetTodosForThisButtons(LinearLayout button, Date a){
+        dialog = ProgressDialog.show(this, "", "Loading...", true);
+        String dateOf;
+        String year = Integer.toString(a.getYear() + 1900);
+        String month = Integer.toString(a.getMonth() + 1);
+        String day = Integer.toString(a.getDate());
+        if (month.length() < 2){
+            month = "0" + month;
+        }
+        if(day.length() < 2){
+            day = "0" + day;
+        }
+        dateOf = year + "-" + month + "-" + day + " 00:00:00.000";
+        getTodosForThisButton(dateOf, button);
+    }
+
+    public void deleteOldTodo(LinearLayout layout){
+        LinearLayout layout1 = (LinearLayout) layout.getChildAt(1);
+        LinearLayout layout2 = (LinearLayout) layout.getChildAt(3);
+        LinearLayout layout3 = (LinearLayout) layout.getChildAt(5);
+        LinearLayout layout4 = (LinearLayout) layout.getChildAt(7);
+
+        FontAwesome icon1 = (FontAwesome) layout1.getChildAt(0);
+        FontAwesome icon2 = (FontAwesome) layout2.getChildAt(0);
+        FontAwesome icon3 = (FontAwesome) layout3.getChildAt(0);
+        FontAwesome icon4 = (FontAwesome) layout4.getChildAt(0);
+
+        TextView prio1 = (TextView) layout1.getChildAt(1);
+        TextView prio2 = (TextView) layout2.getChildAt(1);
+        TextView prio3 = (TextView) layout3.getChildAt(1);
+        TextView prio4 = (TextView) layout4.getChildAt(1);
+
+        icon1.setText("");
+        icon2.setText("");
+        icon3.setText("");
+        icon4.setText("");
+
+        prio1.setBackgroundColor(getResources().getColor(R.color.classic));
+    }
+
+}

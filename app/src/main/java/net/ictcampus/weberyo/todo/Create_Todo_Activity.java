@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.NumberPicker;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -283,11 +284,33 @@ public class Create_Todo_Activity extends AppCompatActivity {
             Thread_CreateTodo createTodo = new Thread_CreateTodo(title, description, date, category, privacy, priority, this);
             createTodo.start();
             createTodo.join();
+            CharSequence text = "ToDo saved successfully";
+            Toast hint = Toast.makeText(this, text, Toast.LENGTH_LONG);
+            clearFields();
+            hint.show();
         }catch (Exception e){
             Log.e("Create Todo", e.getMessage());
         }
     }
 
+    public void clearFields(){
+        RadioButton button;
+        RadioGroup prio_group = (RadioGroup) findViewById(R.id.radiobutton_priority);
+        int id = prio_group.getCheckedRadioButtonId();
+        int count = prio_group.getChildCount();
+        EditText title = (EditText) findViewById(R.id.Title_Todo);
+        EditText description = (EditText) findViewById(R.id.Description_Todo);
+        CheckBox privacy = (CheckBox) findViewById(R.id.private_checkbox);
+        privacy.setChecked(false);
+        title.setText("");
+        description.setText("");
+        for (int i = 0; i < count; i++){
+            if(id == prio_group.getChildAt(i).getId()){
+                button = (RadioButton) prio_group.getChildAt(i);
+                button.setChecked(false);
+            }
+        }
+    }
     @Override
     public void onBackPressed(){
         finish();

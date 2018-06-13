@@ -16,8 +16,11 @@ public interface TodoDAO {
     @Query("SELECT * FROM todo")
     List<Todo> getAll();
 
-    @Query("SELECT * FROM todo WHERE date = :date")
+    @Query("SELECT * FROM todo WHERE date = :date ORDER BY priority DESC")
     List<Todo> getTodoByDay(String date);
+
+    @Query("SELECT * FROM todo WHERE date = :date ORDER BY priority DESC LIMIT 4 ")
+    List<Todo> getTodoByDayLimi4(String date);
 
     @Query("SELECT * FROM todo WHERE STRFTIME('%j', date(date, '-3 days', 'weekday 4')) - 1 / 7 + 1 = STRFTIME('%j', date(:date, '-3 days', 'weekday 4')) - 1 / 7 + 1")
     List<Todo> getTodoByWeek(String date);
@@ -35,6 +38,7 @@ public interface TodoDAO {
 
     @Delete
     void deleteTodo(Todo todo);
+
 
 
 
