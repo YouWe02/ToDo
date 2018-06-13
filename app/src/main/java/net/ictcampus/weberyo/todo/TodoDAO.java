@@ -21,15 +21,12 @@ public interface TodoDAO {
 
     @Query("SELECT * FROM todo WHERE date = :date ORDER BY priority DESC LIMIT 4 ")
     List<Todo> getTodoByDayLimi4(String date);
-    
+
     @Query("SELECT * FROM todo WHERE date = :date AND title = :title ORDER BY title DESC LIMIT 1")
     Todo getToDoByTitle(String date, String title);
 
-    @Query("SELECT * FROM todo WHERE STRFTIME('%j', date(date, '-3 days', 'weekday 4')) - 1 / 7 + 1 = STRFTIME('%j', date(:date, '-3 days', 'weekday 4')) - 1 / 7 + 1")
-    List<Todo> getTodoByWeek(String date);
-
-    @Query("SELECT * FROM todo WHERE STRFTIME('%m', date) = STRFTIME('%m', :date)")
-    List<Todo> getTodoByMonth(String date);
+    @Query("SELECT * FROM todo WHERE ID_Todo = :id")
+    Todo getToDoById(int id);
 
 
     //Inserts

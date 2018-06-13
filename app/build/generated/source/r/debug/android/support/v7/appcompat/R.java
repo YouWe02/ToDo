@@ -578,37 +578,20 @@ public final class R {
         public static final int abc_textfield_search_default_mtrl_alpha = 0x7f070057;
         public static final int abc_textfield_search_material = 0x7f070058;
         public static final int abc_vector_test = 0x7f070059;
-<<<<<<< HEAD
-        public static final int notification_action_background = 0x7f07006a;
-        public static final int notification_bg = 0x7f07006b;
-        public static final int notification_bg_low = 0x7f07006c;
-        public static final int notification_bg_low_normal = 0x7f07006d;
-        public static final int notification_bg_low_pressed = 0x7f07006e;
-        public static final int notification_bg_normal = 0x7f07006f;
-        public static final int notification_bg_normal_pressed = 0x7f070070;
-        public static final int notification_icon_background = 0x7f070071;
-        public static final int notification_template_icon_bg = 0x7f070072;
-        public static final int notification_template_icon_low_bg = 0x7f070073;
-        public static final int notification_tile_bg = 0x7f070074;
-        public static final int notify_panel_notification_icon_bg = 0x7f070075;
-        public static final int tooltip_frame_dark = 0x7f07007a;
-        public static final int tooltip_frame_light = 0x7f07007b;
-=======
-        public static final int notification_action_background = 0x7f07006b;
-        public static final int notification_bg = 0x7f07006c;
-        public static final int notification_bg_low = 0x7f07006d;
-        public static final int notification_bg_low_normal = 0x7f07006e;
-        public static final int notification_bg_low_pressed = 0x7f07006f;
-        public static final int notification_bg_normal = 0x7f070070;
-        public static final int notification_bg_normal_pressed = 0x7f070071;
-        public static final int notification_icon_background = 0x7f070072;
-        public static final int notification_template_icon_bg = 0x7f070073;
-        public static final int notification_template_icon_low_bg = 0x7f070074;
-        public static final int notification_tile_bg = 0x7f070075;
-        public static final int notify_panel_notification_icon_bg = 0x7f070076;
-        public static final int tooltip_frame_dark = 0x7f07007b;
-        public static final int tooltip_frame_light = 0x7f07007c;
->>>>>>> 26cfc2d2e92fda86c60502185bba5cd9f92e981f
+        public static final int notification_action_background = 0x7f07006c;
+        public static final int notification_bg = 0x7f07006d;
+        public static final int notification_bg_low = 0x7f07006e;
+        public static final int notification_bg_low_normal = 0x7f07006f;
+        public static final int notification_bg_low_pressed = 0x7f070070;
+        public static final int notification_bg_normal = 0x7f070071;
+        public static final int notification_bg_normal_pressed = 0x7f070072;
+        public static final int notification_icon_background = 0x7f070073;
+        public static final int notification_template_icon_bg = 0x7f070074;
+        public static final int notification_template_icon_low_bg = 0x7f070075;
+        public static final int notification_tile_bg = 0x7f070076;
+        public static final int notify_panel_notification_icon_bg = 0x7f070077;
+        public static final int tooltip_frame_dark = 0x7f07007c;
+        public static final int tooltip_frame_light = 0x7f07007d;
     }
     public static final class id {
         public static final int action_bar = 0x7f08000b;
@@ -709,9 +692,9 @@ public final class R {
         public static final int title_template = 0x7f0800fc;
         public static final int top = 0x7f0800fd;
         public static final int topPanel = 0x7f0800fe;
-        public static final int uniform = 0x7f080105;
-        public static final int up = 0x7f080106;
-        public static final int wrap_content = 0x7f08010c;
+        public static final int uniform = 0x7f080106;
+        public static final int up = 0x7f080107;
+        public static final int wrap_content = 0x7f08010d;
     }
     public static final class integer {
         public static final int abc_config_activityDefaultDur = 0x7f090000;

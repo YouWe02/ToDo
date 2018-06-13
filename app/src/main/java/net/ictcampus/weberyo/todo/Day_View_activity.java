@@ -4,6 +4,7 @@ import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.DialogFragment;
+import android.content.ClipData;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -21,6 +22,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.DragEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
@@ -34,6 +36,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import net.ictcampus.weberyo.todo.net.ictcampus.weberyo.todo.threads.Thread_CreateTodo;
+import net.ictcampus.weberyo.todo.net.ictcampus.weberyo.todo.threads.Thread_DeleteTodo;
 import net.ictcampus.weberyo.todo.net.ictcampus.weberyo.todo.threads.Thread_GetToDoByTitle;
 import net.ictcampus.weberyo.todo.net.ictcampus.weberyo.todo.threads.Thread_GetTodayTodos;
 
@@ -48,6 +51,7 @@ import java.security.UnrecoverableKeyException;
 import java.security.cert.CertificateException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -79,6 +83,9 @@ public class Day_View_activity extends FragmentActivity {
     private FingerprintManager fingerprintManager;
     private FingerprintDialog dialog;
     private Todo todo;
+    private int drag;
+    private ArrayList<String> todosOfTodayID;
+    private ArrayAdapter todosOfToday;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -109,6 +116,55 @@ public class Day_View_activity extends FragmentActivity {
             }
         });
 
+        list.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                ClipData data = ClipData.newPlainText("Hi", "Hello");
+                View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(view);
+                view.startDragAndDrop(data, shadowBuilder, view, 0);
+                view.setVisibility(View.VISIBLE);
+                drag = position;
+                return true;
+            }
+        });
+
+        list.setOnDragListener(new View.OnDragListener() {
+            @Override
+            public boolean onDrag(View v, DragEvent event) {
+                FontAwesome trash;
+                if (event.getAction() == DragEvent.ACTION_DRAG_STARTED){
+                    trash = (FontAwesome) findViewById(R.id.trash);
+                    trash.setVisibility(View.VISIBLE);
+
+                }
+                if(event.getAction() == DragEvent.ACTION_DRAG_ENDED){
+                    trash = (FontAwesome) findViewById(R.id.trash);
+                    trash.setVisibility(View.INVISIBLE);
+                }
+                return true;
+            }
+        });
+
+        FontAwesome trash = (FontAwesome) findViewById(R.id.trash);
+        trash.setOnDragListener(new View.OnDragListener() {
+            @Override
+            public boolean onDrag(View v, DragEvent event) {
+                if (event.getAction() == DragEvent.ACTION_DRAG_ENTERED){
+                    v.setBackground(getResources().getDrawable(R.drawable.linear_layout_border));
+                }
+                if (event.getAction() == DragEvent.ACTION_DRAG_EXITED){
+                    v.setBackground(null);
+                }
+                if (event.getAction() == DragEvent.ACTION_DRAG_ENDED){
+                    v.setBackground(null);
+                    int id = Integer.parseInt(todosOfTodayID.get(drag));
+                    deleteTodo(id, drag);
+
+                }
+                return true;
+            }
+        });
+
         /*final RelativeLayout layout = (RelativeLayout) findViewById(R.id.linear);
         layout.setOnTouchListener(new OnSwipeTouchListener(Day_View_activity.this) {
             public void onSwipeTop() {
@@ -136,13 +192,15 @@ public class Day_View_activity extends FragmentActivity {
 
     public ArrayAdapter ArrayAdapter(String date) {
         try {
-            ArrayAdapter todosOfToday = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1);
+            todosOfToday = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1);
+            todosOfTodayID =  new ArrayList<String>();
             Thread_GetTodayTodos thread_getTodayTodos = new Thread_GetTodayTodos(date, this);
             thread_getTodayTodos.start();
             thread_getTodayTodos.join();
             List<Todo> todos = thread_getTodayTodos.getAll();
             for (Todo todo : todos) {
                 todosOfToday.add(todo.getTitle());
+                todosOfTodayID.add(Integer.toString(todo.getID_Todo()));
             }
 
             return todosOfToday;
@@ -337,6 +395,18 @@ public class Day_View_activity extends FragmentActivity {
     private class FingerprintException extends Exception {
         public FingerprintException(Exception e) {
             super(e);
+        }
+    }
+
+    public void deleteTodo(int id, int drag){
+        Object todo = todosOfToday.getItem(drag);
+        todosOfToday.remove(todo);
+        Thread_DeleteTodo thread_deleteTodo = new Thread_DeleteTodo(this, id);
+        thread_deleteTodo.start();
+        try{
+            thread_deleteTodo.join();
+        }catch (Exception e){
+
         }
     }
 }
