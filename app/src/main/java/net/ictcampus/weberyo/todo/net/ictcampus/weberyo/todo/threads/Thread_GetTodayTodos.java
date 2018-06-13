@@ -23,13 +23,7 @@ public class Thread_GetTodayTodos extends Thread {
         all = db.todoDAO().getTodoByDay(date);
     }
 
-    public void refreshThread(String date){
-        this.date = date;
-    }
-
     public synchronized List<Todo> getAll(){
-        this.start();
-
         return all;
     }
 
