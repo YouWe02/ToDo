@@ -72,7 +72,6 @@ public class Create_Todo_Activity extends AppCompatActivity {
     public void initToolbar(){
         android.support.v7.app.ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
-
     }
     public void initDatePicker(){
         picker_day = (NumberPicker) findViewById(R.id.datepicker_day);

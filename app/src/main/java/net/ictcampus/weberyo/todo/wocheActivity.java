@@ -70,40 +70,40 @@ public class wocheActivity extends AppCompatActivity {
         resetWeek = intent.getIntExtra("Week", 1);
         resetDay = intent.getIntExtra("Day", 1);
         if (date.getMonth() == 0) {
-            actualMonth = "january";
+            actualMonth = "January";
         }
         if (date.getMonth() == 1) {
-            actualMonth = "february";
+            actualMonth = "February";
         }
         if (date.getMonth() == 2) {
-            actualMonth = "march";
+            actualMonth = "March";
         }
         if (date.getMonth() == 3) {
-            actualMonth = "april";
+            actualMonth = "April";
         }
         if (date.getMonth() == 4) {
-            actualMonth = "may";
+            actualMonth = "May";
         }
         if (date.getMonth() == 5) {
-            actualMonth = "june";
+            actualMonth = "June";
         }
         if (date.getMonth() == 6) {
-            actualMonth = "july";
+            actualMonth = "July";
         }
         if (date.getMonth() == 7) {
-            actualMonth = "august";
+            actualMonth = "August";
         }
         if (date.getMonth() == 8) {
-            actualMonth = "september";
+            actualMonth = "September";
         }
         if (date.getMonth() == 9) {
-            actualMonth = "october";
+            actualMonth = "October";
         }
         if (date.getMonth() == 10) {
-            actualMonth = "november";
+            actualMonth = "November";
         }
         if (date.getMonth() == 11) {
-            actualMonth = "december";
+            actualMonth = "December";
         }
         setWeek(1, resetMonth, resetYear);
 
@@ -113,6 +113,7 @@ public class wocheActivity extends AppCompatActivity {
                     Intent intentset = new Intent(wocheActivity.this, Day_View_activity.class);
                     intentset.putExtra("Year", resetYear);
                     intentset.putExtra("Month", resetMonth);
+                    intentset.putExtra("Monthstring", actualMonth);
                     intentset.putExtra("Week", resetWeek);
                     intentset.putExtra("Day", resetDay);
                     startActivity(intentset);
@@ -1293,7 +1294,7 @@ public class wocheActivity extends AppCompatActivity {
     }
 
     public void swipeRight() {
-        if (!(getTitle().toString().toLowerCase().contains("week 1") & getTitle().toString().toLowerCase().contains(actualMonth) & getTitle().toString().toLowerCase().contains(date.getYear() + 1899 + ""))) {
+        if (!(getTitle().toString().toLowerCase().contains("week 1") & getTitle().toString().toLowerCase().contains(actualMonth.toLowerCase()) & getTitle().toString().toLowerCase().contains(date.getYear() + 1899 + ""))) {
             if (getTitle().toString().toLowerCase().contains("january")) {
                 if (getTitle().toString().toLowerCase().contains(date.getYear() + 1900 + "")) {
                     if (getTitle().toString().toLowerCase().contains("week 1")) {
@@ -1301,13 +1302,10 @@ public class wocheActivity extends AppCompatActivity {
                             setWeek(5, 11, 1);
                             resetMonth = 11;
                             resetYear = 1;
-
                         } else {
                             resetMonth = 11;
                             resetYear = 1;
-
                         }
-
                     } else if (getTitle().toString().toLowerCase().contains("week 2")) {
                         if (setWeek(1, 0, 2) == false) {
                             setWeek(6, 11, 1);
@@ -2853,17 +2851,17 @@ public class wocheActivity extends AppCompatActivity {
         int resetWeek2 = resetWeek;
         if (setWeek(6, date.getMonth(), 3) == true) {
             setWeek(resetWeek2, resetMonth, resetYear);
-            if (!(getTitle().toString().toLowerCase().contains("week 6") & getTitle().toString().toLowerCase().contains(actualMonth) & getTitle().toString().toLowerCase().contains(date.getYear() + 1901 + ""))) {
+            if (!(getTitle().toString().toLowerCase().contains("week 6") & getTitle().toString().toLowerCase().contains(actualMonth.toLowerCase()) & getTitle().toString().toLowerCase().contains(date.getYear() + 1901 + ""))) {
                 controlSwipeLeft();
             }
         } else if (setWeek(5, date.getMonth(), 3) == true) {
             setWeek(resetWeek2, resetMonth, resetYear);
-            if (!(getTitle().toString().toLowerCase().contains("week 5") & getTitle().toString().toLowerCase().contains(actualMonth) & getTitle().toString().toLowerCase().contains(date.getYear() + 1901 + ""))) {
+            if (!(getTitle().toString().toLowerCase().contains("week 5") & getTitle().toString().toLowerCase().contains(actualMonth.toLowerCase()) & getTitle().toString().toLowerCase().contains(date.getYear() + 1901 + ""))) {
                 controlSwipeLeft();
             }
         } else {
             setWeek(resetWeek2, resetMonth, resetYear);
-            if (!(getTitle().toString().toLowerCase().contains("week 4") & getTitle().toString().toLowerCase().contains(actualMonth) & getTitle().toString().toLowerCase().contains(date.getYear() + 1901 + ""))) {
+            if (!(getTitle().toString().toLowerCase().contains("week 4") & getTitle().toString().toLowerCase().contains(actualMonth.toLowerCase()) & getTitle().toString().toLowerCase().contains(date.getYear() + 1901 + ""))) {
                 controlSwipeLeft();
             }
         }

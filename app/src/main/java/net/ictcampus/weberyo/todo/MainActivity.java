@@ -152,6 +152,7 @@ public class MainActivity extends AppCompatActivity {
                             dateFormatted = year + "-" + (resetMonth + 1) + "-" + actualdate + " " + "00:00:00.000";
                         }
                     }
+                    resetDay = Integer.parseInt(text);
                     Intent intent = new Intent(MainActivity.this, Day_View_activity.class);
                     intent.putExtra("Year", resetYear);
                     intent.putExtra("Month", resetMonth);
@@ -892,7 +893,8 @@ public class MainActivity extends AppCompatActivity {
             resetYear = 3;
         }
     }
-    public void getAllToDosMonth(){
+
+    public void getAllToDosMonth() {
         int year = 0;
         if (resetYear == 2) {
             year = date.getYear() + 1900;
@@ -902,7 +904,6 @@ public class MainActivity extends AppCompatActivity {
             year = date.getYear() + 1901;
         }
         int i = 1;
-        Thread_GetTodayTodos thread_getTodayTodos = new Thread_GetTodayTodos("default", this);
         for (Button b : buttonsactivated) {
             String dateGetToDos = "default";
             String actualdate = "default";
@@ -922,7 +923,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
             try {
-                thread_getTodayTodos.refreshThread(dateGetToDos);
+                Thread_GetTodayTodos thread_getTodayTodos = new Thread_GetTodayTodos(dateGetToDos, this);
                 thread_getTodayTodos.start();
                 thread_getTodayTodos.join();
                 List<Todo> todos = thread_getTodayTodos.getAll();
