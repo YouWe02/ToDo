@@ -10,4 +10,6 @@
     <color name="priority2">#8bc34a</color>
     <color name="priority1">#BDBDBD</color>
     <color name="classic">#FFFFFF</color>
+    <color name="classic_dark">#000000</color>
+    <color name="ripple">#A9A9F5</color>
 </resources>

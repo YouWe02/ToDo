@@ -1,45 +1,45 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:2:1-34:12
-INJECTED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:2:1-34:12
-INJECTED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:2:1-34:12
-INJECTED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:2:1-34:12
+ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:2:1-36:12
+INJECTED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:2:1-36:12
+INJECTED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:2:1-36:12
+INJECTED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:2:1-36:12
 MERGED from [com.android.support:design:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\design-27.1.1.aar\e5afb371f4e9006d2effe38146e39910\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\10ca16b0616b83bacf96e8f33d79b18d\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support.constraint:constraint-layout:1.1.0] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.0.aar\7d2b1233aac912045717586507287e50\AndroidManifest.xml:2:1-11:12
 MERGED from [android.arch.persistence.room:runtime:1.1.0] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\fcd3c2367f464cbca840c34ea3208daf\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-v4:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\2acc945862d7b03f67b3923c7c7f9b0f\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\5f0bf2b13ecf296d9f4de61418fcf1e3\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\3fd1d3121f7c85d3600aecc17e703067\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.1.aar\573bda9b46b743fc418bd02f23c7a10d\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:recyclerview-v7:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.1.aar\ae7233cc2ff4c3f3f75c2973f6fbc468\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:transition:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\transition-27.1.1.aar\4b32c9dc7b60c87cfd41da3454e039a1\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.persistence:db-framework:1.1.0] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\db-framework-1.1.0.aar\cedcc5034c57882944ba2c300e25a12b\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.persistence:db:1.1.0] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\db-1.1.0.aar\20af6e4b5a4dcc0a0ddeaf6864232aeb\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\fca218217c0e9805320c47e7e5171841\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\e4c9bfea8339c06a9d72719501ce73b2\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\a6070aadf6e584e3f66b77d27a63d59f\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-compat:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\84ee760eec271a8bd565c40d496dd2e6\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\5f0bf2b13ecf296d9f4de61418fcf1e3\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\6932776489cc8fb1ddb2ed8dbfad443c\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.core:runtime:1.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\c266fd38254b976fa4c114882e55faf1\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\3fd1d3121f7c85d3600aecc17e703067\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\fca218217c0e9805320c47e7e5171841\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\a6070aadf6e584e3f66b77d27a63d59f\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\e4c9bfea8339c06a9d72719501ce73b2\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.1.aar\573bda9b46b743fc418bd02f23c7a10d\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\84ee760eec271a8bd565c40d496dd2e6\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\23dcbd688809403d99c946a1394a0dc6\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\eb88c2b0b521fe9f76e67d6c3c9b0fff\AndroidManifest.xml:17:1-22:12
-INJECTED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:2:1-34:12
-INJECTED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:2:1-34:12
-INJECTED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:2:1-34:12
+INJECTED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:2:1-36:12
+INJECTED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:2:1-36:12
+INJECTED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:2:1-36:12
 	package
 		ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:4:5-41
 		INJECTED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:2:1-34:12
+		ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:2:1-36:12
 		INJECTED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml
 	xmlns:tools
 		ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:3:5-51
 	android:versionCode
 		INJECTED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:2:1-34:12
+		ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:2:1-36:12
 		INJECTED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:2:11-69
@@ -48,7 +48,7 @@ ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManif
 	android:name
 		ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:6:22-71
 application
-ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:8:5-32:19
+ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:8:5-34:19
 MERGED from [com.android.support.constraint:constraint-layout:1.1.0] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.0.aar\7d2b1233aac912045717586507287e50\AndroidManifest.xml:9:5-20
 MERGED from [com.android.support.constraint:constraint-layout:1.1.0] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.0.aar\7d2b1233aac912045717586507287e50\AndroidManifest.xml:9:5-20
 	android:supportsRtl
@@ -76,31 +76,35 @@ ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManif
 	android:name
 		ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:19:19-48
 activity#net.ictcampus.weberyo.todo.Day_View_activity
-ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:20:9-55
+ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:20:9-22:35
+	android:label
+		ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:22:13-33
+	android:theme
+		ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:21:13-44
 	android:name
 		ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:20:19-52
 activity#net.ictcampus.weberyo.todo.MainActivity
-ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:21:9-30:20
+ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:23:9-32:20
 	android:screenOrientation
-		ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:24:13-49
+		ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:26:13-49
 	android:label
-		ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:23:13-45
+		ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:25:13-45
 	android:name
-		ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:22:13-41
+		ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:24:13-41
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:25:13-29:29
+ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:27:13-31:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:26:17-69
+ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:28:17-69
 	android:name
-		ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:26:25-66
+		ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:28:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:28:17-77
+ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:30:17-77
 	android:name
-		ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:28:27-74
+		ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:30:27-74
 activity#net.ictcampus.weberyo.todo.ToDoDescribtion
-ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:31:9-53
+ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:33:9-53
 	android:name
-		ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:31:19-50
+		ADDED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml:33:19-50
 uses-sdk
 INJECTED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\weberyo\AndroidStudioProjects\ToDo\app\src\main\AndroidManifest.xml
@@ -115,12 +119,6 @@ MERGED from [android.arch.persistence.room:runtime:1.1.0] C:\Users\weberyo\.grad
 MERGED from [android.arch.persistence.room:runtime:1.1.0] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\fcd3c2367f464cbca840c34ea3208daf\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-v4:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\2acc945862d7b03f67b3923c7c7f9b0f\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-v4:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\2acc945862d7b03f67b3923c7c7f9b0f\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\5f0bf2b13ecf296d9f4de61418fcf1e3\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\5f0bf2b13ecf296d9f4de61418fcf1e3\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\3fd1d3121f7c85d3600aecc17e703067\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\3fd1d3121f7c85d3600aecc17e703067\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.1.aar\573bda9b46b743fc418bd02f23c7a10d\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.1.aar\573bda9b46b743fc418bd02f23c7a10d\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:recyclerview-v7:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.1.aar\ae7233cc2ff4c3f3f75c2973f6fbc468\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:recyclerview-v7:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.1.aar\ae7233cc2ff4c3f3f75c2973f6fbc468\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:transition:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\transition-27.1.1.aar\4b32c9dc7b60c87cfd41da3454e039a1\AndroidManifest.xml:20:5-44
@@ -129,18 +127,24 @@ MERGED from [android.arch.persistence:db-framework:1.1.0] C:\Users\weberyo\.grad
 MERGED from [android.arch.persistence:db-framework:1.1.0] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\db-framework-1.1.0.aar\cedcc5034c57882944ba2c300e25a12b\AndroidManifest.xml:20:5-44
 MERGED from [android.arch.persistence:db:1.1.0] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\db-1.1.0.aar\20af6e4b5a4dcc0a0ddeaf6864232aeb\AndroidManifest.xml:20:5-44
 MERGED from [android.arch.persistence:db:1.1.0] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\db-1.1.0.aar\20af6e4b5a4dcc0a0ddeaf6864232aeb\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\fca218217c0e9805320c47e7e5171841\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\fca218217c0e9805320c47e7e5171841\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\e4c9bfea8339c06a9d72719501ce73b2\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\e4c9bfea8339c06a9d72719501ce73b2\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\a6070aadf6e584e3f66b77d27a63d59f\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\a6070aadf6e584e3f66b77d27a63d59f\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-compat:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\84ee760eec271a8bd565c40d496dd2e6\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-compat:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\84ee760eec271a8bd565c40d496dd2e6\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\5f0bf2b13ecf296d9f4de61418fcf1e3\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\5f0bf2b13ecf296d9f4de61418fcf1e3\AndroidManifest.xml:20:5-44
 MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\6932776489cc8fb1ddb2ed8dbfad443c\AndroidManifest.xml:20:5-44
 MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\6932776489cc8fb1ddb2ed8dbfad443c\AndroidManifest.xml:20:5-44
 MERGED from [android.arch.core:runtime:1.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\c266fd38254b976fa4c114882e55faf1\AndroidManifest.xml:20:5-44
 MERGED from [android.arch.core:runtime:1.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\c266fd38254b976fa4c114882e55faf1\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\3fd1d3121f7c85d3600aecc17e703067\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\3fd1d3121f7c85d3600aecc17e703067\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\fca218217c0e9805320c47e7e5171841\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\fca218217c0e9805320c47e7e5171841\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\a6070aadf6e584e3f66b77d27a63d59f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\a6070aadf6e584e3f66b77d27a63d59f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\e4c9bfea8339c06a9d72719501ce73b2\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\e4c9bfea8339c06a9d72719501ce73b2\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.1.aar\573bda9b46b743fc418bd02f23c7a10d\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.1.aar\573bda9b46b743fc418bd02f23c7a10d\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\84ee760eec271a8bd565c40d496dd2e6\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.1] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\84ee760eec271a8bd565c40d496dd2e6\AndroidManifest.xml:20:5-44
 MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\23dcbd688809403d99c946a1394a0dc6\AndroidManifest.xml:20:5-44
 MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\23dcbd688809403d99c946a1394a0dc6\AndroidManifest.xml:20:5-44
 MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\weberyo\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\eb88c2b0b521fe9f76e67d6c3c9b0fff\AndroidManifest.xml:20:5-44

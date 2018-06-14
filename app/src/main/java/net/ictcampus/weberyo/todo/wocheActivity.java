@@ -4,13 +4,17 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.TypedArray;
 import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -59,6 +63,7 @@ public class wocheActivity extends AppCompatActivity {
         allWeekButtons.add((LinearLayout) findViewById(R.id.kalenderwoche5));
         allWeekButtons.add((LinearLayout) findViewById(R.id.kalenderwoche6));
         allWeekButtons.add((LinearLayout) findViewById(R.id.kalenderwoche7));
+        initClickListener();
         actualDate = Calendar.getInstance().getTime();
         actualDateFormatted = dateFormatter.format(actualDate);
         try {
@@ -4038,6 +4043,11 @@ public class wocheActivity extends AppCompatActivity {
     public void getTodosForThisButton(String dateOfLayout, LinearLayout layout){
 
         List<Todo> todos;
+
+        View divider1 = layout.findViewById(R.id.divider_1);
+        View divider2 = layout.findViewById(R.id.divider_2);
+        View divider3 = layout.findViewById(R.id.divider_3);
+
         LinearLayout layout1 = (LinearLayout) layout.getChildAt(1);
         LinearLayout layout2 = (LinearLayout) layout.getChildAt(3);
         LinearLayout layout3 = (LinearLayout) layout.getChildAt(5);
@@ -4084,6 +4094,7 @@ public class wocheActivity extends AppCompatActivity {
             }
         }
         if(todos.size() > 1) {
+            divider1.setBackgroundColor(getResources().getColor(R.color.classic_dark));
             icon2.setText(getStringIdentifier(this, todos.get(1).getTheme()));
             switch (todos.get(1).getPriority()){
                 case 1:
@@ -4105,6 +4116,7 @@ public class wocheActivity extends AppCompatActivity {
         }
 
         if(todos.size() > 2){
+            divider2.setBackgroundColor(getResources().getColor(R.color.classic_dark));
             icon3.setText(getStringIdentifier(this, todos.get(2).getTheme()));
             switch (todos.get(2).getPriority()){
                 case 1:
@@ -4125,6 +4137,7 @@ public class wocheActivity extends AppCompatActivity {
             }
         }
         if(todos.size() > 3){
+            divider3.setBackgroundColor(getResources().getColor(R.color.classic_dark));
             icon4.setText(getStringIdentifier(this, todos.get(3).getTheme()));
             switch (todos.get(3).getPriority()){
                 case 1:
@@ -4184,12 +4197,33 @@ public class wocheActivity extends AppCompatActivity {
         TextView prio3 = (TextView) layout3.getChildAt(1);
         TextView prio4 = (TextView) layout4.getChildAt(1);
 
+        View divider1 = layout.findViewById(R.id.divider_1);
+        View divider2 = layout.findViewById(R.id.divider_2);
+        View divider3 = layout.findViewById(R.id.divider_3);
+
+        divider1.setBackgroundColor(getResources().getColor(R.color.classic));
+        divider2.setBackgroundColor(getResources().getColor(R.color.classic));
+        divider3.setBackgroundColor(getResources().getColor(R.color.classic));
+
         icon1.setText("");
         icon2.setText("");
         icon3.setText("");
         icon4.setText("");
 
         prio1.setBackgroundColor(getResources().getColor(R.color.classic));
+    }
+
+    public void initClickListener(){
+
+        for (LinearLayout b : allWeekButtons){
+            b.setOnClickListener(new LinearLayout.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Log.e("Test", "click");
+                }
+
+            });
+        }
     }
 
 }

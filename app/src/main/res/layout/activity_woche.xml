@@ -20,7 +20,8 @@ tools:context=".wocheActivity">
     android:gravity="left|center_vertical"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent">
+    app:layout_constraintTop_toTopOf="parent"
+    android:clickable="true">
 
     <TextView
         android:layout_width="100dp"
@@ -28,22 +29,26 @@ tools:context=".wocheActivity">
         android:textSize="15dp"
         android:paddingLeft="15dp"
         android:paddingRight="25dp"
-        android:paddingTop="4dp"/>
+        android:paddingTop="4dp"
+        android:clickable="false"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:clickable="false">
 
         <net.ictcampus.weberyo.todo.FontAwesome
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingBottom="4dp"
-            android:textSize="20dp"/>
+            android:textSize="20dp"
+            android:clickable="false"/>
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="3dp" />
+            android:layout_height="3dp"
+            android:clickable="false"/>
     </LinearLayout>
 
     <View
@@ -51,22 +56,27 @@ tools:context=".wocheActivity">
         android:layout_height="50dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:background="@android:color/black"/>
+        android:background="@android:color/black"
+        android:id="@+id/divider_1"
+        android:clickable="false"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:clickable="false">
 
         <net.ictcampus.weberyo.todo.FontAwesome
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingBottom="4dp"
-            android:textSize="20dp"/>
+            android:textSize="20dp"
+            android:clickable="false"/>
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="3dp" />
+            android:layout_height="3dp"
+            android:clickable="false"/>
     </LinearLayout>
 
     <View
@@ -74,22 +84,27 @@ tools:context=".wocheActivity">
         android:layout_height="50dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:background="@android:color/black"/>
+        android:background="@android:color/black"
+        android:id="@id/divider_2"
+        android:clickable="false"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:clickable="false">
 
         <net.ictcampus.weberyo.todo.FontAwesome
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingBottom="4dp"
-            android:textSize="20dp"/>
+            android:textSize="20dp"
+            android:clickable="false"/>
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="3dp" />
+            android:layout_height="3dp"
+            android:clickable="false"/>
     </LinearLayout>
 
     <View
@@ -97,22 +112,27 @@ tools:context=".wocheActivity">
         android:layout_height="50dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:background="@android:color/black"/>
+        android:background="@android:color/black"
+        android:id="@+id/divider_3"
+        android:clickable="false"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:clickable="false">
 
         <net.ictcampus.weberyo.todo.FontAwesome
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingBottom="4dp"
-            android:textSize="20dp"/>
+            android:textSize="20dp"
+            android:clickable="false"/>
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="3dp" />
+            android:layout_height="3dp"
+            android:clickable="false"/>
     </LinearLayout>
 
     <net.ictcampus.weberyo.todo.FontAwesome
@@ -120,7 +140,8 @@ tools:context=".wocheActivity">
         android:layout_height="wrap_content"
         android:text="@string/angle_right"
         android:paddingLeft="15dp"
-        android:gravity="right|center_vertical"/>
+        android:gravity="right|center_vertical"
+        android:clickable="false"/>
 </LinearLayout>
 
 
@@ -136,7 +157,8 @@ tools:context=".wocheActivity">
     android:textSize="15dp"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/kalenderwoche1">
+    app:layout_constraintTop_toBottomOf="@+id/kalenderwoche1"
+    android:clickable="true">
 
     <TextView
         android:layout_width="100dp"
@@ -167,7 +189,8 @@ tools:context=".wocheActivity">
         android:layout_height="50dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:background="@android:color/black"/>
+        android:background="@android:color/black"
+        android:id="@+id/divider_1"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -190,7 +213,8 @@ tools:context=".wocheActivity">
         android:layout_height="50dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:background="@android:color/black"/>
+        android:background="@android:color/black"
+        android:id="@+id/divider_2"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -213,7 +237,8 @@ tools:context=".wocheActivity">
         android:layout_height="50dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:background="@android:color/black"/>
+        android:background="@android:color/black"
+        android:id="@+id/divider_3"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -252,7 +277,8 @@ tools:context=".wocheActivity">
     android:textSize="15dp"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/kalenderwoche2">
+    app:layout_constraintTop_toBottomOf="@+id/kalenderwoche2"
+    android:clickable="true">
 
     <TextView
         android:layout_width="100dp"
@@ -283,7 +309,8 @@ tools:context=".wocheActivity">
         android:layout_height="50dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:background="@android:color/black"/>
+        android:background="@android:color/black"
+        android:id="@+id/divider_1"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -306,7 +333,8 @@ tools:context=".wocheActivity">
         android:layout_height="50dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:background="@android:color/black"/>
+        android:background="@android:color/black"
+        android:id="@+id/divider_2"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -329,7 +357,8 @@ tools:context=".wocheActivity">
         android:layout_height="50dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:background="@android:color/black"/>
+        android:background="@android:color/black"
+        android:id="@+id/divider_3"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -367,7 +396,8 @@ tools:context=".wocheActivity">
     android:textSize="15dp"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/kalenderwoche3">
+    app:layout_constraintTop_toBottomOf="@+id/kalenderwoche3"
+    android:clickable="true">
 
     <TextView
         android:layout_width="100dp"
@@ -398,7 +428,8 @@ tools:context=".wocheActivity">
         android:layout_height="50dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:background="@android:color/black"/>
+        android:background="@android:color/black"
+        android:id="@+id/divider_1"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -421,7 +452,8 @@ tools:context=".wocheActivity">
         android:layout_height="50dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:background="@android:color/black"/>
+        android:background="@android:color/black"
+        android:id="@+id/divider_2"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -444,7 +476,8 @@ tools:context=".wocheActivity">
         android:layout_height="50dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:background="@android:color/black"/>
+        android:background="@android:color/black"
+        android:id="@+id/divider_3"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -483,7 +516,8 @@ tools:context=".wocheActivity">
     android:textSize="15dp"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/kalenderwoche4">
+    app:layout_constraintTop_toBottomOf="@+id/kalenderwoche4"
+    android:clickable="true">
 
     <TextView
         android:layout_width="100dp"
@@ -514,7 +548,8 @@ tools:context=".wocheActivity">
         android:layout_height="50dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:background="@android:color/black"/>
+        android:background="@android:color/black"
+        android:id="@+id/divider_1"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -537,7 +572,8 @@ tools:context=".wocheActivity">
         android:layout_height="50dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:background="@android:color/black"/>
+        android:background="@android:color/black"
+        android:id="@+id/divider_2"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -560,7 +596,8 @@ tools:context=".wocheActivity">
         android:layout_height="50dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:background="@android:color/black"/>
+        android:background="@android:color/black"
+        android:id="@+id/divider_3"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -598,7 +635,8 @@ tools:context=".wocheActivity">
     android:textSize="15dp"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/kalenderwoche5">
+    app:layout_constraintTop_toBottomOf="@+id/kalenderwoche5"
+    android:clickable="true">
 
     <TextView
         android:layout_width="100dp"
@@ -629,7 +667,8 @@ tools:context=".wocheActivity">
         android:layout_height="50dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:background="@android:color/black"/>
+        android:background="@android:color/black"
+        android:id="@+id/divider_1"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -652,7 +691,8 @@ tools:context=".wocheActivity">
         android:layout_height="50dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:background="@android:color/black"/>
+        android:background="@android:color/black"
+        android:id="@+id/divider_2"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -675,7 +715,8 @@ tools:context=".wocheActivity">
         android:layout_height="50dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:background="@android:color/black"/>
+        android:background="@android:color/black"
+        android:id="@+id/divider_3"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -714,7 +755,8 @@ tools:context=".wocheActivity">
     android:textSize="15dp"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/kalenderwoche6">
+    app:layout_constraintTop_toBottomOf="@+id/kalenderwoche6"
+    android:clickable="true">
 
     <TextView
         android:layout_width="100dp"
@@ -745,7 +787,8 @@ tools:context=".wocheActivity">
         android:layout_height="50dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:background="@android:color/black"/>
+        android:background="@android:color/black"
+        android:id="@+id/divider_1"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -768,7 +811,8 @@ tools:context=".wocheActivity">
         android:layout_height="50dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:background="@android:color/black"/>
+        android:background="@android:color/black"
+        android:id="@+id/divider_2"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -791,7 +835,8 @@ tools:context=".wocheActivity">
         android:layout_height="50dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:background="@android:color/black"/>
+        android:background="@android:color/black"
+        android:id="@+id/divider_3"/>
 
     <LinearLayout
         android:layout_width="wrap_content"

@@ -61,10 +61,9 @@ import javax.crypto.KeyGenerator;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
 
-public class Day_View_activity extends FragmentActivity {
+public class Day_View_activity extends AppCompatActivity{
 
     public static Activity activity;
-    private TextView day;
     private int resetYear;
     private int resetMonth;
     private int resetWeek;
@@ -74,6 +73,7 @@ public class Day_View_activity extends FragmentActivity {
     private String actualDateFormatted;
     private String actualMonth;
     private Date date;
+    private String datestring;
     private static final String KEY_NAME = "hvibdsdv";
     private Cipher cipher;
     private KeyStore keyStore;
@@ -86,6 +86,8 @@ public class Day_View_activity extends FragmentActivity {
     private int drag;
     private ArrayList<String> todosOfTodayID;
     private ArrayAdapter todosOfToday;
+    private ListView list;
+    private boolean inside = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,9 +96,8 @@ public class Day_View_activity extends FragmentActivity {
         activity = this;
         initFloatButton();
         setDate();
-        day = (TextView) findViewById(R.id.dayview_date_header);
         Intent intentget = getIntent();
-        String date = intentget.getStringExtra("Date");
+        datestring = intentget.getStringExtra("Date");
         resetYear = intentget.getIntExtra("Year", 2);
         resetMonth = intentget.getIntExtra("Month", 6);
         resetWeek = intentget.getIntExtra("Week", 1);
@@ -105,13 +106,14 @@ public class Day_View_activity extends FragmentActivity {
         setDate();
         setDate();
 
-        ListView list = (ListView) findViewById(R.id.dayview_todo_list);
-        list.setAdapter(ArrayAdapter(date));
+        list = (ListView) findViewById(R.id.dayview_todo_list);
+        list.setAdapter(ArrayAdapter(datestring));
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String title = parent.getItemAtPosition(position).toString();
-                onClickList(title);
+                Todo title = (Todo) parent.getItemAtPosition(position);
+                String titlestring = title.getTitle();
+                onClickList(titlestring);
 
             }
         });
@@ -140,6 +142,10 @@ public class Day_View_activity extends FragmentActivity {
                 if(event.getAction() == DragEvent.ACTION_DRAG_ENDED){
                     trash = (FontAwesome) findViewById(R.id.trash);
                     trash.setVisibility(View.INVISIBLE);
+                    if(inside){
+                        int id = Integer.parseInt(todosOfTodayID.get(drag));
+                        deleteTodo(id, drag);
+                    }
                 }
                 return true;
             }
@@ -151,58 +157,45 @@ public class Day_View_activity extends FragmentActivity {
             public boolean onDrag(View v, DragEvent event) {
                 if (event.getAction() == DragEvent.ACTION_DRAG_ENTERED){
                     v.setBackground(getResources().getDrawable(R.drawable.linear_layout_border));
+                    inside = true;
                 }
                 if (event.getAction() == DragEvent.ACTION_DRAG_EXITED){
                     v.setBackground(null);
-                }
-                if (event.getAction() == DragEvent.ACTION_DRAG_ENDED){
-                    v.setBackground(null);
-                    int id = Integer.parseInt(todosOfTodayID.get(drag));
-                    deleteTodo(id, drag);
-
+                    inside = false;
                 }
                 return true;
             }
         });
 
-        /*final RelativeLayout layout = (RelativeLayout) findViewById(R.id.linear);
-        layout.setOnTouchListener(new OnSwipeTouchListener(Day_View_activity.this) {
-            public void onSwipeTop() {
-
-            }
-
-            public void onSwipeRight() {
-
-            }
-
-            public void onSwipeLeft() {
-
-            }
-
-            public void onSwipeBottom() {
-                Intent intentset = new Intent(Day_View_activity.this, wocheActivity.class);
-                intentset.putExtra("Year", resetYear);
-                intentset.putExtra("Month", resetMonth);
-                intentset.putExtra("Week", resetWeek);
-                intentset.putExtra("Day", resetDay);
-                startActivity(intentset);
-            }
-        });*/
     }
 
     public ArrayAdapter ArrayAdapter(String date) {
         try {
-            todosOfToday = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1);
             todosOfTodayID =  new ArrayList<String>();
             Thread_GetTodayTodos thread_getTodayTodos = new Thread_GetTodayTodos(date, this);
             thread_getTodayTodos.start();
             thread_getTodayTodos.join();
             List<Todo> todos = thread_getTodayTodos.getAll();
+            String[] titles = new String[todos.size()];
+            String[] icons = new String[todos.size()];
+            boolean[] privacy = new boolean[todos.size()];
+            int[] priorities = new int[todos.size()];
+
+            int counter = 0;
             for (Todo todo : todos) {
-                todosOfToday.add(todo.getTitle());
                 todosOfTodayID.add(Integer.toString(todo.getID_Todo()));
+                titles[counter] = todo.getTitle();
+                icons[counter] = todo.getTheme();
+                privacy[counter] = todo.isPrivacy();
+                priorities[counter] = todo.getPriority();
+                counter++;
             }
 
+            todosOfToday = new ArrayAdapter_Dayviewrow(this, icons, titles, privacy, priorities);
+
+            for(Todo todo : todos){
+                todosOfToday.add(todo);
+            }
             return todosOfToday;
 
 
@@ -399,8 +392,11 @@ public class Day_View_activity extends FragmentActivity {
     }
 
     public void deleteTodo(int id, int drag){
-        Object todo = todosOfToday.getItem(drag);
-        todosOfToday.remove(todo);
+        Todo todo = (Todo) todosOfToday.getItem(drag);
+        todosOfToday.remove(todosOfToday.getItem(drag));
+        todosOfTodayID.remove(drag);
+        todosOfToday.notifyDataSetChanged();
+        list.deferNotifyDataSetChanged();
         Thread_DeleteTodo thread_deleteTodo = new Thread_DeleteTodo(this, id);
         thread_deleteTodo.start();
         try{
@@ -408,5 +404,6 @@ public class Day_View_activity extends FragmentActivity {
         }catch (Exception e){
 
         }
+        list.setAdapter(ArrayAdapter(datestring));
     }
 }
