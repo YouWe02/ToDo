@@ -4,14 +4,19 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.TypedArray;
 import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -25,6 +30,9 @@ import java.util.Date;
 import java.util.List;
 
 public class wocheActivity extends AppCompatActivity implements GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener{
+    private static final int SWIPE_MIN_DISTANCE = 120;
+    private static final int SWIPE_MAX_OFF_PATH = 250;
+    private static final int SWIPE_THRESHOLD_VELOCITY = 200;
     public static Activity activity;
     private List<LinearLayout> allWeekButtons = new ArrayList<LinearLayout>();
     private int resetMonth;
@@ -60,6 +68,7 @@ public class wocheActivity extends AppCompatActivity implements GestureDetector.
         allWeekButtons.add((LinearLayout) findViewById(R.id.kalenderwoche5));
         allWeekButtons.add((LinearLayout) findViewById(R.id.kalenderwoche6));
         allWeekButtons.add((LinearLayout) findViewById(R.id.kalenderwoche7));
+        initClickListener();
         actualDate = Calendar.getInstance().getTime();
         actualDateFormatted = dateFormatter.format(actualDate);
         try {
@@ -3998,6 +4007,11 @@ public class wocheActivity extends AppCompatActivity implements GestureDetector.
     public void getTodosForThisButton(String dateOfLayout, LinearLayout layout){
 
         List<Todo> todos;
+
+        View divider1 = layout.findViewById(R.id.divider_1);
+        View divider2 = layout.findViewById(R.id.divider_2);
+        View divider3 = layout.findViewById(R.id.divider_3);
+
         LinearLayout layout1 = (LinearLayout) layout.getChildAt(1);
         LinearLayout layout2 = (LinearLayout) layout.getChildAt(3);
         LinearLayout layout3 = (LinearLayout) layout.getChildAt(5);
@@ -4044,6 +4058,7 @@ public class wocheActivity extends AppCompatActivity implements GestureDetector.
             }
         }
         if(todos.size() > 1) {
+            divider1.setBackgroundColor(getResources().getColor(R.color.classic_dark));
             icon2.setText(getStringIdentifier(this, todos.get(1).getTheme()));
             switch (todos.get(1).getPriority()){
                 case 1:
@@ -4065,6 +4080,7 @@ public class wocheActivity extends AppCompatActivity implements GestureDetector.
         }
 
         if(todos.size() > 2){
+            divider2.setBackgroundColor(getResources().getColor(R.color.classic_dark));
             icon3.setText(getStringIdentifier(this, todos.get(2).getTheme()));
             switch (todos.get(2).getPriority()){
                 case 1:
@@ -4085,6 +4101,7 @@ public class wocheActivity extends AppCompatActivity implements GestureDetector.
             }
         }
         if(todos.size() > 3){
+            divider3.setBackgroundColor(getResources().getColor(R.color.classic_dark));
             icon4.setText(getStringIdentifier(this, todos.get(3).getTheme()));
             switch (todos.get(3).getPriority()){
                 case 1:
@@ -4144,6 +4161,14 @@ public class wocheActivity extends AppCompatActivity implements GestureDetector.
         TextView prio3 = (TextView) layout3.getChildAt(1);
         TextView prio4 = (TextView) layout4.getChildAt(1);
 
+        View divider1 = layout.findViewById(R.id.divider_1);
+        View divider2 = layout.findViewById(R.id.divider_2);
+        View divider3 = layout.findViewById(R.id.divider_3);
+
+        divider1.setBackgroundColor(getResources().getColor(R.color.classic));
+        divider2.setBackgroundColor(getResources().getColor(R.color.classic));
+        divider3.setBackgroundColor(getResources().getColor(R.color.classic));
+
         icon1.setText("");
         icon2.setText("");
         icon3.setText("");
@@ -4194,32 +4219,25 @@ public class wocheActivity extends AppCompatActivity implements GestureDetector.
     @Override
     public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
 
-        if (e1.getX() < e2.getX() & e1.getX() + e2.getX() > e1.getY() + e2.getY()) {
-            swipeRight();
-        }
-
-        if (e1.getX() > e2.getX() & e1.getX() + e2.getX() > e1.getY() + e2.getY()) {
+        if (e1.getX() - e2.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
             swipeLeft();
         }
-
-        if (e1.getY() < e2.getY() & e1.getX() + e2.getX() < e1.getY() + e2.getY()) {
-            Intent intentset = new Intent(wocheActivity.this, MainActivity.class);
-            intentset.putExtra("Year", resetYear);
-            intentset.putExtra("Month", resetMonth);
-            intentset.putExtra("Week", resetWeek);
-            intentset.putExtra("Day", resetDay);
-            startActivity(intentset);
+        // left to right swipe
+        else if (e2.getX() - e1.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
+            swipeRight();
         }
-
-        if (e1.getY() > e2.getY() & e1.getX() + e2.getX() < e1.getY() + e2.getY()) {
-            Intent intentset = new Intent(wocheActivity.this, Day_View_activity.class);
-            intentset.putExtra("Year", resetYear);
-            intentset.putExtra("Month", resetMonth);
-            intentset.putExtra("Week", resetWeek);
-            intentset.putExtra("Day", resetDay);
-            startActivity(intentset);
-        }
-
         return true;
+    }
+    public void initClickListener(){
+
+        for (LinearLayout b : allWeekButtons){
+            b.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Log.e("Test", "click");
+                }
+
+            });
+        }
     }
 }

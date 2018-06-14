@@ -262,4 +262,55 @@ public class TodoDAO_Impl implements TodoDAO {
       _statement.release();
     }
   }
+
+  @Override
+  public Todo getToDoById(int id) {
+    final String _sql = "SELECT * FROM todo WHERE ID_Todo = ?";
+    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 1);
+    int _argIndex = 1;
+    _statement.bindLong(_argIndex, id);
+    final Cursor _cursor = __db.query(_statement);
+    try {
+      final int _cursorIndexOfIDTodo = _cursor.getColumnIndexOrThrow("ID_Todo");
+      final int _cursorIndexOfTitle = _cursor.getColumnIndexOrThrow("title");
+      final int _cursorIndexOfDescription = _cursor.getColumnIndexOrThrow("description");
+      final int _cursorIndexOfPriority = _cursor.getColumnIndexOrThrow("priority");
+      final int _cursorIndexOfDate = _cursor.getColumnIndexOrThrow("date");
+      final int _cursorIndexOfTheme = _cursor.getColumnIndexOrThrow("theme");
+      final int _cursorIndexOfPrivacy = _cursor.getColumnIndexOrThrow("privacy");
+      final Todo _result;
+      if(_cursor.moveToFirst()) {
+        _result = new Todo();
+        final int _tmpID_Todo;
+        _tmpID_Todo = _cursor.getInt(_cursorIndexOfIDTodo);
+        _result.setID_Todo(_tmpID_Todo);
+        final String _tmpTitle;
+        _tmpTitle = _cursor.getString(_cursorIndexOfTitle);
+        _result.setTitle(_tmpTitle);
+        final String _tmpDescription;
+        _tmpDescription = _cursor.getString(_cursorIndexOfDescription);
+        _result.setDescription(_tmpDescription);
+        final int _tmpPriority;
+        _tmpPriority = _cursor.getInt(_cursorIndexOfPriority);
+        _result.setPriority(_tmpPriority);
+        final String _tmpDate;
+        _tmpDate = _cursor.getString(_cursorIndexOfDate);
+        _result.setDate(_tmpDate);
+        final String _tmpTheme;
+        _tmpTheme = _cursor.getString(_cursorIndexOfTheme);
+        _result.setTheme(_tmpTheme);
+        final boolean _tmpPrivacy;
+        final int _tmp;
+        _tmp = _cursor.getInt(_cursorIndexOfPrivacy);
+        _tmpPrivacy = _tmp != 0;
+        _result.setPrivacy(_tmpPrivacy);
+      } else {
+        _result = null;
+      }
+      return _result;
+    } finally {
+      _cursor.close();
+      _statement.release();
+    }
+  }
 }

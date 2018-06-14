@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Wed Jun 13 16:23:05 CEST 2018
+#Thu Jun 14 18:41:37 CEST 2018
 2.base=C\:\\Users\\beera\\AndroidStudioProjects\\ToDo4Real\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\12
 0.path=classes.dex
 2.baseType=DIRECTORY

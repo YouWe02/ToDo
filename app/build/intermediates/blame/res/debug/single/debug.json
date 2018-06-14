@@ -420,6 +420,10 @@
         "source": "C:\\Users\\beera\\AndroidStudioProjects\\ToDo4Real\\app\\src\\main\\res\\drawable\\red_1orange_1green_3.png"
     },
     {
+        "merged": "C:\\Users\\beera\\AndroidStudioProjects\\ToDo4Real\\app\\build\\intermediates\\res\\merged\\debug\\layout_dayview_row.xml.flat",
+        "source": "C:\\Users\\beera\\AndroidStudioProjects\\ToDo4Real\\app\\src\\main\\res\\layout\\dayview_row.xml"
+    },
+    {
         "merged": "C:\\Users\\beera\\AndroidStudioProjects\\ToDo4Real\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_btn_check_to_on_mtrl_015.png.flat",
         "source": "C:\\Users\\beera\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\a0831aa4a13638c740c4d0016e3b988e\\res\\drawable-xxhdpi-v4\\abc_btn_check_to_on_mtrl_015.png"
     },

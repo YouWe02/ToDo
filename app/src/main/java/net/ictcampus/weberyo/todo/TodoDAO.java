@@ -19,11 +19,15 @@ public interface TodoDAO {
     @Query("SELECT * FROM todo WHERE date = :date ORDER BY priority DESC LIMIT 4 ")
     List<Todo> getTodoByDayLimi4(String date);
 
-    //get 1 ToDo of a Date who has the exact title
     @Query("SELECT * FROM todo WHERE date = :date AND title = :title ORDER BY title DESC LIMIT 1")
     Todo getToDoByTitle(String date, String title);
 
-    //inserts
+    @Query("SELECT * FROM todo WHERE ID_Todo = :id")
+    Todo getToDoById(int id);
+
+
+    //Inserts
+
     @Insert
     void insertTodo(Todo... todos);
 

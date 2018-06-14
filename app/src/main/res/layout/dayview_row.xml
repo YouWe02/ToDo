@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <net.ictcampus.weberyo.todo.FontAwesome
+        android:id="@+id/dayview_category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30dp"
+        android:text=""
+        android:padding="30dp"/>
+
+    <View
+        android:id="@+id/dayview_priority"
+        android:layout_width="3dp"
+        android:layout_height="70dp"
+        android:padding="5dp"
+        android:layout_gravity="center"/>
+
+    <TextView
+        android:id="@+id/dayview_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:paddingLeft="30dp"
+        android:layout_gravity="center"
+        android:textColor="@color/classic_dark"/>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="right"
+        android:orientation="horizontal">
+
+        <net.ictcampus.weberyo.todo.FontAwesome
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:text="@string/angle_right"
+            android:layout_gravity="center_vertical"
+            android:paddingRight="10dp"/>
+
+    </LinearLayout>
+
+</LinearLayout>

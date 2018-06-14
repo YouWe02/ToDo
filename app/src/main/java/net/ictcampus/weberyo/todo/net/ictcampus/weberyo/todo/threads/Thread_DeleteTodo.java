@@ -10,13 +10,16 @@ import java.util.List;
 public class Thread_DeleteTodo extends Thread{
 
     private AppDatabase db;
-    Context context;
+    private Context context;
+    private int id;
 
-    public Thread_DeleteTodo(Context context){
+    public Thread_DeleteTodo(Context context, int id){
         this.context = context;
+        this.id = id;
         db = AppDatabase.getAppDatabase(context);
     }
     public void run(){
-
+        Todo todo = db.todoDAO().getToDoById(id);
+        db.todoDAO().deleteTodo(todo);
     }
 }

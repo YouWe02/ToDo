@@ -2,6 +2,10 @@ package net.ictcampus.weberyo.todo;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.DialogFragment;
+import android.content.ClipData;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.hardware.fingerprint.FingerprintManager;
@@ -13,9 +17,12 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
+import android.view.DragEvent;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -24,6 +31,9 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+
+import net.ictcampus.weberyo.todo.net.ictcampus.weberyo.todo.threads.Thread_CreateTodo;
+import net.ictcampus.weberyo.todo.net.ictcampus.weberyo.todo.threads.Thread_DeleteTodo;
 import net.ictcampus.weberyo.todo.net.ictcampus.weberyo.todo.threads.Thread_GetToDoByTitle;
 import net.ictcampus.weberyo.todo.net.ictcampus.weberyo.todo.threads.Thread_GetTodayTodos;
 
@@ -37,6 +47,7 @@ import java.security.NoSuchProviderException;
 import java.security.UnrecoverableKeyException;
 import java.security.cert.CertificateException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -46,7 +57,8 @@ import javax.crypto.KeyGenerator;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
 
-public class Day_View_activity extends FragmentActivity implements GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener{
+
+public class Day_View_activity extends AppCompatActivity implements GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener{
 
     public static Activity activity;
     private int resetYear;
@@ -58,6 +70,7 @@ public class Day_View_activity extends FragmentActivity implements GestureDetect
     private String actualDateFormatted;
     private String actualMonth;
     private Date date;
+    private String datestring;
     private static final String KEY_NAME = "hvibdsdv";
     private Cipher cipher;
     private KeyStore keyStore;
@@ -68,7 +81,12 @@ public class Day_View_activity extends FragmentActivity implements GestureDetect
     private FingerprintDialog dialog;
     private Todo todo;
     private GestureDetector mGestureDetector2;
-    int year;
+    private int year;
+    private int drag;
+    private ArrayList<String> todosOfTodayID;
+    private ArrayAdapter todosOfToday;
+    private ListView list;
+    private boolean inside = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,9 +97,9 @@ public class Day_View_activity extends FragmentActivity implements GestureDetect
         mGestureDetector2 = new GestureDetector(this);
 
         initFloatButton();
-
+        setTitleActivity();
         Intent intentget = getIntent();
-        String date = intentget.getStringExtra("Date");
+        datestring = intentget.getStringExtra("Date");
         resetYear = intentget.getIntExtra("Year", 2);
         resetMonth = intentget.getIntExtra("Month", 6);
         resetWeek = intentget.getIntExtra("Week", 1);
@@ -89,17 +107,17 @@ public class Day_View_activity extends FragmentActivity implements GestureDetect
         actualMonth = intentget.getStringExtra("Monthstring");
         setTitleActivity();
 
-        ListView list = (ListView) findViewById(R.id.dayview_todo_list);
-        list.setAdapter(ArrayAdapter(date));
+        list = (ListView) findViewById(R.id.dayview_todo_list);
+        list.setAdapter(ArrayAdapter(datestring));
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String title = parent.getItemAtPosition(position).toString();
+                String title = (String)(list.getItemAtPosition(position));
                 onClickListElement(title);
             }
         });
 
-        final RelativeLayout layout = (RelativeLayout) findViewById(R.id.linear);
+        final RelativeLayout layout = (RelativeLayout) findViewById(R.id.relativeDay);
         layout.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, final MotionEvent event) {
@@ -107,19 +125,85 @@ public class Day_View_activity extends FragmentActivity implements GestureDetect
                 return true;
             }
         });
+
+
+        list.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                ClipData data = ClipData.newPlainText("Hi", "Hello");
+                View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(view);
+                view.startDragAndDrop(data, shadowBuilder, view, 0);
+                view.setVisibility(View.VISIBLE);
+                drag = position;
+                return true;
+            }
+        });
+
+        list.setOnDragListener(new View.OnDragListener() {
+            @Override
+            public boolean onDrag(View v, DragEvent event) {
+                FontAwesome trash;
+                if (event.getAction() == DragEvent.ACTION_DRAG_STARTED){
+                    trash = (FontAwesome) findViewById(R.id.trash);
+                    trash.setVisibility(View.VISIBLE);
+
+                }
+                if(event.getAction() == DragEvent.ACTION_DRAG_ENDED){
+                    trash = (FontAwesome) findViewById(R.id.trash);
+                    trash.setVisibility(View.INVISIBLE);
+                    if(inside){
+                        int id = Integer.parseInt(todosOfTodayID.get(drag));
+                        deleteTodo(id, drag);
+                    }
+                }
+                return true;
+            }
+        });
+
+        FontAwesome trash = (FontAwesome) findViewById(R.id.trash);
+        trash.setOnDragListener(new View.OnDragListener() {
+            @Override
+            public boolean onDrag(View v, DragEvent event) {
+                if (event.getAction() == DragEvent.ACTION_DRAG_ENTERED){
+                    v.setBackground(getResources().getDrawable(R.drawable.linear_layout_border));
+                    inside = true;
+                }
+                if (event.getAction() == DragEvent.ACTION_DRAG_EXITED){
+                    v.setBackground(null);
+                    inside = false;
+                }
+                return true;
+            }
+        });
     }
 
     public ArrayAdapter ArrayAdapter(String date) {
         try {
-            ArrayAdapter todosOfToday = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1);
+            todosOfTodayID =  new ArrayList<String>();
             Thread_GetTodayTodos thread_getTodayTodos = new Thread_GetTodayTodos(date, this);
             thread_getTodayTodos.start();
             thread_getTodayTodos.join();
             List<Todo> todos = thread_getTodayTodos.getAll();
+            String[] titles = new String[todos.size()];
+            String[] icons = new String[todos.size()];
+            boolean[] privacy = new boolean[todos.size()];
+            int[] priorities = new int[todos.size()];
+
+            int counter = 0;
             for (Todo todo : todos) {
-                todosOfToday.add(todo.getTitle());
+                todosOfTodayID.add(Integer.toString(todo.getID_Todo()));
+                titles[counter] = todo.getTitle();
+                icons[counter] = todo.getTheme();
+                privacy[counter] = todo.isPrivacy();
+                priorities[counter] = todo.getPriority();
+                counter++;
             }
 
+            todosOfToday = new ArrayAdapter_Dayviewrow(this, icons, titles, privacy, priorities);
+
+            for(Todo todo : todos){
+                todosOfToday.add(todo);
+            }
             return todosOfToday;
 
 
@@ -468,5 +552,21 @@ public class Day_View_activity extends FragmentActivity implements GestureDetect
         public FingerprintException(Exception e) {
             super(e);
         }
+    }
+
+    public void deleteTodo(int id, int drag){
+        Todo todo = (Todo) todosOfToday.getItem(drag);
+        todosOfToday.remove(todosOfToday.getItem(drag));
+        todosOfTodayID.remove(drag);
+        todosOfToday.notifyDataSetChanged();
+        list.deferNotifyDataSetChanged();
+        Thread_DeleteTodo thread_deleteTodo = new Thread_DeleteTodo(this, id);
+        thread_deleteTodo.start();
+        try{
+            thread_deleteTodo.join();
+        }catch (Exception e){
+
+        }
+        list.setAdapter(ArrayAdapter(datestring));
     }
 }

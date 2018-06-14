@@ -1270,14 +1270,20 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
             }
             // right to left swipe
             if (e1.getX() - e2.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
-                swipeLeft();
+                //swipeLeft();
+                Intent intentset = new Intent(MainActivity.this, wocheActivity.class);
+                intentset.putExtra("Year", resetYear);
+                intentset.putExtra("Month", resetMonth);
+                intentset.putExtra("Week", resetWeek);
+                intentset.putExtra("Day", resetDay);
+                startActivity(intentset);
             }
             // left to right swipe
             else if (e2.getX() - e1.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
                 swipeRight();
             }
             else if (e1.getY() - e2.getY() > SWIPE_MIN_DISTANCE && Math.abs(velocityY) > SWIPE_THRESHOLD_VELOCITY){
-                Intent intentset = new Intent(MainActivity.this, MainActivity.class);
+                Intent intentset = new Intent(MainActivity.this, wocheActivity.class);
                 intentset.putExtra("Year", resetYear);
                 intentset.putExtra("Month", resetMonth);
                 intentset.putExtra("Week", resetWeek);
@@ -1285,7 +1291,7 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
                 startActivity(intentset);
             }
             else if (e1.getY() - e2.getY() > SWIPE_MIN_DISTANCE && Math.abs(velocityY) > SWIPE_THRESHOLD_VELOCITY){
-                Intent intentset = new Intent(MainActivity.this, MainActivity.class);
+                Intent intentset = new Intent(MainActivity.this, wocheActivity.class);
                 intentset.putExtra("Year", resetYear);
                 intentset.putExtra("Month", resetMonth);
                 intentset.putExtra("Week", resetWeek);

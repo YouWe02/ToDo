@@ -71,7 +71,8 @@
             android:layout_row="1"
             android:gravity="left|top"
             android:text="1"
-            android:textSize="12dp" />
+            android:textSize="12dp"
+            android:background="@color/classic"/>
 
         <Button
             android:id="@+id/kalendermonat2"
@@ -80,7 +81,8 @@
             android:layout_row="1"
             android:gravity="left|top"
             android:text="2"
-            android:textSize="12dp" />
+            android:textSize="12dp"
+            android:background="@color/classic"/>
 
         <Button
             android:id="@+id/kalendermonat3"
@@ -89,7 +91,8 @@
             android:layout_row="1"
             android:gravity="left|top"
             android:text="3"
-            android:textSize="12dp" />
+            android:textSize="12dp"
+            android:background="@color/classic"/>
 
         <Button
             android:id="@+id/kalendermonat4"
@@ -98,7 +101,8 @@
             android:layout_row="1"
             android:gravity="left|top"
             android:text="4"
-            android:textSize="12dp" />
+            android:textSize="12dp"
+            android:background="@color/classic"/>
 
         <Button
             android:id="@+id/kalendermonat5"
@@ -107,7 +111,8 @@
             android:layout_row="1"
             android:gravity="left|top"
             android:text="5"
-            android:textSize="12dp" />
+            android:textSize="12dp"
+            android:background="@color/classic"/>
 
         <Button
             android:id="@+id/kalendermonat6"
@@ -116,7 +121,8 @@
             android:layout_row="1"
             android:gravity="left|top"
             android:text="6"
-            android:textSize="12dp" />
+            android:textSize="12dp"
+            android:background="@color/classic"/>
 
         <Button
             android:id="@+id/kalendermonat7"
@@ -125,7 +131,8 @@
             android:layout_row="1"
             android:gravity="left|top"
             android:text="7"
-            android:textSize="12dp" />
+            android:textSize="12dp"
+            android:background="@color/classic"/>
 
         <Button
             android:id="@+id/kalendermonat8"
@@ -136,7 +143,8 @@
             android:layout_row="2"
             android:gravity="left|top"
             android:text="8"
-            android:textSize="12dp" />
+            android:textSize="12dp"
+            android:background="@color/classic"/>
 
         <Button
             android:id="@+id/kalendermonat9"
@@ -145,7 +153,8 @@
             android:layout_row="2"
             android:gravity="left|top"
             android:text="9"
-            android:textSize="12dp" />
+            android:textSize="12dp"
+            android:background="@color/classic"/>
 
         <Button
             android:id="@+id/kalendermonat10"
@@ -154,7 +163,8 @@
             android:layout_row="2"
             android:gravity="left|top"
             android:text="10"
-            android:textSize="12dp" />
+            android:textSize="12dp"
+            android:background="@color/classic"/>
 
         <Button
             android:id="@+id/kalendermonat11"
@@ -163,7 +173,8 @@
             android:layout_row="2"
             android:gravity="left|top"
             android:text="11"
-            android:textSize="12dp" />
+            android:textSize="12dp"
+            android:background="@color/classic"/>
 
         <Button
             android:id="@+id/kalendermonat12"
@@ -172,7 +183,8 @@
             android:layout_row="2"
             android:gravity="left|top"
             android:text="12"
-            android:textSize="12dp" />
+            android:textSize="12dp"
+            android:background="@color/classic"/>
 
         <Button
             android:id="@+id/kalendermonat13"
@@ -181,7 +193,8 @@
             android:layout_row="2"
             android:gravity="left|top"
             android:text="13"
-            android:textSize="12dp" />
+            android:textSize="12dp"
+            android:background="@color/classic"/>
 
         <Button
             android:id="@+id/kalendermonat14"
@@ -190,7 +203,8 @@
             android:layout_row="2"
             android:gravity="left|top"
             android:text="14"
-            android:textSize="12dp" />
+            android:textSize="12dp"
+            android:background="@color/classic"/>
 
         <Button
             android:id="@+id/kalendermonat15"
@@ -201,7 +215,8 @@
             android:layout_row="3"
             android:gravity="left|top"
             android:text="15"
-            android:textSize="12dp" />
+            android:textSize="12dp"
+            android:background="@color/classic"/>
 
         <Button
             android:id="@+id/kalendermonat16"
@@ -210,7 +225,8 @@
             android:layout_row="3"
             android:gravity="left|top"
             android:text="16"
-            android:textSize="12dp" />
+            android:textSize="12dp"
+            android:background="@color/classic"/>
 
         <Button
             android:id="@+id/kalendermonat17"
@@ -219,7 +235,8 @@
             android:layout_row="3"
             android:gravity="left|top"
             android:text="17"
-            android:textSize="12dp" />
+            android:textSize="12dp"
+            android:background="@color/classic"/>
 
         <Button
             android:id="@+id/kalendermonat18"
@@ -228,7 +245,8 @@
             android:layout_row="3"
             android:gravity="left|top"
             android:text="18"
-            android:textSize="12dp" />
+            android:textSize="12dp"
+            android:background="@color/classic"/>
 
         <Button
             android:id="@+id/kalendermonat19"
@@ -237,7 +255,8 @@
             android:layout_row="3"
             android:gravity="left|top"
             android:text="19"
-            android:textSize="12dp" />
+            android:textSize="12dp"
+            android:background="@color/classic"/>
 
         <Button
             android:id="@+id/kalendermonat20"
@@ -246,7 +265,8 @@
             android:layout_row="3"
             android:gravity="left|top"
             android:text="20"
-            android:textSize="12dp" />
+            android:textSize="12dp"
+            android:background="@color/classic"/>
 
         <Button
             android:id="@+id/kalendermonat21"
@@ -255,7 +275,8 @@
             android:layout_row="3"
             android:gravity="left|top"
             android:text="21"
-            android:textSize="12dp" />
+            android:textSize="12dp"
+            android:background="@color/classic"/>
 
         <Button
             android:id="@+id/kalendermonat22"
@@ -266,7 +287,8 @@
             android:layout_row="4"
             android:gravity="left|top"
             android:text="22"
-            android:textSize="12dp" />
+            android:textSize="12dp"
+            android:background="@color/classic"/>
 
         <Button
             android:id="@+id/kalendermonat23"
@@ -275,7 +297,8 @@
             android:layout_row="4"
             android:gravity="left|top"
             android:text="23"
-            android:textSize="12dp" />
+            android:textSize="12dp"
+            android:background="@color/classic"/>
 
         <Button
             android:id="@+id/kalendermonat24"
@@ -284,7 +307,8 @@
             android:layout_row="4"
             android:gravity="left|top"
             android:text="24"
-            android:textSize="12dp" />
+            android:textSize="12dp"
+            android:background="@color/classic"/>
 
         <Button
             android:id="@+id/kalendermonat25"
@@ -293,7 +317,8 @@
             android:layout_row="4"
             android:gravity="left|top"
             android:text="25"
-            android:textSize="12dp" />
+            android:textSize="12dp"
+            android:background="@color/classic"/>
 
         <Button
             android:id="@+id/kalendermonat26"
@@ -302,7 +327,8 @@
             android:layout_row="4"
             android:gravity="left|top"
             android:text="26"
-            android:textSize="12dp" />
+            android:textSize="12dp"
+            android:background="@color/classic"/>
 
         <Button
             android:id="@+id/kalendermonat27"
@@ -311,7 +337,8 @@
             android:layout_row="4"
             android:gravity="left|top"
             android:text="27"
-            android:textSize="12dp" />
+            android:textSize="12dp"
+            android:background="@color/classic"/>
 
         <Button
             android:id="@+id/kalendermonat28"
@@ -320,7 +347,8 @@
             android:layout_row="4"
             android:gravity="left|top"
             android:text="28"
-            android:textSize="12dp" />
+            android:textSize="12dp"
+            android:background="@color/classic"/>
 
         <Button
             android:id="@+id/kalendermonat29"
@@ -331,7 +359,8 @@
             android:layout_row="5"
             android:gravity="left|top"
             android:text="29"
-            android:textSize="12dp" />
+            android:textSize="12dp"
+            android:background="@color/classic"/>
 
         <Button
             android:id="@+id/kalendermonat30"
@@ -340,7 +369,8 @@
             android:layout_row="5"
             android:gravity="left|top"
             android:text="30"
-            android:textSize="12dp" />
+            android:textSize="12dp"
+            android:background="@color/classic"/>
 
         <Button
             android:id="@+id/kalendermonat31"
@@ -349,7 +379,8 @@
             android:layout_row="5"
             android:gravity="left|top"
             android:text="31"
-            android:textSize="12dp" />
+            android:textSize="12dp"
+            android:background="@color/classic"/>
 
         <Button
             android:id="@+id/kalendermonat32"
@@ -358,7 +389,8 @@
             android:layout_row="5"
             android:gravity="left|top"
             android:text="32"
-            android:textSize="12dp" />
+            android:textSize="12dp"
+            android:background="@color/classic"/>
 
         <Button
             android:id="@+id/kalendermonat33"
@@ -367,7 +399,8 @@
             android:layout_row="5"
             android:gravity="left|top"
             android:text="33"
-            android:textSize="12dp" />
+            android:textSize="12dp"
+            android:background="@color/classic"/>
 
         <Button
             android:id="@+id/kalendermonat34"
@@ -376,7 +409,8 @@
             android:layout_row="5"
             android:gravity="left|top"
             android:text="34"
-            android:textSize="12dp" />
+            android:textSize="12dp"
+            android:background="@color/classic"/>
 
         <Button
             android:id="@+id/kalendermonat35"
@@ -385,7 +419,8 @@
             android:layout_row="5"
             android:gravity="left|top"
             android:text="35"
-            android:textSize="12dp" />
+            android:textSize="12dp"
+            android:background="@color/classic"/>
 
         <Button
             android:id="@+id/kalendermonat36"
@@ -396,7 +431,8 @@
             android:layout_row="6"
             android:gravity="left|top"
             android:text="36"
-            android:textSize="12dp" />
+            android:textSize="12dp"
+            android:background="@color/classic"/>
 
         <Button
             android:id="@+id/kalendermonat37"
@@ -405,7 +441,8 @@
             android:layout_row="6"
             android:gravity="left|top"
             android:text="37"
-            android:textSize="12dp" />
+            android:textSize="12dp"
+            android:background="@color/classic"/>
 
     </GridLayout>
 

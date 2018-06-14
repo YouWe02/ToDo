@@ -1,45 +1,45 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:2:1-34:12
-INJECTED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:2:1-34:12
-INJECTED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:2:1-34:12
-INJECTED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:2:1-34:12
+ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:2:1-36:12
+INJECTED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:2:1-36:12
+INJECTED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:2:1-36:12
+INJECTED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:2:1-36:12
 MERGED from [com.android.support:design:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\design-27.1.1.aar\779021e64fd3936dbbc112dfd0d9d0f7\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\a0831aa4a13638c740c4d0016e3b988e\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support.constraint:constraint-layout:1.1.0] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.0.aar\9007346d80b34f9782b1f4b18db02c2b\AndroidManifest.xml:2:1-11:12
 MERGED from [android.arch.persistence.room:runtime:1.1.0] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\6a1c699c171e24b4dd07bc85105fb648\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-v4:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\454b3ea40583a65816cd6d82391ec34e\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\970b0eeb733bbfcd8e4d63e23b13d083\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\1a35a8d1e845066c29e1878d04168297\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.1.aar\6f27000cb4512ea75570e3bf78bf0c30\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:recyclerview-v7:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.1.aar\a52d64d9ea5e0c029ce13c8a8f222919\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:transition:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\transition-27.1.1.aar\ce704cff80989db5267a16918b0830e5\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.persistence:db-framework:1.1.0] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\db-framework-1.1.0.aar\f87423564836876e617274a2023bf976\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.persistence:db:1.1.0] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\db-1.1.0.aar\4846ad4470aaf53ecd972ec98a5acde5\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\32bf834de6646a7fd532346595d768b1\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\925b096d734f6d1782a73fa589ad9510\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\681dac15da215ec75a171162016cec81\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-compat:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\885ae8770ef352cf1ca7f10e013f9b9c\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\970b0eeb733bbfcd8e4d63e23b13d083\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\bf82aa7510c73cd7271c62893c2b9323\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.core:runtime:1.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\340b99a3e2d5a24e51a4336458b3d6f0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\1a35a8d1e845066c29e1878d04168297\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\32bf834de6646a7fd532346595d768b1\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\681dac15da215ec75a171162016cec81\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\925b096d734f6d1782a73fa589ad9510\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.1.aar\6f27000cb4512ea75570e3bf78bf0c30\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\885ae8770ef352cf1ca7f10e013f9b9c\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\2a5705aa1fececac97ea54031ff618d2\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\65fefb01e8b411e66366e4ad5f38b55f\AndroidManifest.xml:17:1-22:12
-INJECTED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:2:1-34:12
-INJECTED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:2:1-34:12
-INJECTED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:2:1-34:12
+INJECTED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:2:1-36:12
+INJECTED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:2:1-36:12
+INJECTED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:2:1-36:12
 	package
 		ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:4:5-41
 		INJECTED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:2:1-34:12
+		ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:2:1-36:12
 		INJECTED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml
 	xmlns:tools
 		ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:3:5-51
 	android:versionCode
 		INJECTED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:2:1-34:12
+		ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:2:1-36:12
 		INJECTED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:2:11-69
@@ -48,7 +48,7 @@ ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidMa
 	android:name
 		ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:6:22-71
 application
-ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:8:5-32:19
+ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:8:5-34:19
 MERGED from [com.android.support.constraint:constraint-layout:1.1.0] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.0.aar\9007346d80b34f9782b1f4b18db02c2b\AndroidManifest.xml:9:5-20
 MERGED from [com.android.support.constraint:constraint-layout:1.1.0] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.0.aar\9007346d80b34f9782b1f4b18db02c2b\AndroidManifest.xml:9:5-20
 	android:supportsRtl
@@ -76,31 +76,35 @@ ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidMa
 	android:name
 		ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:19:19-48
 activity#net.ictcampus.weberyo.todo.Day_View_activity
-ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:20:9-54
+ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:20:9-22:35
+	android:label
+		ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:22:13-33
+	android:theme
+		ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:21:13-44
 	android:name
 		ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:20:19-52
 activity#net.ictcampus.weberyo.todo.MainActivity
-ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:21:9-30:20
+ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:23:9-32:20
 	android:screenOrientation
-		ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:24:13-49
+		ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:26:13-49
 	android:label
-		ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:23:13-45
+		ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:25:13-45
 	android:name
-		ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:22:13-41
+		ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:24:13-41
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:25:13-29:29
+ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:27:13-31:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:26:17-69
+ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:28:17-69
 	android:name
-		ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:26:25-66
+		ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:28:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:28:17-77
+ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:30:17-77
 	android:name
-		ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:28:27-74
+		ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:30:27-74
 activity#net.ictcampus.weberyo.todo.ToDoDescribtion
-ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:31:9-53
+ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:33:9-53
 	android:name
-		ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:31:19-50
+		ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:33:19-50
 uses-sdk
 INJECTED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml
@@ -115,12 +119,6 @@ MERGED from [android.arch.persistence.room:runtime:1.1.0] C:\Users\beera\.gradle
 MERGED from [android.arch.persistence.room:runtime:1.1.0] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\6a1c699c171e24b4dd07bc85105fb648\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-v4:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\454b3ea40583a65816cd6d82391ec34e\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-v4:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\454b3ea40583a65816cd6d82391ec34e\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\970b0eeb733bbfcd8e4d63e23b13d083\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\970b0eeb733bbfcd8e4d63e23b13d083\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\1a35a8d1e845066c29e1878d04168297\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\1a35a8d1e845066c29e1878d04168297\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.1.aar\6f27000cb4512ea75570e3bf78bf0c30\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.1.aar\6f27000cb4512ea75570e3bf78bf0c30\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:recyclerview-v7:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.1.aar\a52d64d9ea5e0c029ce13c8a8f222919\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:recyclerview-v7:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-27.1.1.aar\a52d64d9ea5e0c029ce13c8a8f222919\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:transition:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\transition-27.1.1.aar\ce704cff80989db5267a16918b0830e5\AndroidManifest.xml:20:5-44
@@ -129,18 +127,24 @@ MERGED from [android.arch.persistence:db-framework:1.1.0] C:\Users\beera\.gradle
 MERGED from [android.arch.persistence:db-framework:1.1.0] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\db-framework-1.1.0.aar\f87423564836876e617274a2023bf976\AndroidManifest.xml:20:5-44
 MERGED from [android.arch.persistence:db:1.1.0] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\db-1.1.0.aar\4846ad4470aaf53ecd972ec98a5acde5\AndroidManifest.xml:20:5-44
 MERGED from [android.arch.persistence:db:1.1.0] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\db-1.1.0.aar\4846ad4470aaf53ecd972ec98a5acde5\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\32bf834de6646a7fd532346595d768b1\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\32bf834de6646a7fd532346595d768b1\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\925b096d734f6d1782a73fa589ad9510\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\925b096d734f6d1782a73fa589ad9510\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\681dac15da215ec75a171162016cec81\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\681dac15da215ec75a171162016cec81\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-compat:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\885ae8770ef352cf1ca7f10e013f9b9c\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-compat:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\885ae8770ef352cf1ca7f10e013f9b9c\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\970b0eeb733bbfcd8e4d63e23b13d083\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\970b0eeb733bbfcd8e4d63e23b13d083\AndroidManifest.xml:20:5-44
 MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\bf82aa7510c73cd7271c62893c2b9323\AndroidManifest.xml:20:5-44
 MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\bf82aa7510c73cd7271c62893c2b9323\AndroidManifest.xml:20:5-44
 MERGED from [android.arch.core:runtime:1.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\340b99a3e2d5a24e51a4336458b3d6f0\AndroidManifest.xml:20:5-44
 MERGED from [android.arch.core:runtime:1.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\340b99a3e2d5a24e51a4336458b3d6f0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\1a35a8d1e845066c29e1878d04168297\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\1a35a8d1e845066c29e1878d04168297\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\32bf834de6646a7fd532346595d768b1\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\32bf834de6646a7fd532346595d768b1\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\681dac15da215ec75a171162016cec81\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\681dac15da215ec75a171162016cec81\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\925b096d734f6d1782a73fa589ad9510\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\925b096d734f6d1782a73fa589ad9510\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.1.aar\6f27000cb4512ea75570e3bf78bf0c30\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.1.aar\6f27000cb4512ea75570e3bf78bf0c30\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\885ae8770ef352cf1ca7f10e013f9b9c\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.1] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\885ae8770ef352cf1ca7f10e013f9b9c\AndroidManifest.xml:20:5-44
 MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\2a5705aa1fececac97ea54031ff618d2\AndroidManifest.xml:20:5-44
 MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\2a5705aa1fececac97ea54031ff618d2\AndroidManifest.xml:20:5-44
 MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\beera\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\65fefb01e8b411e66366e4ad5f38b55f\AndroidManifest.xml:20:5-44

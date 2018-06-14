@@ -28,8 +28,6 @@ public class Thread_GetTodayTodosLimit4 extends Thread{
     }
 
     public synchronized List<Todo> getAll(){
-        this.start();
-
         return all;
     }
 
