@@ -22,6 +22,10 @@ public class ToDoDescribtion extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_to_do_describtion);
 
+        //initialize back button
+        initToolbar();
+
+        //get all informations about the todo over the intent
         Intent intent = getIntent();
         title = intent.getStringExtra("Title");
         description = intent.getStringExtra("Description");
@@ -30,11 +34,12 @@ public class ToDoDescribtion extends AppCompatActivity {
         category = intent.getStringExtra("Category");
         privacy = intent.getBooleanExtra("Private", false);
 
-        initToolbar();
+        //set all informations to the xml components
         setDescription();
     }
 
     public void setDescription() {
+        //get xml components
         TextView describtionTextView = (TextView)findViewById(R.id.textViewDescribtion);
         TextView dateTextView = (TextView)findViewById(R.id.textViewDate);
         RadioButton priority1 = (RadioButton) findViewById(R.id.radiobutton_priority_1);
@@ -46,13 +51,18 @@ public class ToDoDescribtion extends AppCompatActivity {
         FontAwesome category2TextView = (FontAwesome) findViewById(R.id.textViewCategory2);
         CheckBox privateCheckBox = (CheckBox) findViewById(R.id.private_checkbox2);
 
+        //set title of activity to title of todo
         setTitle(title);
+
+        //set description to textview
         describtionTextView.setText(description);
 
+        //split the date and set it in the textview
         String[] dateSplitting = date.split(" ");
         String dateTrimmed = dateSplitting[0];
         dateTextView.setText(dateTrimmed);
 
+        //set priority of todo
         if(priority == 1){
             priority1.setChecked(true);
         }
@@ -68,12 +78,14 @@ public class ToDoDescribtion extends AppCompatActivity {
         else if(priority == 5){
             priority5.setChecked(true);
         }
+
+        //split the category name, set the icon for the category and set category name in textview
         String[] categoryName = category.split("_");
         String categoryTrimmed = categoryName[1];
-
         category2TextView.setText(getStringIdentifier(this,category));
         categoryTextView.setText(categoryTrimmed);
 
+        //set checkbox to checked, if the todo is private
         if(privacy == true){
             privateCheckBox.setChecked(true);
         }
@@ -84,6 +96,7 @@ public class ToDoDescribtion extends AppCompatActivity {
         actionBar.setDisplayHomeAsUpEnabled(true);
     }
 
+    //Methods for the back button
     @Override
     public void onBackPressed(){
         finish();
@@ -99,6 +112,7 @@ public class ToDoDescribtion extends AppCompatActivity {
 
         return  super.onOptionsItemSelected(item);
     }
+
     public static int getStringIdentifier(Context context, String name) {
         return context.getResources().getIdentifier(name, "string", context.getPackageName());
     }

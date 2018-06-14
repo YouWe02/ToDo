@@ -76,7 +76,7 @@ ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidMa
 	android:name
 		ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:19:19-48
 activity#net.ictcampus.weberyo.todo.Day_View_activity
-ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:20:9-55
+ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:20:9-54
 	android:name
 		ADDED from C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\src\main\AndroidManifest.xml:20:19-52
 activity#net.ictcampus.weberyo.todo.MainActivity

@@ -6,12 +6,16 @@ import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.view.MotionEventCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.GridLayout;
+import android.widget.TextView;
 
 import net.ictcampus.weberyo.todo.net.ictcampus.weberyo.todo.threads.Thread_GetTodayTodos;
 
@@ -21,7 +25,10 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener{
+    private static final int SWIPE_MIN_DISTANCE = 120;
+    private static final int SWIPE_MAX_OFF_PATH = 250;
+    private static final int SWIPE_THRESHOLD_VELOCITY = 200;
     public static Activity activity;
     Intent intentget;
     private SimpleDateFormat dateFormatter = new SimpleDateFormat("dd-MMM-yyyy");
@@ -36,6 +43,9 @@ public class MainActivity extends AppCompatActivity {
     private int resetYear;
     private int resetWeek;
     private int resetDay;
+    private GestureDetector mGestureDetector;
+    private Button buttonOnClick;
+    private View viewGestureisOn;
     private Context context;
 
     @Override
@@ -43,6 +53,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         activity = this;
+
+        mGestureDetector = new GestureDetector(this);
+
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS, WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         initFloatButton();
         actualDate = Calendar.getInstance().getTime();
@@ -93,78 +106,28 @@ public class MainActivity extends AppCompatActivity {
         resetWeek = intentget.getIntExtra("Week", 1);
         resetDay = intentget.getIntExtra("Day", 1);
         setDatesToButtons(resetMonth, resetYear);
-        getAllToDosMonth();
 
         final CoordinatorLayout layout = (CoordinatorLayout) findViewById(R.id.grid);
-        layout.setOnTouchListener(new OnSwipeTouchListener(MainActivity.this) {
-            public void onSwipeTop() {
-                Intent intentset = new Intent(MainActivity.this, wocheActivity.class);
-                intentset.putExtra("Year", resetYear);
-                intentset.putExtra("Month", resetMonth);
-                intentset.putExtra("Week", resetWeek);
-                intentset.putExtra("Day", resetDay);
-                startActivity(intentset);
-            }
-
-            public void onSwipeRight() {
-                swipeRight();
-                getAllToDosMonth();
-            }
-
-            public void onSwipeLeft() {
-                swipeLeft();
-                getAllToDosMonth();
-            }
-
-            public void onSwipeBottom() {
+        layout.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, final MotionEvent event) {
+                viewGestureisOn = (CoordinatorLayout) v;
+                mGestureDetector.onTouchEvent(event);
+                return true;
             }
         });
 
         for (Button b : allMonthButtons) {
-            b.setOnClickListener(new View.OnClickListener() {
+            b.setOnTouchListener(new View.OnTouchListener() {
                 @Override
-                public void onClick(View v) {
-                    Button c = (Button) v;
-                    int länge = c.getText().toString().length();
-                    String text = c.getText().toString();
-                    String dateFormatted = "default";
-                    String actualdate = "default";
-                    int year = 0;
-                    if (resetYear == 2) {
-                        year = date.getYear() + 1900;
-                    } else if (resetYear == 1) {
-                        year = date.getYear() + 1899;
-                    } else {
-                        year = date.getYear() + 1901;
-                    }
-                    if (länge < 2) {
-                        actualdate = 0 + "" + text;
-                        if (resetMonth + 1 < 10) {
-                            dateFormatted = year + "-" + "0" + (resetMonth + 1) + "-" + actualdate + " " + "00:00:00.000";
-                        } else {
-                            dateFormatted = year + "-" + (resetMonth + 1) + "-" + actualdate + " " + "00:00:00.000";
-                        }
-                    } else {
-                        actualdate = text + "";
-                        if (resetMonth + 1 < 10) {
-                            dateFormatted = year + "-" + "0" + (resetMonth + 1) + "-" + actualdate + " " + "00:00:00.000";
-                        } else {
-                            dateFormatted = year + "-" + (resetMonth + 1) + "-" + actualdate + " " + "00:00:00.000";
-                        }
-                    }
-                    resetDay = Integer.parseInt(text);
-                    Intent intent = new Intent(MainActivity.this, Day_View_activity.class);
-                    intent.putExtra("Year", resetYear);
-                    intent.putExtra("Month", resetMonth);
-                    intent.putExtra("Week", resetWeek);
-                    intent.putExtra("Day", resetDay);
-                    intent.putExtra("Date", dateFormatted);
-                    startActivity(intent);
+                public boolean onTouch(View v, final MotionEvent event) {
+                    viewGestureisOn = (Button) v;
+                    buttonOnClick = (Button) v;
+                    mGestureDetector.onTouchEvent(event);
+                    return true;
                 }
             });
         }
-
-
     }
 
     public void setDatesToButtons(int month, int year) {
@@ -503,6 +466,10 @@ public class MainActivity extends AppCompatActivity {
             }
             i++;
         }
+        for(Button b:allMonthButtons){
+            b.setCompoundDrawablesWithIntrinsicBounds (null, null, null, null);
+        }
+        getAllToDosMonth();
         String MonthText = "default";
         if (month == 0) {
             MonthText = "January";
@@ -547,174 +514,174 @@ public class MainActivity extends AppCompatActivity {
         if (!(getTitle().toString().toLowerCase().contains(actualMonth) & getTitle().toString().toLowerCase().contains((date.getYear() + 1899) + ""))) {
             if (getTitle().toString().toLowerCase().contains("january")) {
                 if (getTitle().toString().toLowerCase().contains((date.getYear() + 1900) + "")) {
-                    setDatesToButtons(11, 1);
                     resetMonth = 11;
                     resetYear = 1;
+                    setDatesToButtons(11, 1);
                 } else if (getTitle().toString().toLowerCase().contains((date.getYear() + 1901) + "")) {
-                    setDatesToButtons(11, 2);
                     resetMonth = 11;
                     resetYear = 2;
+                    setDatesToButtons(11, 2);
                 } else {
 
                 }
             } else if (getTitle().toString().toLowerCase().contains("december")) {
                 if (getTitle().toString().toLowerCase().contains((date.getYear() + 1900) + "")) {
-                    setDatesToButtons(10, 2);
                     resetMonth = 10;
                     resetYear = 2;
+                    setDatesToButtons(10, 2);
                 } else if (getTitle().toString().toLowerCase().contains((date.getYear() + 1899) + "")) {
-                    setDatesToButtons(10, 1);
                     resetMonth = 10;
                     resetYear = 1;
+                    setDatesToButtons(10, 1);
                 } else {
-                    setDatesToButtons(10, 3);
                     resetMonth = 10;
                     resetYear = 3;
+                    setDatesToButtons(10, 3);
                 }
             } else if (getTitle().toString().toLowerCase().contains("february")) {
                 if (getTitle().toString().toLowerCase().contains((date.getYear() + 1900) + "")) {
-                    setDatesToButtons(0, 2);
                     resetMonth = 0;
                     resetYear = 2;
+                    setDatesToButtons(0, 2);
                 } else if (getTitle().toString().toLowerCase().contains((date.getYear() + 1899) + "")) {
-                    setDatesToButtons(0, 1);
                     resetMonth = 0;
                     resetYear = 1;
+                    setDatesToButtons(0, 1);
                 } else {
-                    setDatesToButtons(0, 3);
                     resetMonth = 0;
                     resetYear = 3;
+                    setDatesToButtons(0, 3);
                 }
             } else if (getTitle().toString().toLowerCase().contains("march")) {
                 if (getTitle().toString().toLowerCase().contains((date.getYear() + 1900) + "")) {
-                    setDatesToButtons(1, 2);
                     resetMonth = 1;
                     resetYear = 2;
+                    setDatesToButtons(1, 2);
                 } else if (getTitle().toString().toLowerCase().contains((date.getYear() + 1899) + "")) {
-                    setDatesToButtons(1, 1);
                     resetMonth = 1;
                     resetYear = 1;
+                    setDatesToButtons(1, 1);
                 } else {
-                    setDatesToButtons(1, 3);
                     resetMonth = 1;
                     resetYear = 3;
+                    setDatesToButtons(1, 3);
                 }
             } else if (getTitle().toString().toLowerCase().contains("april")) {
                 if (getTitle().toString().toLowerCase().contains((date.getYear() + 1900) + "")) {
-                    setDatesToButtons(2, 2);
                     resetMonth = 2;
                     resetYear = 2;
+                    setDatesToButtons(2, 2);
                 } else if (getTitle().toString().toLowerCase().contains((date.getYear() + 1899) + "")) {
-                    setDatesToButtons(2, 1);
                     resetMonth = 2;
                     resetYear = 1;
+                    setDatesToButtons(2, 1);
                 } else {
-                    setDatesToButtons(2, 3);
                     resetMonth = 2;
                     resetYear = 3;
+                    setDatesToButtons(2, 3);
                 }
             } else if (getTitle().toString().toLowerCase().contains("may")) {
                 if (getTitle().toString().toLowerCase().contains((date.getYear() + 1900) + "")) {
-                    setDatesToButtons(3, 2);
                     resetMonth = 3;
                     resetYear = 2;
+                    setDatesToButtons(3, 2);
                 } else if (getTitle().toString().toLowerCase().contains((date.getYear() + 1899) + "")) {
-                    setDatesToButtons(3, 1);
                     resetMonth = 3;
                     resetYear = 1;
+                    setDatesToButtons(3, 1);
                 } else {
-                    setDatesToButtons(3, 3);
                     resetMonth = 3;
                     resetYear = 3;
+                    setDatesToButtons(3, 3);
                 }
             } else if (getTitle().toString().toLowerCase().contains("june")) {
                 if (getTitle().toString().toLowerCase().contains((date.getYear() + 1900) + "")) {
-                    setDatesToButtons(4, 2);
                     resetMonth = 4;
                     resetYear = 2;
+                    setDatesToButtons(4, 2);
                 } else if (getTitle().toString().toLowerCase().contains((date.getYear() + 1899) + "")) {
-                    setDatesToButtons(4, 1);
                     resetMonth = 4;
                     resetYear = 1;
+                    setDatesToButtons(4, 1);
                 } else {
-                    setDatesToButtons(4, 3);
                     resetMonth = 4;
                     resetYear = 3;
+                    setDatesToButtons(4, 3);
                 }
             } else if (getTitle().toString().toLowerCase().contains("july")) {
                 if (getTitle().toString().toLowerCase().contains((date.getYear() + 1900) + "")) {
-                    setDatesToButtons(5, 2);
                     resetMonth = 5;
                     resetYear = 2;
+                    setDatesToButtons(5, 2);
                 } else if (getTitle().toString().toLowerCase().contains((date.getYear() + 1899) + "")) {
-                    setDatesToButtons(5, 1);
                     resetMonth = 5;
                     resetYear = 1;
+                    setDatesToButtons(5, 1);
                 } else {
-                    setDatesToButtons(5, 3);
                     resetMonth = 5;
                     resetYear = 3;
+                    setDatesToButtons(5, 3);
                 }
             } else if (getTitle().toString().toLowerCase().contains("august")) {
                 if (getTitle().toString().toLowerCase().contains((date.getYear() + 1900) + "")) {
-                    setDatesToButtons(6, 2);
                     resetMonth = 6;
                     resetYear = 2;
+                    setDatesToButtons(6, 2);
                 } else if (getTitle().toString().toLowerCase().contains((date.getYear() + 1899) + "")) {
-                    setDatesToButtons(6, 1);
                     resetMonth = 6;
                     resetYear = 1;
+                    setDatesToButtons(6, 1);
                 } else {
-                    setDatesToButtons(6, 3);
                     resetMonth = 6;
                     resetYear = 3;
+                    setDatesToButtons(6, 3);
                 }
             } else if (getTitle().toString().toLowerCase().contains("september")) {
                 if (getTitle().toString().toLowerCase().contains((date.getYear() + 1900) + "")) {
-                    setDatesToButtons(7, 2);
                     resetMonth = 7;
                     resetYear = 2;
+                    setDatesToButtons(7, 2);
                 } else if (getTitle().toString().toLowerCase().contains((date.getYear() + 1899) + "")) {
-                    setDatesToButtons(7, 1);
                     resetMonth = 7;
                     resetYear = 1;
+                    setDatesToButtons(7, 1);
                 } else {
-                    setDatesToButtons(7, 3);
                     resetMonth = 7;
                     resetYear = 3;
+                    setDatesToButtons(7, 3);
                 }
             } else if (getTitle().toString().toLowerCase().contains("october")) {
                 if (getTitle().toString().toLowerCase().contains((date.getYear() + 1900) + "")) {
-                    setDatesToButtons(8, 2);
                     resetMonth = 8;
                     resetYear = 2;
+                    setDatesToButtons(8, 2);
                 } else if (getTitle().toString().toLowerCase().contains((date.getYear() + 1899) + "")) {
-                    setDatesToButtons(8, 1);
                     resetMonth = 8;
                     resetYear = 1;
+                    setDatesToButtons(8, 1);
                 } else {
-                    setDatesToButtons(8, 3);
                     resetMonth = 8;
                     resetYear = 3;
+                    setDatesToButtons(8, 3);
                 }
             } else if (getTitle().toString().toLowerCase().contains("november")) {
                 if (getTitle().toString().toLowerCase().contains((date.getYear() + 1900) + "")) {
-                    setDatesToButtons(9, 2);
                     resetMonth = 9;
                     resetYear = 2;
+                    setDatesToButtons(9, 2);
                 } else if (getTitle().toString().toLowerCase().contains((date.getYear() + 1899) + "")) {
-                    setDatesToButtons(9, 1);
                     resetMonth = 9;
                     resetYear = 1;
+                    setDatesToButtons(9, 1);
                 } else {
-                    setDatesToButtons(9, 3);
                     resetMonth = 9;
                     resetYear = 3;
+                    setDatesToButtons(9, 3);
                 }
             }
         } else {
-            resetMonth = date.getMonth();
             resetYear = 1;
+            resetMonth = date.getMonth();
         }
 
     }
@@ -723,174 +690,174 @@ public class MainActivity extends AppCompatActivity {
         if (!(getTitle().toString().toLowerCase().contains(actualMonth) & getTitle().toString().toLowerCase().contains((date.getYear() + 1901) + ""))) {
             if (getTitle().toString().toLowerCase().contains("december")) {
                 if (getTitle().toString().toLowerCase().contains((date.getYear() + 1900) + "")) {
-                    setDatesToButtons(0, 3);
                     resetMonth = 0;
                     resetYear = 3;
+                    setDatesToButtons(0, 3);
                 } else if (getTitle().toString().toLowerCase().contains((date.getYear() + 1899) + "")) {
-                    setDatesToButtons(0, 2);
                     resetMonth = 0;
                     resetYear = 2;
+                    setDatesToButtons(0, 2);
                 } else {
 
                 }
             } else if (getTitle().toString().toLowerCase().contains("january")) {
                 if (getTitle().toString().toLowerCase().contains((date.getYear() + 1900) + "")) {
-                    setDatesToButtons(1, 2);
                     resetMonth = 1;
                     resetYear = 2;
+                    setDatesToButtons(1, 2);
                 } else if (getTitle().toString().toLowerCase().contains((date.getYear() + 1899) + "")) {
-                    setDatesToButtons(1, 1);
                     resetMonth = 1;
                     resetYear = 1;
+                    setDatesToButtons(1, 1);
                 } else {
-                    setDatesToButtons(1, 3);
                     resetMonth = 1;
                     resetYear = 3;
+                    setDatesToButtons(1, 3);
                 }
             } else if (getTitle().toString().toLowerCase().contains("february")) {
                 if (getTitle().toString().toLowerCase().contains((date.getYear() + 1900) + "")) {
-                    setDatesToButtons(2, 2);
                     resetMonth = 2;
                     resetYear = 2;
+                    setDatesToButtons(2, 2);
                 } else if (getTitle().toString().toLowerCase().contains((date.getYear() + 1899) + "")) {
-                    setDatesToButtons(2, 1);
                     resetMonth = 2;
                     resetYear = 1;
+                    setDatesToButtons(2, 1);
                 } else {
-                    setDatesToButtons(2, 3);
                     resetMonth = 2;
                     resetYear = 3;
+                    setDatesToButtons(2, 3);
                 }
             } else if (getTitle().toString().toLowerCase().contains("march")) {
                 if (getTitle().toString().toLowerCase().contains((date.getYear() + 1900) + "")) {
-                    setDatesToButtons(3, 2);
                     resetMonth = 3;
                     resetYear = 2;
+                    setDatesToButtons(3, 2);
                 } else if (getTitle().toString().toLowerCase().contains((date.getYear() + 1899) + "")) {
-                    setDatesToButtons(3, 1);
                     resetMonth = 3;
                     resetYear = 1;
+                    setDatesToButtons(3, 1);
                 } else {
-                    setDatesToButtons(3, 3);
                     resetMonth = 3;
                     resetYear = 3;
+                    setDatesToButtons(3, 3);
                 }
             } else if (getTitle().toString().toLowerCase().contains("april")) {
                 if (getTitle().toString().toLowerCase().contains((date.getYear() + 1900) + "")) {
-                    setDatesToButtons(4, 2);
                     resetMonth = 4;
                     resetYear = 2;
+                    setDatesToButtons(4, 2);
                 } else if (getTitle().toString().toLowerCase().contains((date.getYear() + 1899) + "")) {
-                    setDatesToButtons(4, 1);
                     resetMonth = 4;
                     resetYear = 1;
+                    setDatesToButtons(4, 1);
                 } else {
-                    setDatesToButtons(4, 3);
                     resetMonth = 4;
                     resetYear = 3;
+                    setDatesToButtons(4, 3);
                 }
             } else if (getTitle().toString().toLowerCase().contains("may")) {
                 if (getTitle().toString().toLowerCase().contains((date.getYear() + 1900) + "")) {
-                    setDatesToButtons(5, 2);
                     resetMonth = 5;
                     resetYear = 2;
+                    setDatesToButtons(5, 2);
                 } else if (getTitle().toString().toLowerCase().contains((date.getYear() + 1899) + "")) {
-                    setDatesToButtons(5, 1);
                     resetMonth = 5;
                     resetYear = 1;
+                    setDatesToButtons(5, 1);
                 } else {
-                    setDatesToButtons(5, 3);
                     resetMonth = 5;
                     resetYear = 3;
+                    setDatesToButtons(5, 3);
                 }
             } else if (getTitle().toString().toLowerCase().contains("june")) {
                 if (getTitle().toString().toLowerCase().contains((date.getYear() + 1900) + "")) {
-                    setDatesToButtons(6, 2);
                     resetMonth = 6;
                     resetYear = 2;
+                    setDatesToButtons(6, 2);
                 } else if (getTitle().toString().toLowerCase().contains((date.getYear() + 1899) + "")) {
-                    setDatesToButtons(6, 1);
                     resetMonth = 6;
                     resetYear = 1;
+                    setDatesToButtons(6, 1);
                 } else {
-                    setDatesToButtons(6, 3);
                     resetMonth = 6;
                     resetYear = 3;
+                    setDatesToButtons(6, 3);
                 }
             } else if (getTitle().toString().toLowerCase().contains("july")) {
                 if (getTitle().toString().toLowerCase().contains((date.getYear() + 1900) + "")) {
-                    setDatesToButtons(7, 2);
                     resetMonth = 7;
                     resetYear = 2;
+                    setDatesToButtons(7, 2);
                 } else if (getTitle().toString().toLowerCase().contains((date.getYear() + 1899) + "")) {
-                    setDatesToButtons(7, 1);
                     resetMonth = 7;
                     resetYear = 1;
+                    setDatesToButtons(7, 1);
                 } else {
-                    setDatesToButtons(7, 3);
                     resetMonth = 7;
                     resetYear = 3;
+                    setDatesToButtons(7, 3);
                 }
             } else if (getTitle().toString().toLowerCase().contains("august")) {
                 if (getTitle().toString().toLowerCase().contains((date.getYear() + 1900) + "")) {
-                    setDatesToButtons(8, 2);
                     resetMonth = 8;
                     resetYear = 2;
+                    setDatesToButtons(8, 2);
                 } else if (getTitle().toString().toLowerCase().contains((date.getYear() + 1899) + "")) {
-                    setDatesToButtons(8, 1);
                     resetMonth = 8;
                     resetYear = 1;
+                    setDatesToButtons(8, 1);
                 } else {
-                    setDatesToButtons(8, 3);
                     resetMonth = 8;
                     resetYear = 3;
+                    setDatesToButtons(8, 3);
                 }
             } else if (getTitle().toString().toLowerCase().contains("september")) {
                 if (getTitle().toString().toLowerCase().contains((date.getYear() + 1900) + "")) {
-                    setDatesToButtons(9, 2);
                     resetMonth = 9;
                     resetYear = 2;
+                    setDatesToButtons(9, 2);
                 } else if (getTitle().toString().toLowerCase().contains((date.getYear() + 1899) + "")) {
-                    setDatesToButtons(9, 1);
                     resetMonth = 9;
                     resetYear = 1;
+                    setDatesToButtons(9, 1);
                 } else {
-                    setDatesToButtons(9, 3);
                     resetMonth = 9;
                     resetYear = 3;
+                    setDatesToButtons(9, 3);
                 }
             } else if (getTitle().toString().toLowerCase().contains("october")) {
                 if (getTitle().toString().toLowerCase().contains((date.getYear() + 1900) + "")) {
-                    setDatesToButtons(10, 2);
                     resetMonth = 10;
                     resetYear = 2;
+                    setDatesToButtons(10, 2);
                 } else if (getTitle().toString().toLowerCase().contains((date.getYear() + 1899) + "")) {
-                    setDatesToButtons(10, 1);
                     resetMonth = 10;
                     resetYear = 1;
+                    setDatesToButtons(10, 1);
                 } else {
-                    setDatesToButtons(10, 3);
                     resetMonth = 10;
                     resetYear = 3;
+                    setDatesToButtons(10, 3);
                 }
             } else if (getTitle().toString().toLowerCase().contains("november")) {
                 if (getTitle().toString().toLowerCase().contains((date.getYear() + 1900) + "")) {
-                    setDatesToButtons(11, 2);
                     resetMonth = 11;
                     resetYear = 2;
+                    setDatesToButtons(11, 2);
                 } else if (getTitle().toString().toLowerCase().contains((date.getYear() + 1899) + "")) {
-                    setDatesToButtons(11, 1);
                     resetMonth = 11;
                     resetYear = 1;
+                    setDatesToButtons(11, 1);
                 } else {
-                    setDatesToButtons(11, 3);
                     resetMonth = 11;
                     resetYear = 3;
+                    setDatesToButtons(11, 3);
                 }
             }
         } else {
-            resetMonth = date.getMonth();
             resetYear = 3;
+            resetMonth = date.getMonth();
         }
     }
 
@@ -927,19 +894,276 @@ public class MainActivity extends AppCompatActivity {
                 thread_getTodayTodos.start();
                 thread_getTodayTodos.join();
                 List<Todo> todos = thread_getTodayTodos.getAll();
-                if (todos.size() == 0) {
-                    Drawable draw = getResources().getDrawable(R.drawable.greencircle_sized);
-                    b.setCompoundDrawablesWithIntrinsicBounds(null, null, draw, null);
-                } else if (todos.size() <= 2) {
-                    Drawable draw = getResources().getDrawable(R.drawable.yellowcircle_sized);
-                    b.setCompoundDrawablesWithIntrinsicBounds(null, null, draw, null);
-                } else if (todos.size() <= 5) {
-                    Drawable draw = getResources().getDrawable(R.drawable.orangecircle_sized);
-                    b.setCompoundDrawablesWithIntrinsicBounds(null, null, draw, null);
-                } else {
-                    Drawable draw = getResources().getDrawable(R.drawable.redcircle_sized);
+                int priorities1=0;
+                int priorities2=0;
+                int priorities3=0;
+                for(Todo a:todos){
+                    if(a.getPriority() == 1){
+                        priorities1 += 1;
+                    }
+                    else if(a.getPriority() == 2){
+                        priorities1 += 1;
+                    }
+                    else if(a.getPriority() == 3){
+                        priorities2 += 1;
+                    }
+                    else if(a.getPriority() == 4){
+                        priorities2 += 1;
+                    }
+                    else if(a.getPriority() == 5){
+                        priorities3 += 1;
+                    }
+                }
+                if(priorities1 == 0 & priorities2 == 0 & priorities3 == 0){
+                    Drawable draw = getResources().getDrawable(R.drawable.red_0orange_0green_0);
                     b.setCompoundDrawablesWithIntrinsicBounds(null, null, draw, null);
                 }
+                else if(priorities1 == 1 & priorities2 == 0 & priorities3 == 0){
+                    Drawable draw = getResources().getDrawable(R.drawable.red_0orange_0green_1);
+                    b.setCompoundDrawablesWithIntrinsicBounds(null, null, draw, null);
+                }
+                else if(priorities1 == 2 & priorities2 == 0 & priorities3 == 0){
+                    Drawable draw = getResources().getDrawable(R.drawable.red_0orange_0green_2);
+                    b.setCompoundDrawablesWithIntrinsicBounds(null, null, draw, null);
+                }
+                else if(priorities1 >= 3 & priorities2 == 0 & priorities3 == 0){
+                    Drawable draw = getResources().getDrawable(R.drawable.red_0orange_0green_3);
+                    b.setCompoundDrawablesWithIntrinsicBounds(null, null, draw, null);
+                }
+                else if(priorities1 == 0 & priorities2 == 1 & priorities3 == 0){
+                    Drawable draw = getResources().getDrawable(R.drawable.red_0orange_1green_0);
+                    b.setCompoundDrawablesWithIntrinsicBounds(null, null, draw, null);
+                }
+                else if(priorities1 == 0 & priorities2 == 2 & priorities3 == 0){
+                    Drawable draw = getResources().getDrawable(R.drawable.red_0orange_2green_0);
+                    b.setCompoundDrawablesWithIntrinsicBounds(null, null, draw, null);
+                }
+                else if(priorities1 == 0 & priorities2 >= 3 & priorities3 == 0){
+                    Drawable draw = getResources().getDrawable(R.drawable.red_0orange_3green_0);
+                    b.setCompoundDrawablesWithIntrinsicBounds(null, null, draw, null);
+                }
+                else if(priorities1 == 0 & priorities2 == 0 & priorities3 == 1){
+                    Drawable draw = getResources().getDrawable(R.drawable.red_1orange_0green_0);
+                    b.setCompoundDrawablesWithIntrinsicBounds(null, null, draw, null);
+                }
+                else if(priorities1 == 0 & priorities2 == 0 & priorities3 == 2){
+                    Drawable draw = getResources().getDrawable(R.drawable.red_2orange_0green_0);
+                    b.setCompoundDrawablesWithIntrinsicBounds(null, null, draw, null);
+                }
+                else if(priorities1 == 0 & priorities2 == 0 & priorities3 >= 3){
+                    Drawable draw = getResources().getDrawable(R.drawable.red_3orange_0green_0);
+                    b.setCompoundDrawablesWithIntrinsicBounds(null, null, draw, null);
+                }
+                else if(priorities1 == 1 & priorities2 == 1 & priorities3 == 0){
+                    Drawable draw = getResources().getDrawable(R.drawable.red_0orange_1green_1);
+                    b.setCompoundDrawablesWithIntrinsicBounds(null, null, draw, null);
+                }
+                else if(priorities1 == 1 & priorities2 == 2 & priorities3 == 0){
+                    Drawable draw = getResources().getDrawable(R.drawable.red_0orange_2green_1);
+                    b.setCompoundDrawablesWithIntrinsicBounds(null, null, draw, null);
+                }
+                else if(priorities1 == 1 & priorities2 >= 3 & priorities3 == 0){
+                    Drawable draw = getResources().getDrawable(R.drawable.red_0orange_3green_1);
+                    b.setCompoundDrawablesWithIntrinsicBounds(null, null, draw, null);
+                }
+                else if(priorities1 == 1 & priorities2 == 0 & priorities3 == 1){
+                    Drawable draw = getResources().getDrawable(R.drawable.red_1orange_0green_1);
+                    b.setCompoundDrawablesWithIntrinsicBounds(null, null, draw, null);
+                }
+                else if(priorities1 == 1 & priorities2 == 0 & priorities3 == 2){
+                    Drawable draw = getResources().getDrawable(R.drawable.red_2orange_0green_1);
+                    b.setCompoundDrawablesWithIntrinsicBounds(null, null, draw, null);
+                }
+                else if(priorities1 == 1 & priorities2 == 0 & priorities3 >= 3){
+                    Drawable draw = getResources().getDrawable(R.drawable.red_3orange_0green_1);
+                    b.setCompoundDrawablesWithIntrinsicBounds(null, null, draw, null);
+                }
+                else if(priorities1 == 1 & priorities2 == 1 & priorities3 == 0){
+                    Drawable draw = getResources().getDrawable(R.drawable.red_0orange_1green_1);
+                    b.setCompoundDrawablesWithIntrinsicBounds(null, null, draw, null);
+                }
+                else if(priorities1 == 1 & priorities2 == 1 & priorities3 == 1){
+                    Drawable draw = getResources().getDrawable(R.drawable.red_1orange_1green_1);
+                    b.setCompoundDrawablesWithIntrinsicBounds(null, null, draw, null);
+                }
+                else if(priorities1 == 1 & priorities2 == 1 & priorities3 == 2){
+                    Drawable draw = getResources().getDrawable(R.drawable.red_2orange_1green_1);
+                    b.setCompoundDrawablesWithIntrinsicBounds(null, null, draw, null);
+                }
+                else if(priorities1 == 1 & priorities2 == 1 & priorities3 >= 3){
+                    Drawable draw = getResources().getDrawable(R.drawable.red_3orange_1green_1);
+                    b.setCompoundDrawablesWithIntrinsicBounds(null, null, draw, null);
+                }
+                else if(priorities1 == 1 & priorities2 == 2 & priorities3 == 0){
+                    Drawable draw = getResources().getDrawable(R.drawable.red_0orange_2green_1);
+                    b.setCompoundDrawablesWithIntrinsicBounds(null, null, draw, null);
+                }
+                else if(priorities1 == 1 & priorities2 == 2 & priorities3 == 1){
+                    Drawable draw = getResources().getDrawable(R.drawable.red_1orange_2green_1);
+                    b.setCompoundDrawablesWithIntrinsicBounds(null, null, draw, null);
+                }
+                else if(priorities1 == 1 & priorities2 == 2 & priorities3 == 2){
+                    Drawable draw = getResources().getDrawable(R.drawable.red_2orange_2green_1);
+                    b.setCompoundDrawablesWithIntrinsicBounds(null, null, draw, null);
+                }
+                else if(priorities1 == 1 & priorities2 == 2 & priorities3 >= 3){
+                    Drawable draw = getResources().getDrawable(R.drawable.red_3orange_2green_1);
+                    b.setCompoundDrawablesWithIntrinsicBounds(null, null, draw, null);
+                }
+                else if(priorities1 == 1 & priorities2 >= 3 & priorities3 == 0){
+                    Drawable draw = getResources().getDrawable(R.drawable.red_0orange_3green_1);
+                    b.setCompoundDrawablesWithIntrinsicBounds(null, null, draw, null);
+                }
+                else if(priorities1 == 1 & priorities2 >= 3 & priorities3 == 1){
+                    Drawable draw = getResources().getDrawable(R.drawable.red_1orange_3green_1);
+                    b.setCompoundDrawablesWithIntrinsicBounds(null, null, draw, null);
+                }
+                else if(priorities1 == 1 & priorities2 >= 3 & priorities3 == 2){
+                    Drawable draw = getResources().getDrawable(R.drawable.red_2orange_3green_1);
+                    b.setCompoundDrawablesWithIntrinsicBounds(null, null, draw, null);
+                }
+                else if(priorities1 == 1 & priorities2 >= 3 & priorities3 >= 3){
+                    Drawable draw = getResources().getDrawable(R.drawable.red_3orange_3green_1);
+                    b.setCompoundDrawablesWithIntrinsicBounds(null, null, draw, null);
+                }
+                else if(priorities1 == 0 & priorities2 == 1 & priorities3 == 1){
+                    Drawable draw = getResources().getDrawable(R.drawable.red_1orange_1green_0);
+                    b.setCompoundDrawablesWithIntrinsicBounds(null, null, draw, null);
+                }
+                else if(priorities1 == 0 & priorities2 == 1 & priorities3 == 2){
+                    Drawable draw = getResources().getDrawable(R.drawable.red_2orange_1green_0);
+                    b.setCompoundDrawablesWithIntrinsicBounds(null, null, draw, null);
+                }
+                else if(priorities1 == 0 & priorities2 == 1 & priorities3 >= 3){
+                    Drawable draw = getResources().getDrawable(R.drawable.red_3orange_1green_0);
+                    b.setCompoundDrawablesWithIntrinsicBounds(null, null, draw, null);
+                }
+                else if(priorities1 == 0 & priorities2 == 2 & priorities3 == 1){
+                    Drawable draw = getResources().getDrawable(R.drawable.red_1orange_2green_0);
+                    b.setCompoundDrawablesWithIntrinsicBounds(null, null, draw, null);
+                }
+                else if(priorities1 == 0 & priorities2 == 2 & priorities3 == 2){
+                    Drawable draw = getResources().getDrawable(R.drawable.red_2orange_2green_0);
+                    b.setCompoundDrawablesWithIntrinsicBounds(null, null, draw, null);
+                }
+                else if(priorities1 == 0 & priorities2 == 2 & priorities3 >= 3){
+                    Drawable draw = getResources().getDrawable(R.drawable.red_3orange_2green_0);
+                    b.setCompoundDrawablesWithIntrinsicBounds(null, null, draw, null);
+                }
+                else if(priorities1 == 0 & priorities2 >= 3 & priorities3 == 1){
+                    Drawable draw = getResources().getDrawable(R.drawable.red_1orange_3green_0);
+                    b.setCompoundDrawablesWithIntrinsicBounds(null, null, draw, null);
+                }
+                else if(priorities1 == 0 & priorities2 >= 3 & priorities3 == 2){
+                    Drawable draw = getResources().getDrawable(R.drawable.red_2orange_3green_0);
+                    b.setCompoundDrawablesWithIntrinsicBounds(null, null, draw, null);
+                }
+                else if(priorities1 == 0 & priorities2 >= 3 & priorities3 >= 3){
+                    Drawable draw = getResources().getDrawable(R.drawable.red_3orange_3green_0);
+                    b.setCompoundDrawablesWithIntrinsicBounds(null, null, draw, null);
+                }
+                else if(priorities1 == 2 & priorities2 == 1 & priorities3 == 0){
+                    Drawable draw = getResources().getDrawable(R.drawable.red_0orange_1green_2);
+                    b.setCompoundDrawablesWithIntrinsicBounds(null, null, draw, null);
+                }
+                else if(priorities1 == 2 & priorities2 == 1 & priorities3 == 1){
+                    Drawable draw = getResources().getDrawable(R.drawable.red_1orange_1green_2);
+                    b.setCompoundDrawablesWithIntrinsicBounds(null, null, draw, null);
+                }
+                else if(priorities1 == 2 & priorities2 == 1 & priorities3 == 2){
+                    Drawable draw = getResources().getDrawable(R.drawable.red_2orange_1green_2);
+                    b.setCompoundDrawablesWithIntrinsicBounds(null, null, draw, null);
+                }
+                else if(priorities1 == 2 & priorities2 == 1 & priorities3 >= 3){
+                    Drawable draw = getResources().getDrawable(R.drawable.red_3orange_1green_2);
+                    b.setCompoundDrawablesWithIntrinsicBounds(null, null, draw, null);
+                }
+                else if(priorities1 == 2 & priorities2 == 2 & priorities3 == 0){
+                    Drawable draw = getResources().getDrawable(R.drawable.red_0orange_2green_2);
+                    b.setCompoundDrawablesWithIntrinsicBounds(null, null, draw, null);
+                }
+                else if(priorities1 == 2 & priorities2 == 2 & priorities3 == 1){
+                    Drawable draw = getResources().getDrawable(R.drawable.red_1orange_2green_2);
+                    b.setCompoundDrawablesWithIntrinsicBounds(null, null, draw, null);
+                }
+                else if(priorities1 == 2 & priorities2 == 2 & priorities3 == 2){
+                    Drawable draw = getResources().getDrawable(R.drawable.red_2orange_2green_2);
+                    b.setCompoundDrawablesWithIntrinsicBounds(null, null, draw, null);
+                }
+                else if(priorities1 == 2 & priorities2 == 2 & priorities3 >= 3){
+                    Drawable draw = getResources().getDrawable(R.drawable.red_3orange_2green_2);
+                    b.setCompoundDrawablesWithIntrinsicBounds(null, null, draw, null);
+                }
+                else if(priorities1 == 2 & priorities2 >= 3 & priorities3 == 0){
+                    Drawable draw = getResources().getDrawable(R.drawable.red_0orange_3green_2);
+                    b.setCompoundDrawablesWithIntrinsicBounds(null, null, draw, null);
+                }
+                else if(priorities1 == 2 & priorities2 >= 3 & priorities3 == 1){
+                    Drawable draw = getResources().getDrawable(R.drawable.red_1orange_3green_2);
+                    b.setCompoundDrawablesWithIntrinsicBounds(null, null, draw, null);
+                }
+                else if(priorities1 == 2 & priorities2 >= 3 & priorities3 == 2){
+                    Drawable draw = getResources().getDrawable(R.drawable.red_2orange_3green_2);
+                    b.setCompoundDrawablesWithIntrinsicBounds(null, null, draw, null);
+                }
+                else if(priorities1 == 2 & priorities2 >= 3 & priorities3 >= 3){
+                    Drawable draw = getResources().getDrawable(R.drawable.red_3orange_3green_2);
+                    b.setCompoundDrawablesWithIntrinsicBounds(null, null, draw, null);
+                }
+                else if(priorities1 >= 3 & priorities2 == 1 & priorities3 == 0){
+                    Drawable draw = getResources().getDrawable(R.drawable.red_0orange_1green_3);
+                    b.setCompoundDrawablesWithIntrinsicBounds(null, null, draw, null);
+                }
+                else if(priorities1 >= 3 & priorities2 == 1 & priorities3 == 1){
+                    Drawable draw = getResources().getDrawable(R.drawable.red_1orange_1green_3);
+                    b.setCompoundDrawablesWithIntrinsicBounds(null, null, draw, null);
+                }
+                else if(priorities1 >= 3 & priorities2 == 1 & priorities3 == 2){
+                    Drawable draw = getResources().getDrawable(R.drawable.red_2orange_1green_3);
+                    b.setCompoundDrawablesWithIntrinsicBounds(null, null, draw, null);
+                }
+                else if(priorities1 >= 3 & priorities2 == 1 & priorities3 >= 3){
+                    Drawable draw = getResources().getDrawable(R.drawable.red_3orange_1green_3);
+                    b.setCompoundDrawablesWithIntrinsicBounds(null, null, draw, null);
+                }
+                else if(priorities1 >= 3 & priorities2 == 2 & priorities3 == 0){
+                    Drawable draw = getResources().getDrawable(R.drawable.red_0orange_2green_3);
+                    b.setCompoundDrawablesWithIntrinsicBounds(null, null, draw, null);
+                }
+                else if(priorities1 >= 3 & priorities2 == 2 & priorities3 == 1){
+                    Drawable draw = getResources().getDrawable(R.drawable.red_1orange_2green_3);
+                    b.setCompoundDrawablesWithIntrinsicBounds(null, null, draw, null);
+                }
+                else if(priorities1 >= 3 & priorities2 == 2 & priorities3 == 2){
+                    Drawable draw = getResources().getDrawable(R.drawable.red_2orange_2green_3);
+                    b.setCompoundDrawablesWithIntrinsicBounds(null, null, draw, null);
+                }
+                else if(priorities1 >= 3 & priorities2 == 2 & priorities3 >= 3){
+                    Drawable draw = getResources().getDrawable(R.drawable.red_3orange_2green_3);
+                    b.setCompoundDrawablesWithIntrinsicBounds(null, null, draw, null);
+                }
+                else if(priorities1 >= 3 & priorities2 >= 3 & priorities3 == 0){
+                    Drawable draw = getResources().getDrawable(R.drawable.red_0orange_3green_3);
+                    b.setCompoundDrawablesWithIntrinsicBounds(null, null, draw, null);
+                }
+                else if(priorities1 >= 3 & priorities2 >= 3 & priorities3 == 1){
+                    Drawable draw = getResources().getDrawable(R.drawable.red_1orange_3green_3);
+                    b.setCompoundDrawablesWithIntrinsicBounds(null, null, draw, null);
+                }
+                else if(priorities1 >= 3 & priorities2 >= 3 & priorities3 == 2){
+                    Drawable draw = getResources().getDrawable(R.drawable.red_2orange_3green_3);
+                    b.setCompoundDrawablesWithIntrinsicBounds(null, null, draw, null);
+                }
+                else if(priorities1 >= 3 & priorities2 >= 3 & priorities3 >= 3){
+                    Drawable draw = getResources().getDrawable(R.drawable.red_3orange_3green_3);
+                    b.setCompoundDrawablesWithIntrinsicBounds(null, null, draw, null);
+                }
+                else{
+                    Log.e("LOOOOW","TO LOW AMOUNT OF PICTURES");
+                }
+
+
+
             } catch (java.lang.InterruptedException e) {
                 e.printStackTrace();
             }
@@ -956,6 +1180,122 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    public boolean onSingleTapConfirmed(MotionEvent e) {
+        if(viewGestureisOn instanceof Button) {
+            Button c = buttonOnClick;
+            int länge = c.getText().toString().length();
+            String text = c.getText().toString();
+            String dateFormatted = "default";
+            String actualdate = "default";
+            int year = 0;
+            if (resetYear == 2) {
+                year = date.getYear() + 1900;
+            } else if (resetYear == 1) {
+                year = date.getYear() + 1899;
+            } else {
+                year = date.getYear() + 1901;
+            }
+            if (länge < 2) {
+                actualdate = 0 + "" + text;
+                if (resetMonth + 1 < 10) {
+                    dateFormatted = year + "-" + "0" + (resetMonth + 1) + "-" + actualdate + " " + "00:00:00.000";
+                } else {
+                    dateFormatted = year + "-" + (resetMonth + 1) + "-" + actualdate + " " + "00:00:00.000";
+                }
+            } else {
+                actualdate = text + "";
+                if (resetMonth + 1 < 10) {
+                    dateFormatted = year + "-" + "0" + (resetMonth + 1) + "-" + actualdate + " " + "00:00:00.000";
+                } else {
+                    dateFormatted = year + "-" + (resetMonth + 1) + "-" + actualdate + " " + "00:00:00.000";
+                }
+            }
+            resetDay = Integer.parseInt(text);
+            Intent intent = new Intent(MainActivity.this, Day_View_activity.class);
+            intent.putExtra("Year", resetYear);
+            intent.putExtra("Month", resetMonth);
+            intent.putExtra("Week", resetWeek);
+            intent.putExtra("Day", resetDay);
+            intent.putExtra("Date", dateFormatted);
+            startActivity(intent);
+            return true;
+        }
+        else{
+            return true;
+        }
+    }
+
+    @Override
+    public boolean onDoubleTap(MotionEvent e) {
+        return true;
+    }
+
+    @Override
+    public boolean onDoubleTapEvent(MotionEvent e) {
+        return true;
+    }
+
+    @Override
+    public boolean onDown(MotionEvent e) {
+        return true;
+    }
+
+    @Override
+    public void onShowPress(MotionEvent e) {
+    }
+
+    @Override
+    public boolean onSingleTapUp(MotionEvent e) {
+        return true;
+    }
+
+    @Override
+    public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
+        return true;
+    }
+
+    @Override
+    public void onLongPress(MotionEvent e) {
+
+    }
+
+    @Override
+    public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+        try {
+            if (Math.abs(e1.getY() - e2.getY()) > SWIPE_MAX_OFF_PATH){
+                return false;
+            }
+            // right to left swipe
+            if (e1.getX() - e2.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
+                swipeLeft();
+            }
+            // left to right swipe
+            else if (e2.getX() - e1.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
+                swipeRight();
+            }
+            else if (e1.getY() - e2.getY() > SWIPE_MIN_DISTANCE && Math.abs(velocityY) > SWIPE_THRESHOLD_VELOCITY){
+                Intent intentset = new Intent(MainActivity.this, MainActivity.class);
+                intentset.putExtra("Year", resetYear);
+                intentset.putExtra("Month", resetMonth);
+                intentset.putExtra("Week", resetWeek);
+                intentset.putExtra("Day", resetDay);
+                startActivity(intentset);
+            }
+            else if (e1.getY() - e2.getY() > SWIPE_MIN_DISTANCE && Math.abs(velocityY) > SWIPE_THRESHOLD_VELOCITY){
+                Intent intentset = new Intent(MainActivity.this, MainActivity.class);
+                intentset.putExtra("Year", resetYear);
+                intentset.putExtra("Month", resetMonth);
+                intentset.putExtra("Week", resetWeek);
+                intentset.putExtra("Day", resetDay);
+                startActivity(intentset);
+            }
+        } catch (Exception e) {
+
+        }
+      return true;
     }
 }
 

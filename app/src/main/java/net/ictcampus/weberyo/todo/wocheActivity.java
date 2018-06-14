@@ -8,16 +8,14 @@ import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.LayoutInflater;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import net.ictcampus.weberyo.todo.net.ictcampus.weberyo.todo.threads.Thread_DeleteTodo;
-import net.ictcampus.weberyo.todo.net.ictcampus.weberyo.todo.threads.Thread_GetTodayTodos;
 import net.ictcampus.weberyo.todo.net.ictcampus.weberyo.todo.threads.Thread_GetTodayTodosLimit4;
 
 import java.text.SimpleDateFormat;
@@ -26,7 +24,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-public class wocheActivity extends AppCompatActivity {
+public class wocheActivity extends AppCompatActivity implements GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener{
     public static Activity activity;
     private List<LinearLayout> allWeekButtons = new ArrayList<LinearLayout>();
     private int resetMonth;
@@ -39,12 +37,15 @@ public class wocheActivity extends AppCompatActivity {
     private String actualMonth;
     private Date date;
     private ProgressDialog dialog;
+    private GestureDetector mGestureDetector3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_woche);
         activity = this;
+
+        mGestureDetector3 = new GestureDetector(this);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS, WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         final Intent intent = getIntent();
         initFloatButton();
@@ -108,61 +109,20 @@ public class wocheActivity extends AppCompatActivity {
         setWeek(1, resetMonth, resetYear);
 
         for (LinearLayout a : allWeekButtons) {
-            a.setOnTouchListener(new OnSwipeTouchListener(wocheActivity.this) {
-                public void onSwipeTop() {
-                    Intent intentset = new Intent(wocheActivity.this, Day_View_activity.class);
-                    intentset.putExtra("Year", resetYear);
-                    intentset.putExtra("Month", resetMonth);
-                    intentset.putExtra("Monthstring", actualMonth);
-                    intentset.putExtra("Week", resetWeek);
-                    intentset.putExtra("Day", resetDay);
-                    startActivity(intentset);
-                }
-
-                public void onSwipeRight() {
-                    swipeRight();
-                }
-
-                public void onSwipeLeft() {
-                    swipeLeft();
-                }
-
-                public void onSwipeBottom() {
-                    Intent intent = new Intent(wocheActivity.this, MainActivity.class);
-                    intent.putExtra("Year", resetYear);
-                    intent.putExtra("Month", resetMonth);
-                    intent.putExtra("Week", resetWeek);
-                    intent.putExtra("Day", resetDay);
-                    startActivity(intent);
+            a.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, final MotionEvent event) {
+                    mGestureDetector3.onTouchEvent(event);
+                    return true;
                 }
             });
         }
         ConstraintLayout layout = (ConstraintLayout) findViewById(R.id.Constraint);
-        layout.setOnTouchListener(new OnSwipeTouchListener(wocheActivity.this) {
-            public void onSwipeTop() {
-                Intent intentset = new Intent(wocheActivity.this, Day_View_activity.class);
-                intentset.putExtra("Year", resetYear);
-                intentset.putExtra("Month", resetMonth);
-                intentset.putExtra("Week", resetWeek);
-                intentset.putExtra("Day", resetDay);
-                startActivity(intentset);
-            }
-
-            public void onSwipeRight() {
-                swipeRight();
-            }
-
-            public void onSwipeLeft() {
-                swipeLeft();
-            }
-
-            public void onSwipeBottom() {
-                Intent intent = new Intent(wocheActivity.this, MainActivity.class);
-                intent.putExtra("Year", resetYear);
-                intent.putExtra("Month", resetMonth);
-                intent.putExtra("Week", resetWeek);
-                intent.putExtra("Day", resetDay);
-                startActivity(intent);
+        layout.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, final MotionEvent event) {
+                mGestureDetector3.onTouchEvent(event);
+                return true;
             }
         });
     }
@@ -4192,4 +4152,74 @@ public class wocheActivity extends AppCompatActivity {
         prio1.setBackgroundColor(getResources().getColor(R.color.classic));
     }
 
+    @Override
+    public boolean onSingleTapConfirmed(MotionEvent e) {
+        return true;
+    }
+
+    @Override
+    public boolean onDoubleTap(MotionEvent e) {
+        return true;
+    }
+
+    @Override
+    public boolean onDoubleTapEvent(MotionEvent e) {
+        return true;
+    }
+
+    @Override
+    public boolean onDown(MotionEvent e) {
+        return true;
+    }
+
+    @Override
+    public void onShowPress(MotionEvent e) {
+    }
+
+    @Override
+    public boolean onSingleTapUp(MotionEvent e) {
+        return true;
+    }
+
+    @Override
+    public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
+        return true;
+    }
+
+    @Override
+    public void onLongPress(MotionEvent e) {
+
+    }
+
+    @Override
+    public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+
+        if (e1.getX() < e2.getX() & e1.getX() + e2.getX() > e1.getY() + e2.getY()) {
+            swipeRight();
+        }
+
+        if (e1.getX() > e2.getX() & e1.getX() + e2.getX() > e1.getY() + e2.getY()) {
+            swipeLeft();
+        }
+
+        if (e1.getY() < e2.getY() & e1.getX() + e2.getX() < e1.getY() + e2.getY()) {
+            Intent intentset = new Intent(wocheActivity.this, MainActivity.class);
+            intentset.putExtra("Year", resetYear);
+            intentset.putExtra("Month", resetMonth);
+            intentset.putExtra("Week", resetWeek);
+            intentset.putExtra("Day", resetDay);
+            startActivity(intentset);
+        }
+
+        if (e1.getY() > e2.getY() & e1.getX() + e2.getX() < e1.getY() + e2.getY()) {
+            Intent intentset = new Intent(wocheActivity.this, Day_View_activity.class);
+            intentset.putExtra("Year", resetYear);
+            intentset.putExtra("Month", resetMonth);
+            intentset.putExtra("Week", resetWeek);
+            intentset.putExtra("Day", resetDay);
+            startActivity(intentset);
+        }
+
+        return true;
+    }
 }

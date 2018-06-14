@@ -19,10 +19,9 @@
     <ListView
         android:id="@+id/dayview_todo_list"
         android:layout_width="match_parent"
-        android:layout_height="429dp"
+        android:layout_height="match_parent"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="82dp"
         android:minHeight="48dp"></ListView>
 
     <android.support.design.widget.FloatingActionButton
@@ -34,5 +33,6 @@
         android:layout_gravity=""
         android:layout_marginBottom="21dp"
         android:layout_marginEnd="19dp"
-        app:srcCompat="@android:drawable/ic_menu_add" />
+        app:backgroundTint="@android:color/holo_red_dark"
+        app:srcCompat="@drawable/baseline_add_white_48" />
 </RelativeLayout>

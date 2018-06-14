@@ -17,7 +17,7 @@
             android:label="@string/app_name"
             android:screenOrientation="portrait"></activity>
         <activity android:name=".wocheActivity" />
-        <activity android:name=".Day_View_activity" />
+        <activity android:name=".Day_View_activity"/>
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"

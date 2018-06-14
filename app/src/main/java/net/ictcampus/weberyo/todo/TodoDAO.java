@@ -5,40 +5,29 @@ import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
 
-import java.util.Date;
 import java.util.List;
 
 @Dao
 public interface TodoDAO {
 
-    //Querys
-
-    @Query("SELECT * FROM todo")
-    List<Todo> getAll();
-
+    //selects
+    //get all ToDos of a date ordered by the priority of the ToDo
     @Query("SELECT * FROM todo WHERE date = :date ORDER BY priority DESC")
     List<Todo> getTodoByDay(String date);
 
+    //get the 4 ToDos of a date who have the highest priority
     @Query("SELECT * FROM todo WHERE date = :date ORDER BY priority DESC LIMIT 4 ")
     List<Todo> getTodoByDayLimi4(String date);
-    
+
+    //get 1 ToDo of a Date who has the exact title
     @Query("SELECT * FROM todo WHERE date = :date AND title = :title ORDER BY title DESC LIMIT 1")
     Todo getToDoByTitle(String date, String title);
 
-    @Query("SELECT * FROM todo WHERE STRFTIME('%j', date(date, '-3 days', 'weekday 4')) - 1 / 7 + 1 = STRFTIME('%j', date(:date, '-3 days', 'weekday 4')) - 1 / 7 + 1")
-    List<Todo> getTodoByWeek(String date);
-
-    @Query("SELECT * FROM todo WHERE STRFTIME('%m', date) = STRFTIME('%m', :date)")
-    List<Todo> getTodoByMonth(String date);
-
-
-    //Inserts
-
+    //inserts
     @Insert
     void insertTodo(Todo... todos);
 
-    //Deletes
-
+    //deletes
     @Delete
     void deleteTodo(Todo todo);
 
