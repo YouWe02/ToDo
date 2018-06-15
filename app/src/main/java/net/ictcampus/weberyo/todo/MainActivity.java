@@ -514,6 +514,7 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
         setTitle(MonthText + " " + YearText);
     }
 
+    // go through all cases when swiping to the right and go 1 month backward
     public void swipeRight() {
         if (!(getTitle().toString().toLowerCase().contains(actualMonth) & getTitle().toString().toLowerCase().contains((date.getYear() + 1899) + ""))) {
             if (getTitle().toString().toLowerCase().contains("january")) {
@@ -690,6 +691,7 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
 
     }
 
+    // go through all cases when swiping to the left and go 1 month forward
     public void swipeLeft() {
         if (!(getTitle().toString().toLowerCase().contains(actualMonth) & getTitle().toString().toLowerCase().contains((date.getYear() + 1901) + ""))) {
             if (getTitle().toString().toLowerCase().contains("december")) {
@@ -865,6 +867,7 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
         }
     }
 
+    // all todos of the month and set the right picture on the button
     public void getAllToDosMonth() {
         int year = 0;
         if (resetYear == 2) {
@@ -1175,6 +1178,7 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
         }
     }
 
+    //initialize the add button
     public void initFloatButton() {
         FloatingActionButton button = (FloatingActionButton) findViewById(R.id.floatmonth);
         button.setOnClickListener(new View.OnClickListener() {
@@ -1186,6 +1190,7 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
         });
     }
 
+    // when tapping on a button, go to day view
     @Override
     public boolean onSingleTapConfirmed(MotionEvent e) {
         if(viewGestureisOn instanceof Button) {
@@ -1234,17 +1239,17 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
 
     @Override
     public boolean onDoubleTap(MotionEvent e) {
-        return true;
+        return false;
     }
 
     @Override
     public boolean onDoubleTapEvent(MotionEvent e) {
-        return true;
+        return false;
     }
 
     @Override
     public boolean onDown(MotionEvent e) {
-        return true;
+        return false;
     }
 
     @Override
@@ -1253,12 +1258,12 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
 
     @Override
     public boolean onSingleTapUp(MotionEvent e) {
-        return true;
+        return false;
     }
 
     @Override
     public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
-        return true;
+        return false;
     }
 
     @Override
@@ -1266,6 +1271,7 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
 
     }
 
+    //when swiping
     @Override
     public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
         try {

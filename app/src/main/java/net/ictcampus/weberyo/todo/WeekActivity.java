@@ -48,14 +48,17 @@ public class WeekActivity extends AppCompatActivity implements GestureDetector.O
         setContentView(R.layout.activity_woche);
         activity = this;
 
-        mGestureDetector3 = new GestureDetector(this);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS, WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-        final Intent intent = getIntent();
         initFloatButton();
+        mGestureDetector3 = new GestureDetector(this);
+
+        //get intent eith all relevant data
+        final Intent intent = getIntent();
         resetMonth = intent.getIntExtra("Month", 5);
         resetYear = intent.getIntExtra("Year", 2);
         resetWeek = intent.getIntExtra("Week", 1);
         resetDay = intent.getIntExtra("Day", 1);
+
+        //set the "buttons" in an array
         allWeekButtons.add((LinearLayout) findViewById(R.id.kalenderwoche1));
         allWeekButtons.add((LinearLayout) findViewById(R.id.kalenderwoche2));
         allWeekButtons.add((LinearLayout) findViewById(R.id.kalenderwoche3));
@@ -63,16 +66,14 @@ public class WeekActivity extends AppCompatActivity implements GestureDetector.O
         allWeekButtons.add((LinearLayout) findViewById(R.id.kalenderwoche5));
         allWeekButtons.add((LinearLayout) findViewById(R.id.kalenderwoche6));
         allWeekButtons.add((LinearLayout) findViewById(R.id.kalenderwoche7));
+
+        //get actual date and month in string
         actualDate = Calendar.getInstance().getTime();
         actualDateFormatted = dateFormatter.format(actualDate);
         try {
             date = dateFormatter.parse(actualDateFormatted);
         } catch (java.text.ParseException e) {
         }
-        resetMonth = intent.getIntExtra("Month", date.getMonth());
-        resetYear = intent.getIntExtra("Year", 2);
-        resetWeek = intent.getIntExtra("Week", 1);
-        resetDay = intent.getIntExtra("Day", 1);
         if (date.getMonth() == 0) {
             actualMonth = "January";
         }
@@ -111,6 +112,7 @@ public class WeekActivity extends AppCompatActivity implements GestureDetector.O
         }
         setWeek(1, resetMonth, resetYear);
 
+        //set ontouchlistener on all weekbuttons for detecting gestures
         for (LinearLayout a : allWeekButtons) {
             a.setOnTouchListener(new View.OnTouchListener() {
                 @Override
@@ -122,6 +124,7 @@ public class WeekActivity extends AppCompatActivity implements GestureDetector.O
             });
         }
 
+        //set ontouchlistener on the whole activity for detecting gestures
         ConstraintLayout layout = (ConstraintLayout) findViewById(R.id.Constraint);
         layout.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -133,6 +136,7 @@ public class WeekActivity extends AppCompatActivity implements GestureDetector.O
         });
     }
 
+    //set the buttons to an exact week in an exact year and month
     public boolean setWeek(int woche, int monat, int jahr) {
         for (LinearLayout b : allWeekButtons) {
             b.setVisibility(View.VISIBLE);
@@ -1259,6 +1263,7 @@ public class WeekActivity extends AppCompatActivity implements GestureDetector.O
         return check;
     }
 
+    //go through all cases if you switch week 1 backward
     public void swipeRight() {
         if (!(getTitle().toString().toLowerCase().contains("week 1") & getTitle().toString().toLowerCase().contains(actualMonth.toLowerCase()) & getTitle().toString().toLowerCase().contains(date.getYear() + 1899 + ""))) {
             if (getTitle().toString().toLowerCase().contains("january")) {
@@ -2813,6 +2818,7 @@ public class WeekActivity extends AppCompatActivity implements GestureDetector.O
         }
     }
 
+    //say the different cases if you cant swipe
     public void swipeLeft() {
         int resetWeek2 = resetWeek;
         if (setWeek(6, date.getMonth(), 3) == true) {
@@ -2833,6 +2839,7 @@ public class WeekActivity extends AppCompatActivity implements GestureDetector.O
         }
     }
 
+    //go through all cases if you switch week 1 forward
     public void controlSwipeLeft() {
         if (getTitle().toString().toLowerCase().contains("january")) {
             if (getTitle().toString().toLowerCase().contains(date.getYear() + 1900 + "")) {
@@ -4002,8 +4009,8 @@ public class WeekActivity extends AppCompatActivity implements GestureDetector.O
         });
     }
 
+    //get the todos for all days in the week and set the right things to the button
     public void getTodosForThisButton(String dateOfLayout, LinearLayout layout) {
-
         List<Todo> todos;
 
         View divider1 = layout.findViewById(R.id.divider_1);
@@ -4175,6 +4182,7 @@ public class WeekActivity extends AppCompatActivity implements GestureDetector.O
         prio1.setBackgroundColor(getResources().getColor(R.color.classic));
     }
 
+    //when you tapp on a weekbutton
     @Override
     public boolean onSingleTapConfirmed(MotionEvent e) {
         if(viewGestureisOn instanceof LinearLayout){
@@ -4276,6 +4284,7 @@ public class WeekActivity extends AppCompatActivity implements GestureDetector.O
 
     }
 
+    //when swiping
     @Override
     public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
         try {
