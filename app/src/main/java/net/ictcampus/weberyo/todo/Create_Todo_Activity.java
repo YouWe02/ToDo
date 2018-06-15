@@ -283,10 +283,11 @@ public class Create_Todo_Activity extends AppCompatActivity {
             Thread_CreateTodo createTodo = new Thread_CreateTodo(title, description, date, category, privacy, priority, this);
             createTodo.start();
             createTodo.join();
-            CharSequence text = "ToDo saved successfully";
+            CharSequence text = "ToDo created!";
             Toast hint = Toast.makeText(this, text, Toast.LENGTH_LONG);
             clearFields();
             hint.show();
+            finish();
         }catch (Exception e){
             Log.e("Create Todo", e.getMessage());
         }

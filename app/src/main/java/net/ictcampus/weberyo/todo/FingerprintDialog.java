@@ -16,12 +16,13 @@ public class FingerprintDialog extends DialogFragment{
 
     FingerprintDialog self;
     View view;
-
     ImageView dialogView;
     TextView textview;
 
+    //if the dialog was created
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
+        //
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = getActivity().getLayoutInflater();
         view = inflater.inflate(R.layout.dialog_fingerprint, null);

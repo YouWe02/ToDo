@@ -6,34 +6,42 @@ import android.arch.persistence.room.PrimaryKey;
 
 import java.util.Date;
 
+//tablename is todo
 @Entity(tableName = "todo")
 public class Todo {
 
+    //todoid int autoimplement
     @PrimaryKey(autoGenerate = true)
     private int ID_Todo;
 
+    //title of todo as String
     @ColumnInfo(name = "title")
     private String title;
 
+    //description of todo as String
     @ColumnInfo(name = "description")
     private  String description;
 
+    //priority of todo as int
     @ColumnInfo(name = "priority")
     private int priority;
 
+    //date of todo as String
     @ColumnInfo(name = "date")
     private String date;
 
+    //theme of todo as theme
     @ColumnInfo(name = "theme")
     private String theme;
 
+    //if todo is private or not as boolean
     @ColumnInfo(name = "privacy")
     private boolean privacy;
 
 
 
 
-
+    //getters and setters of a todo object
     public int getID_Todo() {
         return ID_Todo;
     }

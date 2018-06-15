@@ -5,20 +5,17 @@ import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
 
-import java.util.Date;
 import java.util.List;
 
 @Dao
 public interface TodoDAO {
 
-    //Querys
-
-    @Query("SELECT * FROM todo")
-    List<Todo> getAll();
-
+    //selects
+    //get all ToDos of a date ordered by the priority of the ToDo
     @Query("SELECT * FROM todo WHERE date = :date ORDER BY priority DESC")
     List<Todo> getTodoByDay(String date);
 
+    //get the 4 ToDos of a date who have the highest priority
     @Query("SELECT * FROM todo WHERE date = :date ORDER BY priority DESC LIMIT 4 ")
     List<Todo> getTodoByDayLimi4(String date);
 
@@ -34,8 +31,7 @@ public interface TodoDAO {
     @Insert
     void insertTodo(Todo... todos);
 
-    //Deletes
-
+    //deletes
     @Delete
     void deleteTodo(Todo todo);
 

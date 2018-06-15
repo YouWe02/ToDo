@@ -8,32 +8,29 @@ import android.content.ClipData;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Color;
 import android.hardware.fingerprint.FingerprintManager;
 import android.os.Build;
 import android.security.keystore.KeyGenParameterSpec;
 import android.security.keystore.KeyPermanentlyInvalidatedException;
 import android.security.keystore.KeyProperties;
 import android.support.design.widget.FloatingActionButton;
-import android.content.Intent;
-import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import android.view.DragEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.DatePicker;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
 
 import net.ictcampus.weberyo.todo.net.ictcampus.weberyo.todo.threads.Thread_CreateTodo;
 import net.ictcampus.weberyo.todo.net.ictcampus.weberyo.todo.threads.Thread_DeleteTodo;
@@ -49,7 +46,6 @@ import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
 import java.security.UnrecoverableKeyException;
 import java.security.cert.CertificateException;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -61,7 +57,8 @@ import javax.crypto.KeyGenerator;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
 
-public class Day_View_activity extends AppCompatActivity{
+
+public class Day_View_activity extends AppCompatActivity implements GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener{
 
     public static Activity activity;
     private int resetYear;
@@ -83,6 +80,8 @@ public class Day_View_activity extends AppCompatActivity{
     private FingerprintManager fingerprintManager;
     private FingerprintDialog dialog;
     private Todo todo;
+    private GestureDetector mGestureDetector2;
+    private int year;
     private int drag;
     private ArrayList<String> todosOfTodayID;
     private ArrayAdapter todosOfToday;
@@ -94,8 +93,11 @@ public class Day_View_activity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_day__view_activity);
         activity = this;
+
+        mGestureDetector2 = new GestureDetector(this);
+
         initFloatButton();
-        setDate();
+        setTitleActivity();
         Intent intentget = getIntent();
         datestring = intentget.getStringExtra("Date");
         resetYear = intentget.getIntExtra("Year", 2);
@@ -103,20 +105,27 @@ public class Day_View_activity extends AppCompatActivity{
         resetWeek = intentget.getIntExtra("Week", 1);
         resetDay = intentget.getIntExtra("Day", 1);
         actualMonth = intentget.getStringExtra("Monthstring");
-        setDate();
-        setDate();
+        setTitleActivity();
 
         list = (ListView) findViewById(R.id.dayview_todo_list);
         list.setAdapter(ArrayAdapter(datestring));
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Todo title = (Todo) parent.getItemAtPosition(position);
-                String titlestring = title.getTitle();
-                onClickList(titlestring);
-
+                String title = (String)(list.getItemAtPosition(position));
+                onClickListElement(title);
             }
         });
+
+        final RelativeLayout layout = (RelativeLayout) findViewById(R.id.relativeDay);
+        layout.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, final MotionEvent event) {
+                mGestureDetector2.onTouchEvent(event);
+                return true;
+            }
+        });
+
 
         list.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
@@ -166,7 +175,6 @@ public class Day_View_activity extends AppCompatActivity{
                 return true;
             }
         });
-
     }
 
     public ArrayAdapter ArrayAdapter(String date) {
@@ -205,7 +213,7 @@ public class Day_View_activity extends AppCompatActivity{
         }
     }
 
-    public void setDate() {
+    public void setTitleActivity() {
         actualDate = Calendar.getInstance().getTime();
         actualDateFormatted = dateFormatter.format(actualDate);
         try {
@@ -213,19 +221,104 @@ public class Day_View_activity extends AppCompatActivity{
         } catch (java.text.ParseException e) {
             e.printStackTrace();
         }
-        int year = 1;
         if (resetYear == 2) {
-            year = date.getYear() + 1900;
+            year = this.date.getYear() + 1900;
         } else if (resetYear == 1) {
-            year = date.getYear() + 1899;
+            year = this.date.getYear() + 1899;
         } else {
-            year = date.getYear() + 1901;
+            year = this.date.getYear() + 1901;
+        }
+        if(resetMonth == 0){
+            actualMonth = "January";
+        }
+        else if(resetMonth == 1){
+            actualMonth = "February";
+        }
+        else if(resetMonth == 2){
+            actualMonth = "March";
+        }
+        else if(resetMonth == 3){
+            actualMonth = "April";
+        }
+        else if(resetMonth == 4){
+            actualMonth = "May";
+        }
+        else if(resetMonth == 5){
+            actualMonth = "June";
+        }
+        else if(resetMonth == 6){
+            actualMonth = "July";
+        }
+        else if(resetMonth == 7){
+            actualMonth = "August";
+        }
+        else if(resetMonth == 8){
+            actualMonth = "September";
+        }
+        else if(resetMonth == 9){
+            actualMonth = "October";
+        }
+        else if(resetMonth == 10){
+            actualMonth = "November";
+        }
+        else if(resetMonth == 11){
+            actualMonth = "December";
         }
         setTitle(resetDay + " " + actualMonth + " " + year);
     }
 
-    public void onClickList(String title) {
-        int year = 0;
+    public void swipeLeft(){
+        ImportDates id = new ImportDates();
+        List<Date> dates = id.defineDateinterval();
+        String[] trim = getTitle().toString().split(" ");
+        int day = Integer.parseInt(trim[0]);
+        int month = resetMonth;
+        for(Date a:dates){
+            if(a.getDate() == day & a.getMonth() == resetMonth & date.getYear() == year){
+                Calendar c = Calendar.getInstance();
+                c.setTime(a);
+                c.add(Calendar.DATE, 1);
+                Date newDate = c.getTime();
+                if(newDate.getYear() == date.getYear()){
+                    year = 2;
+                }
+                else if(newDate.getYear() == date.getYear() + 1){
+                    year = 3;
+                }
+                else if(newDate.getYear() == date.getYear() - 1){
+                    year = 1;
+                }
+                resetYear = year;
+                resetMonth = newDate.getMonth();
+                resetDay = newDate.getDate();
+                ArrayAdapter(getFormattedString());
+                setTitleActivity();
+            }
+        }
+
+    }
+
+    public void swipeRight(){
+        ImportDates id = new ImportDates();
+        List<Date> dates = id.defineDateinterval();
+        String[] trim = getTitle().toString().split(" ");
+        int day = Integer.parseInt(trim[0]);
+        int month = resetMonth;
+        for(Date a:dates){
+            if(a.getDate() == day & a.getMonth() == resetMonth & date.getYear() == year){
+                Calendar c = Calendar.getInstance();
+                c.setTime(a);
+                c.add(Calendar.DATE, -1);
+                Date newDate = c.getTime();
+                resetYear = newDate.getYear();
+                resetMonth = newDate.getMonth();
+                resetDay = newDate.getDate();
+            }
+        }
+
+    }
+
+    public String getFormattedString(){
         if (resetYear == 2) {
             year = date.getYear() + 1900;
         } else if (resetYear == 1) {
@@ -238,18 +331,22 @@ public class Day_View_activity extends AppCompatActivity{
         if (resetDay < 10) {
             actualDate = 0 + "" + resetDay;
             if (resetMonth + 1 < 10) {
-                dateGetToDos = year + "-" + "0" + (resetMonth + 1) + "-" + actualDate + " " + "00:00:00.000";
+                return dateGetToDos = year + "-" + "0" + (resetMonth + 1) + "-" + actualDate + " " + "00:00:00.000";
             } else {
-                dateGetToDos = year + "-" + (resetMonth + 1) + "-" + actualDate + " " + "00:00:00.000";
+                return dateGetToDos = year + "-" + (resetMonth + 1) + "-" + actualDate + " " + "00:00:00.000";
             }
         } else {
             actualDate = resetDay + "";
             if (resetMonth + 1 < 10) {
-                dateGetToDos = year + "-" + "0" + (resetMonth + 1) + "-" + actualDate + " " + "00:00:00.000";
+                return dateGetToDos = year + "-" + "0" + (resetMonth + 1) + "-" + actualDate + " " + "00:00:00.000";
             } else {
-                dateGetToDos = year + "-" + (resetMonth + 1) + "-" + actualDate + " " + "00:00:00.000";
+                return dateGetToDos = year + "-" + (resetMonth + 1) + "-" + actualDate + " " + "00:00:00.000";
             }
         }
+    }
+
+    public void onClickListElement(String title) {
+        String dateGetToDos = getFormattedString();
         try {
             Thread_GetToDoByTitle thread_getToDoByTitle = new Thread_GetToDoByTitle(dateGetToDos, title, this);
             thread_getToDoByTitle.start();
@@ -383,6 +480,72 @@ public class Day_View_activity extends AppCompatActivity{
         } catch (KeyStoreException | CertificateException | UnrecoverableKeyException | IOException | NoSuchAlgorithmException | InvalidKeyException e) {
             throw new RuntimeException("Failed to init Cipher", e);
         }
+    }
+
+    @Override
+    public boolean onSingleTapConfirmed(MotionEvent e) {
+        return true;
+    }
+
+    @Override
+    public boolean onDoubleTap(MotionEvent e) {
+        return true;
+    }
+
+    @Override
+    public boolean onDoubleTapEvent(MotionEvent e) {
+        return true;
+    }
+
+    @Override
+    public boolean onDown(MotionEvent e) {
+        return true;
+    }
+
+    @Override
+    public void onShowPress(MotionEvent e) {
+    }
+
+    @Override
+    public boolean onSingleTapUp(MotionEvent e) {
+        return true;
+    }
+
+    @Override
+    public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
+        return true;
+    }
+
+    @Override
+    public void onLongPress(MotionEvent e) {
+
+    }
+
+    @Override
+    public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+
+        if (e1.getX() < e2.getX() & e1.getX() + e2.getX() > e1.getY() + e2.getY()) {
+            swipeRight();
+        }
+
+        if (e1.getX() > e2.getX() & e1.getX() + e2.getX() > e1.getY() + e2.getY()) {
+            swipeLeft();
+        }
+
+        if (e1.getY() < e2.getY() & e1.getX() + e2.getX() < e1.getY() + e2.getY()) {
+            Intent intentset = new Intent(Day_View_activity.this, wocheActivity.class);
+            intentset.putExtra("Year", resetYear);
+            intentset.putExtra("Month", resetMonth);
+            intentset.putExtra("Week", resetWeek);
+            intentset.putExtra("Day", resetDay);
+            startActivity(intentset);
+        }
+
+        if (e1.getY() > e2.getY() & e1.getX() + e2.getX() < e1.getY() + e2.getY()) {
+
+        }
+
+        return true;
     }
 
     private class FingerprintException extends Exception {
