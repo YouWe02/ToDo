@@ -7,12 +7,20 @@ import net.ictcampus.weberyo.todo.Todo;
 
 import java.util.List;
 
+/**
+ * Gibt die 4 wichtigsten Todos vom gewünschten Datum zurück.
+ */
 public class Thread_GetTodayTodosLimit4 extends Thread{
     private AppDatabase db;
     private Context context;
     private String date;
     private List<Todo> all;
 
+    /**
+     * Konstruktor, initialisiert die Instanzvariablen
+     * @param date Datum
+     * @param context INhalt der App
+     */
     public Thread_GetTodayTodosLimit4(String date, Context context){
         this.date = date;
         this.context = context;

@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 #Fri Jun 15 09:37:10 CEST 2018
+=======
+#Fri Jun 15 10:39:38 CEST 2018
+>>>>>>> bceb12bf023a998a8dff5318299e0ea12e6c0796

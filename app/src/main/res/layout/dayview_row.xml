@@ -7,7 +7,7 @@
 
     <net.ictcampus.weberyo.todo.FontAwesome
         android:id="@+id/dayview_category"
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:textSize="30dp"
         android:text=""

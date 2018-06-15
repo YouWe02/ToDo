@@ -115,7 +115,11 @@ public class Day_View_activity extends AppCompatActivity implements GestureDetec
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+<<<<<<< HEAD
                 Todo title = (Todo)(parent.getItemAtPosition(position));
+=======
+                Todo title = (Todo)(list.getItemAtPosition(position));
+>>>>>>> bceb12bf023a998a8dff5318299e0ea12e6c0796
                 String titlestring = title.getTitle();
                 onClickListElement(titlestring);
             }
