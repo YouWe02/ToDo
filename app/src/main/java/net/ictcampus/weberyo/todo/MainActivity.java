@@ -27,7 +27,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener{
     private static final int SWIPE_MIN_DISTANCE = 120;
-    private static final int SWIPE_MAX_OFF_PATH = 250;
+    private static final int SWIPE_MIN_DISTANCEUP = 50;
     private static final int SWIPE_THRESHOLD_VELOCITY = 200;
     public static Activity activity;
     Intent intentget;
@@ -1265,38 +1265,26 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
     @Override
     public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
         try {
-            if (Math.abs(e1.getY() - e2.getY()) > SWIPE_MAX_OFF_PATH){
-                return false;
-            }
             // right to left swipe
-            if (e1.getX() - e2.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
-                //swipeLeft();
-                Intent intentset = new Intent(MainActivity.this, wocheActivity.class);
-                intentset.putExtra("Year", resetYear);
-                intentset.putExtra("Month", resetMonth);
-                intentset.putExtra("Week", resetWeek);
-                intentset.putExtra("Day", resetDay);
-                startActivity(intentset);
+            if (e1.getX() - e2.getX() > SWIPE_MIN_DISTANCE & Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
+                swipeLeft();
             }
             // left to right swipe
-            else if (e2.getX() - e1.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
+            else if (e2.getX() - e1.getX() > SWIPE_MIN_DISTANCE & Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
                 swipeRight();
             }
-            else if (e1.getY() - e2.getY() > SWIPE_MIN_DISTANCE && Math.abs(velocityY) > SWIPE_THRESHOLD_VELOCITY){
-                Intent intentset = new Intent(MainActivity.this, wocheActivity.class);
-                intentset.putExtra("Year", resetYear);
-                intentset.putExtra("Month", resetMonth);
-                intentset.putExtra("Week", resetWeek);
-                intentset.putExtra("Day", resetDay);
-                startActivity(intentset);
-            }
-            else if (e1.getY() - e2.getY() > SWIPE_MIN_DISTANCE && Math.abs(velocityY) > SWIPE_THRESHOLD_VELOCITY){
-                Intent intentset = new Intent(MainActivity.this, wocheActivity.class);
-                intentset.putExtra("Year", resetYear);
-                intentset.putExtra("Month", resetMonth);
-                intentset.putExtra("Week", resetWeek);
-                intentset.putExtra("Day", resetDay);
-                startActivity(intentset);
+            else if(velocityY > this.SWIPE_MIN_DISTANCEUP & Math.abs(e1.getY() - e2.getY()) > this.SWIPE_MIN_DISTANCEUP){
+                if(e1.getY() > e2.getY()){
+                    Intent intentset = new Intent(MainActivity.this, wocheActivity.class);
+                    intentset.putExtra("Year", resetYear);
+                    intentset.putExtra("Month", resetMonth);
+                    intentset.putExtra("Week", resetWeek);
+                    intentset.putExtra("Day", resetDay);
+                    startActivity(intentset);
+                }
+                else{
+                    return true;
+                }
             }
         } catch (Exception e) {
 

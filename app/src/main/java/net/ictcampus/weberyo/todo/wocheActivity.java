@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.TypedArray;
 import android.support.constraint.ConstraintLayout;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -29,9 +30,9 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-public class wocheActivity extends AppCompatActivity implements GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener{
+public class wocheActivity extends AppCompatActivity implements GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener {
     private static final int SWIPE_MIN_DISTANCE = 120;
-    private static final int SWIPE_MAX_OFF_PATH = 250;
+    private static final int SWIPE_MIN_DISTANCEUP = 50;
     private static final int SWIPE_THRESHOLD_VELOCITY = 200;
     public static Activity activity;
     private List<LinearLayout> allWeekButtons = new ArrayList<LinearLayout>();
@@ -46,6 +47,7 @@ public class wocheActivity extends AppCompatActivity implements GestureDetector.
     private Date date;
     private ProgressDialog dialog;
     private GestureDetector mGestureDetector3;
+    private View viewGestureisOn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,7 +70,6 @@ public class wocheActivity extends AppCompatActivity implements GestureDetector.
         allWeekButtons.add((LinearLayout) findViewById(R.id.kalenderwoche5));
         allWeekButtons.add((LinearLayout) findViewById(R.id.kalenderwoche6));
         allWeekButtons.add((LinearLayout) findViewById(R.id.kalenderwoche7));
-        initClickListener();
         actualDate = Calendar.getInstance().getTime();
         actualDateFormatted = dateFormatter.format(actualDate);
         try {
@@ -121,15 +122,18 @@ public class wocheActivity extends AppCompatActivity implements GestureDetector.
             a.setOnTouchListener(new View.OnTouchListener() {
                 @Override
                 public boolean onTouch(View v, final MotionEvent event) {
+                    viewGestureisOn = (LinearLayout) v;
                     mGestureDetector3.onTouchEvent(event);
                     return true;
                 }
             });
         }
+
         ConstraintLayout layout = (ConstraintLayout) findViewById(R.id.Constraint);
         layout.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, final MotionEvent event) {
+                viewGestureisOn = (ConstraintLayout) v;
                 mGestureDetector3.onTouchEvent(event);
                 return true;
             }
@@ -139,7 +143,7 @@ public class wocheActivity extends AppCompatActivity implements GestureDetector.
     public boolean setWeek(int woche, int monat, int jahr) {
         for (LinearLayout b : allWeekButtons) {
             b.setVisibility(View.VISIBLE);
-            TextView day = (TextView)b.getChildAt(0);
+            TextView day = (TextView) b.getChildAt(0);
             day.setText("default");
         }
         boolean check = true;
@@ -2840,24 +2844,24 @@ public class wocheActivity extends AppCompatActivity implements GestureDetector.
         if (getTitle().toString().toLowerCase().contains("january")) {
             if (getTitle().toString().toLowerCase().contains(date.getYear() + 1900 + "")) {
                 if (getTitle().toString().toLowerCase().contains("week 1")) {
-                    setWeek(2,0,2);
+                    setWeek(2, 0, 2);
                     resetMonth = 0;
                     resetYear = 2;
                 } else if (getTitle().toString().toLowerCase().contains("week 2")) {
-                    setWeek(3,0,2);
+                    setWeek(3, 0, 2);
                     resetMonth = 0;
                     resetYear = 2;
                 } else if (getTitle().toString().toLowerCase().contains("week 3")) {
-                    setWeek(4,0,2);
+                    setWeek(4, 0, 2);
                     resetMonth = 0;
                     resetYear = 2;
                 } else if (getTitle().toString().toLowerCase().contains("week 4")) {
-                    setWeek(5,0,2);
+                    setWeek(5, 0, 2);
                     resetMonth = 0;
                     resetYear = 2;
                 } else if (getTitle().toString().toLowerCase().contains("week 5")) {
-                    if (setWeek(6,0,2) == false) {
-                        setWeek(1,1,2);
+                    if (setWeek(6, 0, 2) == false) {
+                        setWeek(1, 1, 2);
                         resetMonth = 1;
                         resetYear = 2;
                     } else {
@@ -2865,17 +2869,17 @@ public class wocheActivity extends AppCompatActivity implements GestureDetector.
                         resetYear = 2;
                     }
                 } else if (getTitle().toString().toLowerCase().contains("week 6")) {
-                    setWeek(1,1,2);
+                    setWeek(1, 1, 2);
                     resetMonth = 1;
                     resetYear = 2;
                 }
             } else if (getTitle().toString().toLowerCase().contains(date.getYear() + 1899 + "")) {
                 if (getTitle().toString().toLowerCase().contains("week 1")) {
-                    setWeek(2,0,1);
+                    setWeek(2, 0, 1);
                     resetMonth = 0;
                     resetYear = 1;
                 } else if (getTitle().toString().toLowerCase().contains("week 2")) {
-                    setWeek(3,0,1);
+                    setWeek(3, 0, 1);
                     resetMonth = 0;
                     resetYear = 1;
                 } else if (getTitle().toString().toLowerCase().contains("week 3")) {
@@ -2887,8 +2891,8 @@ public class wocheActivity extends AppCompatActivity implements GestureDetector.
                     resetMonth = 0;
                     resetYear = 1;
                 } else if (getTitle().toString().toLowerCase().contains("week 5")) {
-                    if (setWeek(6,0,1) == false) {
-                        setWeek(1,1,1);
+                    if (setWeek(6, 0, 1) == false) {
+                        setWeek(1, 1, 1);
                         resetMonth = 1;
                         resetYear = 1;
                     } else {
@@ -3992,7 +3996,8 @@ public class wocheActivity extends AppCompatActivity implements GestureDetector.
             }
         }
     }
-    public void initFloatButton(){
+
+    public void initFloatButton() {
         FloatingActionButton button = (FloatingActionButton) findViewById(R.id.floatweek);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -4004,7 +4009,7 @@ public class wocheActivity extends AppCompatActivity implements GestureDetector.
         });
     }
 
-    public void getTodosForThisButton(String dateOfLayout, LinearLayout layout){
+    public void getTodosForThisButton(String dateOfLayout, LinearLayout layout) {
 
         List<Todo> todos;
 
@@ -4032,14 +4037,14 @@ public class wocheActivity extends AppCompatActivity implements GestureDetector.
         try {
             getTodayTodos.start();
             getTodayTodos.join();
-        } catch (Exception e){
+        } catch (Exception e) {
 
         }
         todos = getTodayTodos.getAll();
 
-        if(todos.size() > 0) {
+        if (todos.size() > 0) {
             icon1.setText(getStringIdentifier(this, todos.get(0).getTheme()));
-            switch (todos.get(0).getPriority()){
+            switch (todos.get(0).getPriority()) {
                 case 1:
                     prio1.setBackgroundColor(getResources().getColor(R.color.priority1));
                     break;
@@ -4057,10 +4062,10 @@ public class wocheActivity extends AppCompatActivity implements GestureDetector.
                     break;
             }
         }
-        if(todos.size() > 1) {
+        if (todos.size() > 1) {
             divider1.setBackgroundColor(getResources().getColor(R.color.classic_dark));
             icon2.setText(getStringIdentifier(this, todos.get(1).getTheme()));
-            switch (todos.get(1).getPriority()){
+            switch (todos.get(1).getPriority()) {
                 case 1:
                     prio2.setBackgroundColor(getResources().getColor(R.color.priority1));
                     break;
@@ -4079,10 +4084,10 @@ public class wocheActivity extends AppCompatActivity implements GestureDetector.
             }
         }
 
-        if(todos.size() > 2){
+        if (todos.size() > 2) {
             divider2.setBackgroundColor(getResources().getColor(R.color.classic_dark));
             icon3.setText(getStringIdentifier(this, todos.get(2).getTheme()));
-            switch (todos.get(2).getPriority()){
+            switch (todos.get(2).getPriority()) {
                 case 1:
                     prio3.setBackgroundColor(getResources().getColor(R.color.priority1));
                     break;
@@ -4100,10 +4105,10 @@ public class wocheActivity extends AppCompatActivity implements GestureDetector.
                     break;
             }
         }
-        if(todos.size() > 3){
+        if (todos.size() > 3) {
             divider3.setBackgroundColor(getResources().getColor(R.color.classic_dark));
             icon4.setText(getStringIdentifier(this, todos.get(3).getTheme()));
-            switch (todos.get(3).getPriority()){
+            switch (todos.get(3).getPriority()) {
                 case 1:
                     prio4.setBackgroundColor(getResources().getColor(R.color.priority1));
                     break;
@@ -4129,23 +4134,23 @@ public class wocheActivity extends AppCompatActivity implements GestureDetector.
         return context.getResources().getIdentifier(name, "string", context.getPackageName());
     }
 
-    public void initGetTodosForThisButtons(LinearLayout button, Date a){
+    public void initGetTodosForThisButtons(LinearLayout button, Date a) {
         dialog = ProgressDialog.show(this, "", "Loading...", true);
         String dateOf;
         String year = Integer.toString(a.getYear() + 1900);
         String month = Integer.toString(a.getMonth() + 1);
         String day = Integer.toString(a.getDate());
-        if (month.length() < 2){
+        if (month.length() < 2) {
             month = "0" + month;
         }
-        if(day.length() < 2){
+        if (day.length() < 2) {
             day = "0" + day;
         }
         dateOf = year + "-" + month + "-" + day + " 00:00:00.000";
         getTodosForThisButton(dateOf, button);
     }
 
-    public void deleteOldTodo(LinearLayout layout){
+    public void deleteOldTodo(LinearLayout layout) {
         LinearLayout layout1 = (LinearLayout) layout.getChildAt(1);
         LinearLayout layout2 = (LinearLayout) layout.getChildAt(3);
         LinearLayout layout3 = (LinearLayout) layout.getChildAt(5);
@@ -4179,7 +4184,69 @@ public class wocheActivity extends AppCompatActivity implements GestureDetector.
 
     @Override
     public boolean onSingleTapConfirmed(MotionEvent e) {
-        return true;
+        if(viewGestureisOn instanceof LinearLayout){
+            TextView textview = (TextView)(((LinearLayout) viewGestureisOn).getChildAt(0));
+            String[] trim = textview.getText().toString().split(" ");
+            String[] trim2 = getTitle().toString().split(" ");
+            int day = Integer.parseInt(trim[1]);
+            int year = 0;
+            if(Integer.parseInt(trim2[3]) == date.getYear() + 1900){
+                year = 2;
+            }
+            else if(Integer.parseInt(trim2[3]) == date.getYear() + 1899){
+                year = 1;
+            }
+            else if(Integer.parseInt(trim2[3]) == date.getYear() + 1901){
+                year = 3;
+            }
+            int month = 0;
+            if(trim2[2].equals("January")){
+                month = 0;
+            }
+            else if(trim2[2].equals("February")){
+                month = 1;
+            }
+            else if(trim2[2].equals("March")){
+                month = 2;
+            }
+            else if(trim2[2].equals("April")){
+                month = 3;
+            }
+            else if(trim2[2].equals("May")){
+                month = 4;
+            }
+            else if(trim2[2].equals("June")){
+                month = 5;
+            }
+            else if(trim2[2].equals("July")){
+                month = 6;
+            }
+            else if(trim2[2].equals("August")){
+                month = 7;
+            }
+            else if(trim2[2].equals("September")){
+                month = 8;
+            }
+            else if(trim2[2].equals("October")){
+                month = 9;
+            }
+            else if(trim2[2].equals("November")){
+                month = 10;
+            }
+            else if(trim2[2].equals("December")){
+                month = 11;
+            }
+            Intent intentset = new Intent(wocheActivity.this, Day_View_activity.class);
+            intentset.putExtra("Year", year);
+            intentset.putExtra("Month", month);
+            intentset.putExtra("Week", resetWeek);
+            intentset.putExtra("Day", day);
+            startActivity(intentset);
+            return true;
+        }
+        else{
+            return true;
+        }
     }
 
     @Override
@@ -4218,26 +4285,36 @@ public class wocheActivity extends AppCompatActivity implements GestureDetector.
 
     @Override
     public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+        try {
+            // right to left swipe
+            if (e1.getX() - e2.getX() > SWIPE_MIN_DISTANCE & Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
+                swipeLeft();
+            }
+            // left to right swipe
+            else if (e2.getX() - e1.getX() > SWIPE_MIN_DISTANCE & Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
+                swipeRight();
+            }
+            else if(velocityY > this.SWIPE_MIN_DISTANCEUP & Math.abs(e1.getY() - e2.getY()) > this.SWIPE_MIN_DISTANCEUP){
+                if(e1.getY() > e2.getY()){
+                    Intent intentset = new Intent(wocheActivity.this, Day_View_activity.class);
+                    intentset.putExtra("Year", resetYear);
+                    intentset.putExtra("Month", resetMonth);
+                    intentset.putExtra("Week", resetWeek);
+                    intentset.putExtra("Day", resetDay);
+                    startActivity(intentset);
+                }
+                else{
+                    Intent intentset = new Intent(wocheActivity.this, MainActivity.class);
+                    intentset.putExtra("Year", resetYear);
+                    intentset.putExtra("Month", resetMonth);
+                    intentset.putExtra("Week", resetWeek);
+                    intentset.putExtra("Day", resetDay);
+                    startActivity(intentset);
+                }
+            }
+        } catch (Exception e) {
 
-        if (e1.getX() - e2.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
-            swipeLeft();
-        }
-        // left to right swipe
-        else if (e2.getX() - e1.getX() > SWIPE_MIN_DISTANCE && Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
-            swipeRight();
         }
         return true;
-    }
-    public void initClickListener(){
-
-        for (LinearLayout b : allWeekButtons){
-            b.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Log.e("Test", "click");
-                }
-
-            });
-        }
     }
 }

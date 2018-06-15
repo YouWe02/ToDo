@@ -13,6 +13,7 @@ import android.os.Build;
 import android.security.keystore.KeyGenParameterSpec;
 import android.security.keystore.KeyPermanentlyInvalidatedException;
 import android.security.keystore.KeyProperties;
+import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
@@ -30,6 +31,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import net.ictcampus.weberyo.todo.net.ictcampus.weberyo.todo.threads.Thread_CreateTodo;
@@ -59,7 +61,9 @@ import javax.crypto.SecretKey;
 
 
 public class Day_View_activity extends AppCompatActivity implements GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener{
-
+    private static final int SWIPE_MIN_DISTANCE = 120;
+    private static final int SWIPE_MIN_DISTANCEUP = 120;
+    private static final int SWIPE_THRESHOLD_VELOCITY = 200;
     public static Activity activity;
     private int resetYear;
     private int resetMonth;
@@ -70,7 +74,6 @@ public class Day_View_activity extends AppCompatActivity implements GestureDetec
     private String actualDateFormatted;
     private String actualMonth;
     private Date date;
-    private String datestring;
     private static final String KEY_NAME = "hvibdsdv";
     private Cipher cipher;
     private KeyStore keyStore;
@@ -99,7 +102,7 @@ public class Day_View_activity extends AppCompatActivity implements GestureDetec
         initFloatButton();
         setTitleActivity();
         Intent intentget = getIntent();
-        datestring = intentget.getStringExtra("Date");
+        String datestring = intentget.getStringExtra("Date");
         resetYear = intentget.getIntExtra("Year", 2);
         resetMonth = intentget.getIntExtra("Month", 6);
         resetWeek = intentget.getIntExtra("Week", 1);
@@ -108,16 +111,17 @@ public class Day_View_activity extends AppCompatActivity implements GestureDetec
         setTitleActivity();
 
         list = (ListView) findViewById(R.id.dayview_todo_list);
-        list.setAdapter(ArrayAdapter(datestring));
+        list.setAdapter(ArrayAdapter(getFormattedString()));
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String title = (String)(list.getItemAtPosition(position));
-                onClickListElement(title);
+                Todo title = (Todo)(parent.getItemAtPosition(position));
+                String titlestring = title.getTitle();
+                onClickListElement(titlestring);
             }
         });
 
-        final RelativeLayout layout = (RelativeLayout) findViewById(R.id.relativeDay);
+        final ConstraintLayout layout = (ConstraintLayout) findViewById(R.id.relativeDay);
         layout.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, final MotionEvent event) {
@@ -198,13 +202,21 @@ public class Day_View_activity extends AppCompatActivity implements GestureDetec
                 priorities[counter] = todo.getPriority();
                 counter++;
             }
-
+            TextView textview =(TextView) findViewById(R.id.textviewnotodos);
             todosOfToday = new ArrayAdapter_Dayviewrow(this, icons, titles, privacy, priorities);
-
             for(Todo todo : todos){
                 todosOfToday.add(todo);
             }
-            return todosOfToday;
+            if(counter != 0) {
+                textview.setVisibility(View.INVISIBLE);
+                return todosOfToday;
+            }
+            else{
+                textview.setVisibility(View.VISIBLE);
+                textview.setText("No ToDos yet");
+                return todosOfToday;
+            }
+
 
 
         } catch (Exception e) {
@@ -222,11 +234,11 @@ public class Day_View_activity extends AppCompatActivity implements GestureDetec
             e.printStackTrace();
         }
         if (resetYear == 2) {
-            year = this.date.getYear() + 1900;
+            year = date.getYear() + 1900;
         } else if (resetYear == 1) {
-            year = this.date.getYear() + 1899;
+            year = date.getYear() + 1899;
         } else {
-            year = this.date.getYear() + 1901;
+            year = date.getYear() + 1901;
         }
         if(resetMonth == 0){
             actualMonth = "January";
@@ -274,25 +286,25 @@ public class Day_View_activity extends AppCompatActivity implements GestureDetec
         int day = Integer.parseInt(trim[0]);
         int month = resetMonth;
         for(Date a:dates){
-            if(a.getDate() == day & a.getMonth() == resetMonth & date.getYear() == year){
+            if(a.getDate() == day & a.getMonth() == resetMonth & a.getYear() + 1900 == year){
                 Calendar c = Calendar.getInstance();
                 c.setTime(a);
                 c.add(Calendar.DATE, 1);
                 Date newDate = c.getTime();
-                if(newDate.getYear() == date.getYear()){
-                    year = 2;
+                if(!(newDate.getYear() + 1900 == date.getYear() + 1901 & newDate.getDate() == 28 & newDate.getMonth() == resetMonth)) {
+                    if (newDate.getYear() == date.getYear()) {
+                        year = 2;
+                    } else if (newDate.getYear() == date.getYear() + 1) {
+                        year = 3;
+                    } else if (newDate.getYear() == date.getYear() - 1) {
+                        year = 1;
+                    }
+                    resetYear = year;
+                    resetMonth = newDate.getMonth();
+                    resetDay = newDate.getDate();
+                    list.setAdapter(ArrayAdapter(getFormattedString()));
+                    setTitleActivity();
                 }
-                else if(newDate.getYear() == date.getYear() + 1){
-                    year = 3;
-                }
-                else if(newDate.getYear() == date.getYear() - 1){
-                    year = 1;
-                }
-                resetYear = year;
-                resetMonth = newDate.getMonth();
-                resetDay = newDate.getDate();
-                ArrayAdapter(getFormattedString());
-                setTitleActivity();
             }
         }
 
@@ -305,14 +317,25 @@ public class Day_View_activity extends AppCompatActivity implements GestureDetec
         int day = Integer.parseInt(trim[0]);
         int month = resetMonth;
         for(Date a:dates){
-            if(a.getDate() == day & a.getMonth() == resetMonth & date.getYear() == year){
+            if(a.getDate() == day & a.getMonth() == resetMonth & a.getYear() + 1900 == year){
                 Calendar c = Calendar.getInstance();
                 c.setTime(a);
                 c.add(Calendar.DATE, -1);
                 Date newDate = c.getTime();
-                resetYear = newDate.getYear();
-                resetMonth = newDate.getMonth();
-                resetDay = newDate.getDate();
+                if(!(newDate.getYear() + 1900 == date.getYear() + 1899 & newDate.getDate() == 1 & newDate.getMonth() == resetMonth)) {
+                    if (newDate.getYear() == date.getYear()) {
+                        year = 2;
+                    } else if (newDate.getYear() == date.getYear() + 1) {
+                        year = 3;
+                    } else if (newDate.getYear() == date.getYear() - 1) {
+                        year = 1;
+                    }
+                    resetYear = year;
+                    resetMonth = newDate.getMonth();
+                    resetDay = newDate.getDate();
+                    list.setAdapter(ArrayAdapter(getFormattedString()));
+                    setTitleActivity();
+                }
             }
         }
 
@@ -409,23 +432,27 @@ public class Day_View_activity extends AppCompatActivity implements GestureDetec
         if (Build.VERSION.SDK_INT >= 23) {
             fingerprintManager = (FingerprintManager) getSystemService(FINGERPRINT_SERVICE);
             if (!fingerprintManager.isHardwareDetected()) {
-                if (dialog != null && dialog.isVisible()) {
-                    dialog.missing(1);
-                }
+                dialog.dismiss();
+                CharSequence text = "Your device doesn't support fingerprint authentication";
+                int duration = Toast.LENGTH_LONG;
+                Toast toast = Toast.makeText(this,text,duration);
+                toast.show();
             }
             if (ActivityCompat.checkSelfPermission(this, Manifest.permission.USE_FINGERPRINT) != PackageManager.PERMISSION_GRANTED) {
-                if (dialog != null && dialog.isVisible()) {
-                    dialog.missing(2);
-                }
+                dialog.dismiss();
+                CharSequence text = "Please grant this app the fingerprint permission";
+                int duration = Toast.LENGTH_LONG;
+                Toast toast = Toast.makeText(this,text,duration);
+                toast.show();
             }
             if (!fingerprintManager.hasEnrolledFingerprints()) {
-                if (dialog != null && dialog.isVisible()) {
-                    dialog.missing(3);
-                }
+                dialog.dismiss();
+                CharSequence text = "No fingerprint configured. Please register at least one fingerprint in your device's Settings";
+                int duration = Toast.LENGTH_LONG;
+                Toast toast = Toast.makeText(this,text,duration);
+                toast.show();
             } else {
-                if (dialog != null && dialog.isVisible()) {
-                    dialog.missing(4);
-                }
+
                 try {
                     generateKey();
                 } catch (FingerprintException e) {
@@ -484,22 +511,22 @@ public class Day_View_activity extends AppCompatActivity implements GestureDetec
 
     @Override
     public boolean onSingleTapConfirmed(MotionEvent e) {
-        return true;
+        return false;
     }
 
     @Override
     public boolean onDoubleTap(MotionEvent e) {
-        return true;
+        return false;
     }
 
     @Override
     public boolean onDoubleTapEvent(MotionEvent e) {
-        return true;
+        return false;
     }
 
     @Override
     public boolean onDown(MotionEvent e) {
-        return true;
+        return false;
     }
 
     @Override
@@ -508,12 +535,12 @@ public class Day_View_activity extends AppCompatActivity implements GestureDetec
 
     @Override
     public boolean onSingleTapUp(MotionEvent e) {
-        return true;
+        return false;
     }
 
     @Override
     public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
-        return true;
+        return false;
     }
 
     @Override
@@ -523,28 +550,31 @@ public class Day_View_activity extends AppCompatActivity implements GestureDetec
 
     @Override
     public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+        try {
+            // right to left swipe
+            if (e1.getX() - e2.getX() > SWIPE_MIN_DISTANCE & Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
+                swipeLeft();
+            }
+            // left to right swipe
+            else if (e2.getX() - e1.getX() > SWIPE_MIN_DISTANCE & Math.abs(velocityX) > SWIPE_THRESHOLD_VELOCITY) {
+                swipeRight();
+            }
+            else if(velocityY > this.SWIPE_MIN_DISTANCEUP & Math.abs(e1.getY() - e2.getY()) > this.SWIPE_MIN_DISTANCEUP){
+                if(e1.getY() > e2.getY()){
+                    return true;
+                }
+                else{
+                    Intent intentset = new Intent(Day_View_activity.this, wocheActivity.class);
+                    intentset.putExtra("Year", resetYear);
+                    intentset.putExtra("Month", resetMonth);
+                    intentset.putExtra("Week", resetWeek);
+                    intentset.putExtra("Day", resetDay);
+                    startActivity(intentset);
+                }
+            }
+        } catch (Exception e) {
 
-        if (e1.getX() < e2.getX() & e1.getX() + e2.getX() > e1.getY() + e2.getY()) {
-            swipeRight();
         }
-
-        if (e1.getX() > e2.getX() & e1.getX() + e2.getX() > e1.getY() + e2.getY()) {
-            swipeLeft();
-        }
-
-        if (e1.getY() < e2.getY() & e1.getX() + e2.getX() < e1.getY() + e2.getY()) {
-            Intent intentset = new Intent(Day_View_activity.this, wocheActivity.class);
-            intentset.putExtra("Year", resetYear);
-            intentset.putExtra("Month", resetMonth);
-            intentset.putExtra("Week", resetWeek);
-            intentset.putExtra("Day", resetDay);
-            startActivity(intentset);
-        }
-
-        if (e1.getY() > e2.getY() & e1.getX() + e2.getX() < e1.getY() + e2.getY()) {
-
-        }
-
         return true;
     }
 
@@ -567,6 +597,6 @@ public class Day_View_activity extends AppCompatActivity implements GestureDetec
         }catch (Exception e){
 
         }
-        list.setAdapter(ArrayAdapter(datestring));
+        list.setAdapter(ArrayAdapter(getFormattedString()));
     }
 }

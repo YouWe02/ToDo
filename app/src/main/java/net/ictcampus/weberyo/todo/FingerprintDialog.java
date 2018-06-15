@@ -61,26 +61,4 @@ public class FingerprintDialog extends DialogFragment{
             activity.startDescriptActivity();
         }
     }
-
-    public void missing(int thing){
-        textview = view.findViewById(R.id.textViewFingerprint);
-        if(thing == 1){
-            String error = "Your device doesn't support fingerprint authentication";
-            textview.setText(error);
-            textview.setTextColor(Color.RED);
-        }
-        else if(thing == 2){
-            String error = "Please grant this app the fingerprint permission";
-            textview.setText(error);
-            textview.setTextColor(Color.RED);
-        }
-        else if(thing == 3){
-            String error = "No fingerprint configured. Please register at least one fingerprint in your device's Settings";
-            textview.setText(error);
-            textview.setTextColor(Color.RED);
-        }
-        else if(thing == 4){
-            textview.setTextColor(Color.BLACK);
-        }
-    }
 }
