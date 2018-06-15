@@ -16,10 +16,12 @@
             android:name=".CreateToDoActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"></activity>
-        <activity android:name=".WeekActivity" />
+        <activity android:name=".WeekActivity"
+            android:screenOrientation="portrait"/>
         <activity android:name=".DayActivity"
             android:theme="@style/AppTheme"
-            android:label="ToDo"/>
+            android:label="ToDo"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
@@ -30,7 +32,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ToDoDescribtion" />
+        <activity android:name=".ToDoDescribtion"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>
