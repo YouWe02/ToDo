@@ -7,14 +7,14 @@ import net.ictcampus.weberyo.todo.Todo;
 
 import java.util.List;
 
-public class Thread_GetToDoByTitle extends Thread {
+public class ThreadGetToDoByTitle extends Thread {
     private AppDatabase db;
     private Context context;
     private String date;
     private String title;
     private Todo ToDo;
 
-    public Thread_GetToDoByTitle(String date, String title, Context context){
+    public ThreadGetToDoByTitle(String date, String title, Context context){
         this.date = date;
         this.title = title;
         this.context = context;

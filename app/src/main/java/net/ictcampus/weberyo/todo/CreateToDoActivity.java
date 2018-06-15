@@ -1,16 +1,11 @@
 package net.ictcampus.weberyo.todo;
 
-import android.app.ActionBar;
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
-import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -20,23 +15,18 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
-import net.ictcampus.weberyo.todo.net.ictcampus.weberyo.todo.threads.Thread_CreateTodo;
+import net.ictcampus.weberyo.todo.net.ictcampus.weberyo.todo.threads.ThreadCreateTodo;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
-import java.time.Year;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Dictionary;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Create_Todo_Activity extends AppCompatActivity {
-
+public class CreateToDoActivity extends AppCompatActivity {
     private String[] days_array;
     private Map<String, String> months = new LinkedHashMap<String, String>();
     private String[] months_array = new String[12];
@@ -187,7 +177,7 @@ public class Create_Todo_Activity extends AppCompatActivity {
         icons_array = icons.toArray(icons_array);
         categories_array = categories.toArray(categories_array);
 
-        ArrayAdapter_Spinner spinner = new ArrayAdapter_Spinner(this, icons_array, categories_array);
+        ArrayAdapterSpinner spinner = new ArrayAdapterSpinner(this, icons_array, categories_array);
         spinner_category.setAdapter(spinner);
     }
 
@@ -280,7 +270,7 @@ public class Create_Todo_Activity extends AppCompatActivity {
 
     public void createTodo(){
         try {
-            Thread_CreateTodo createTodo = new Thread_CreateTodo(title, description, date, category, privacy, priority, this);
+            ThreadCreateTodo createTodo = new ThreadCreateTodo(title, description, date, category, privacy, priority, this);
             createTodo.start();
             createTodo.join();
             CharSequence text = "ToDo created!";

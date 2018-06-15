@@ -10,10 +10,12 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
-public class ArrayAdapter_Spinner extends ArrayAdapter<String> {
+public class ArrayAdapterSpinner extends ArrayAdapter<String> {
     String icons[], categories[];
     LayoutInflater mInfalter;
-    public ArrayAdapter_Spinner(Context context, String[] icons, String[] categories){
+
+    //constructor, sets the gotten data to the instancevariables
+    public ArrayAdapterSpinner(Context context, String[] icons, String[] categories){
         super(context, R.layout.spinner_row,  R.id.category_icon, categories);
         this.setDropDownViewResource(R.layout.spinner_row);
         this.icons = icons;
@@ -21,6 +23,7 @@ public class ArrayAdapter_Spinner extends ArrayAdapter<String> {
         mInfalter = LayoutInflater.from(context);
     }
 
+    //class for set the categorie Spinner with the right Icon
     @Override
     public View getView(int position, View convertView, ViewGroup parent){
         ViewHolder holder;

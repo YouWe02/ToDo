@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * In diesem Thread wird ein Todo von der DB gelöscht
  */
-public class Thread_DeleteTodo extends Thread{
+public class ThreadDeleteTodo extends Thread{
 
     private AppDatabase db;
     private Context context;
@@ -21,7 +21,7 @@ public class Thread_DeleteTodo extends Thread{
      * @param context Inhalt der App
      * @param id id vom Todo, welches gelöscht werden soll.
      */
-    public Thread_DeleteTodo(Context context, int id){
+    public ThreadDeleteTodo(Context context, int id){
         this.context = context;
         this.id = id;
         db = AppDatabase.getAppDatabase(context);

@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v4.view.MotionEventCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,9 +14,8 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.TextView;
 
-import net.ictcampus.weberyo.todo.net.ictcampus.weberyo.todo.threads.Thread_GetTodayTodos;
+import net.ictcampus.weberyo.todo.net.ictcampus.weberyo.todo.threads.ThreadGetTodayTodos;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -54,10 +52,11 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
         setContentView(R.layout.activity_main);
         activity = this;
 
+        //new gesture detector
         mGestureDetector = new GestureDetector(this);
 
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS, WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         initFloatButton();
+        // get the actual date in Date and month in String
         actualDate = Calendar.getInstance().getTime();
         actualDateFormatted = dateFormatter.format(actualDate);
         try {
@@ -100,6 +99,8 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
         if (date.getMonth() == 11) {
             actualMonth = "december";
         }
+
+        //get intent with ll relevant data from another activity
         intentget = getIntent();
         resetMonth = intentget.getIntExtra("Month", date.getMonth());
         resetYear = intentget.getIntExtra("Year", 2);
@@ -107,6 +108,7 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
         resetDay = intentget.getIntExtra("Day", 1);
         setDatesToButtons(resetMonth, resetYear);
 
+        //touchlistener on whole activity for detect gestures
         final CoordinatorLayout layout = (CoordinatorLayout) findViewById(R.id.grid);
         layout.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -117,6 +119,7 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
             }
         });
 
+        //touchlistener on all Buttons for detect gestures
         for (Button b : allMonthButtons) {
             b.setOnTouchListener(new View.OnTouchListener() {
                 @Override
@@ -130,6 +133,7 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
         }
     }
 
+    // set the dates for 1 exact month to the buttons
     public void setDatesToButtons(int month, int year) {
         ImportDates dates = new ImportDates();
         List<Date> allDates = dates.defineDateinterval();
@@ -890,7 +894,7 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
                 }
             }
             try {
-                Thread_GetTodayTodos thread_getTodayTodos = new Thread_GetTodayTodos(dateGetToDos, this);
+                ThreadGetTodayTodos thread_getTodayTodos = new ThreadGetTodayTodos(dateGetToDos, this);
                 thread_getTodayTodos.start();
                 thread_getTodayTodos.join();
                 List<Todo> todos = thread_getTodayTodos.getAll();
@@ -1176,7 +1180,7 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), Create_Todo_Activity.class);
+                Intent intent = new Intent(v.getContext(), CreateToDoActivity.class);
                 startActivity(intent);
             }
         });
@@ -1214,7 +1218,7 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
                 }
             }
             resetDay = Integer.parseInt(text);
-            Intent intent = new Intent(MainActivity.this, Day_View_activity.class);
+            Intent intent = new Intent(MainActivity.this, DayActivity.class);
             intent.putExtra("Year", resetYear);
             intent.putExtra("Month", resetMonth);
             intent.putExtra("Week", resetWeek);
@@ -1275,7 +1279,7 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
             }
             else if(velocityY > this.SWIPE_MIN_DISTANCEUP & Math.abs(e1.getY() - e2.getY()) > this.SWIPE_MIN_DISTANCEUP){
                 if(e1.getY() > e2.getY()){
-                    Intent intentset = new Intent(MainActivity.this, wocheActivity.class);
+                    Intent intentset = new Intent(MainActivity.this, WeekActivity.class);
                     intentset.putExtra("Year", resetYear);
                     intentset.putExtra("Month", resetMonth);
                     intentset.putExtra("Week", resetWeek);

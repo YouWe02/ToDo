@@ -5,6 +5,7 @@ import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 
+//class for creating database, if no database found it creates one
 @Database(entities = {Todo.class}, version = 1)
 public abstract class AppDatabase extends RoomDatabase {
 

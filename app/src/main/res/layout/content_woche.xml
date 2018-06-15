@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".wocheActivity"
+    tools:context=".WeekActivity"
     tools:showIn="@layout/activity_woche"
     android:layout_height="match_parent"
     android:layout_width="match_parent">

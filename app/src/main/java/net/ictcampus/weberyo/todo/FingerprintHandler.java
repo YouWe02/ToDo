@@ -2,12 +2,9 @@ package net.ictcampus.weberyo.todo;
 
 import android.annotation.TargetApi;
 import android.content.Context;
-import android.content.Intent;
 import android.hardware.fingerprint.FingerprintManager;
 import android.os.Build;
 import android.os.CancellationSignal;
-import android.widget.TextView;
-import android.widget.Toast;
 
 @TargetApi(Build.VERSION_CODES.M)
 public class FingerprintHandler extends FingerprintManager.AuthenticationCallback {
@@ -33,7 +30,7 @@ public class FingerprintHandler extends FingerprintManager.AuthenticationCallbac
     @Override
     public void onAuthenticationError(int errMsgId, CharSequence errString) {
         //start method that writes the error in a textview
-        Day_View_activity dayview = new Day_View_activity();
+        DayActivity dayview = new DayActivity();
         dayview.updateFingerprintSensor("error","Error!\n" + errString, dialog);
     }
 
@@ -41,7 +38,7 @@ public class FingerprintHandler extends FingerprintManager.AuthenticationCallbac
     @Override
     public void onAuthenticationFailed() {
         //start method that writes the Authentification failed in a textview
-        Day_View_activity dayview = new Day_View_activity();
+        DayActivity dayview = new DayActivity();
         dayview.updateFingerprintSensor("failed","Authentication failed!", dialog);
     }
 
@@ -49,7 +46,7 @@ public class FingerprintHandler extends FingerprintManager.AuthenticationCallbac
     @Override
     public void onAuthenticationHelp(int helpMsgId, CharSequence helpString) {
         //start method that writes the tipp in a textview
-        Day_View_activity dayview = new Day_View_activity();
+        DayActivity dayview = new DayActivity();
         dayview.updateFingerprintSensor("help", helpString.toString(), dialog);
     }
 
@@ -57,7 +54,7 @@ public class FingerprintHandler extends FingerprintManager.AuthenticationCallbac
     @Override
     public void onAuthenticationSucceeded(FingerprintManager.AuthenticationResult result) {
         //start method that closes the dialog and start the description of a todo
-        Day_View_activity dayview = new Day_View_activity();
+        DayActivity dayview = new DayActivity();
         dayview.updateFingerprintSensor("success", "", dialog);
     }
 

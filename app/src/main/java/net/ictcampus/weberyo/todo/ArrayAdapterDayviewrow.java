@@ -12,14 +12,15 @@ import net.ictcampus.weberyo.todo.R;
 
 import java.util.ArrayList;
 
-public class ArrayAdapter_Dayviewrow extends ArrayAdapter<String> {
+public class ArrayAdapterDayviewrow extends ArrayAdapter<String> {
     String icons[], titles[];
     int[] priorities;
     boolean[] privacy;
 
     LayoutInflater inflater;
 
-    public ArrayAdapter_Dayviewrow(Context context, String[] icons, String[] titles, boolean[] privacy, int[] priorities ){
+    //constructor, set the gotten datas to the intance variables
+    public ArrayAdapterDayviewrow(Context context, String[] icons, String[] titles, boolean[] privacy, int[] priorities ){
         super(context, R.layout.dayview_row);
         this.icons = icons;
         this.titles = titles;
@@ -27,6 +28,7 @@ public class ArrayAdapter_Dayviewrow extends ArrayAdapter<String> {
         this.priorities = priorities;
     }
 
+    //sets the layout of a todo in the dayview
     @Override
     public View getView(int position, View convertView, ViewGroup parent){
         View v = convertView;

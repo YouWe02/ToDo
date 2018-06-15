@@ -7,7 +7,7 @@ android:layout_width="match_parent"
 android:layout_height="match_parent"
 android:columnCount="1"
 android:rowCount="7"
-tools:context=".wocheActivity">
+tools:context=".WeekActivity">
 
 
 <LinearLayout

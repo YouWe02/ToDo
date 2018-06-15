@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * Gibt die 4 wichtigsten Todos vom gewünschten Datum zurück.
  */
-public class Thread_GetTodayTodosLimit4 extends Thread{
+public class ThreadGetTodayTodosLimit4 extends Thread{
     private AppDatabase db;
     private Context context;
     private String date;
@@ -21,7 +21,7 @@ public class Thread_GetTodayTodosLimit4 extends Thread{
      * @param date Datum
      * @param context INhalt der App
      */
-    public Thread_GetTodayTodosLimit4(String date, Context context){
+    public ThreadGetTodayTodosLimit4(String date, Context context){
         this.date = date;
         this.context = context;
         db = AppDatabase.getAppDatabase(context);

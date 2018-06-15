@@ -2,10 +2,7 @@ package net.ictcampus.weberyo.todo;
 
 import android.Manifest;
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.DialogFragment;
 import android.content.ClipData;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.hardware.fingerprint.FingerprintManager;
@@ -16,28 +13,23 @@ import android.security.keystore.KeyProperties;
 import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.DragEvent;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 
-import net.ictcampus.weberyo.todo.net.ictcampus.weberyo.todo.threads.Thread_CreateTodo;
-import net.ictcampus.weberyo.todo.net.ictcampus.weberyo.todo.threads.Thread_DeleteTodo;
-import net.ictcampus.weberyo.todo.net.ictcampus.weberyo.todo.threads.Thread_GetToDoByTitle;
-import net.ictcampus.weberyo.todo.net.ictcampus.weberyo.todo.threads.Thread_GetTodayTodos;
+import net.ictcampus.weberyo.todo.net.ictcampus.weberyo.todo.threads.ThreadDeleteTodo;
+import net.ictcampus.weberyo.todo.net.ictcampus.weberyo.todo.threads.ThreadGetToDoByTitle;
+import net.ictcampus.weberyo.todo.net.ictcampus.weberyo.todo.threads.ThreadGetTodayTodos;
 
 import java.io.IOException;
 import java.security.InvalidAlgorithmParameterException;
@@ -60,10 +52,12 @@ import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
 
 
-public class Day_View_activity extends AppCompatActivity implements GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener{
+public class DayActivity extends AppCompatActivity implements GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener{
+    //distances for swipes
     private static final int SWIPE_MIN_DISTANCE = 120;
     private static final int SWIPE_MIN_DISTANCEUP = 120;
     private static final int SWIPE_THRESHOLD_VELOCITY = 200;
+
     public static Activity activity;
     private int resetYear;
     private int resetMonth;
@@ -97,10 +91,11 @@ public class Day_View_activity extends AppCompatActivity implements GestureDetec
         setContentView(R.layout.activity_day__view_activity);
         activity = this;
 
+        //initialize a gesturedetector
         mGestureDetector2 = new GestureDetector(this);
 
         initFloatButton();
-        setTitleActivity();
+        //get intent with relevant dates
         Intent intentget = getIntent();
         String datestring = intentget.getStringExtra("Date");
         resetYear = intentget.getIntExtra("Year", 2);
@@ -108,23 +103,23 @@ public class Day_View_activity extends AppCompatActivity implements GestureDetec
         resetWeek = intentget.getIntExtra("Week", 1);
         resetDay = intentget.getIntExtra("Day", 1);
         actualMonth = intentget.getStringExtra("Monthstring");
+        //set title of activity
         setTitleActivity();
 
         list = (ListView) findViewById(R.id.dayview_todo_list);
+        //set the new ArrayAdapter with all todos on that date
         list.setAdapter(ArrayAdapter(getFormattedString()));
+        //On item click listener on the list with the todos
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-<<<<<<< HEAD
                 Todo title = (Todo)(parent.getItemAtPosition(position));
-=======
-                Todo title = (Todo)(list.getItemAtPosition(position));
->>>>>>> bceb12bf023a998a8dff5318299e0ea12e6c0796
                 String titlestring = title.getTitle();
                 onClickListElement(titlestring);
             }
         });
 
+        //set ontouchlistener to start gesture detector
         final ConstraintLayout layout = (ConstraintLayout) findViewById(R.id.relativeDay);
         layout.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -134,7 +129,7 @@ public class Day_View_activity extends AppCompatActivity implements GestureDetec
             }
         });
 
-
+        //onLongClickListener on the list for deleting a todo
         list.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
@@ -185,10 +180,11 @@ public class Day_View_activity extends AppCompatActivity implements GestureDetec
         });
     }
 
+    //get all todos and set it to the array adapter
     public ArrayAdapter ArrayAdapter(String date) {
         try {
             todosOfTodayID =  new ArrayList<String>();
-            Thread_GetTodayTodos thread_getTodayTodos = new Thread_GetTodayTodos(date, this);
+            ThreadGetTodayTodos thread_getTodayTodos = new ThreadGetTodayTodos(date, this);
             thread_getTodayTodos.start();
             thread_getTodayTodos.join();
             List<Todo> todos = thread_getTodayTodos.getAll();
@@ -207,7 +203,7 @@ public class Day_View_activity extends AppCompatActivity implements GestureDetec
                 counter++;
             }
             TextView textview =(TextView) findViewById(R.id.textviewnotodos);
-            todosOfToday = new ArrayAdapter_Dayviewrow(this, icons, titles, privacy, priorities);
+            todosOfToday = new ArrayAdapterDayviewrow(this, icons, titles, privacy, priorities);
             for(Todo todo : todos){
                 todosOfToday.add(todo);
             }
@@ -229,6 +225,7 @@ public class Day_View_activity extends AppCompatActivity implements GestureDetec
         }
     }
 
+    //set the title of the document
     public void setTitleActivity() {
         actualDate = Calendar.getInstance().getTime();
         actualDateFormatted = dateFormatter.format(actualDate);
@@ -283,6 +280,7 @@ public class Day_View_activity extends AppCompatActivity implements GestureDetec
         setTitle(resetDay + " " + actualMonth + " " + year);
     }
 
+    //what happens if you swipe left
     public void swipeLeft(){
         ImportDates id = new ImportDates();
         List<Date> dates = id.defineDateinterval();
@@ -290,11 +288,13 @@ public class Day_View_activity extends AppCompatActivity implements GestureDetec
         int day = Integer.parseInt(trim[0]);
         int month = resetMonth;
         for(Date a:dates){
+            //if the right date
             if(a.getDate() == day & a.getMonth() == resetMonth & a.getYear() + 1900 == year){
                 Calendar c = Calendar.getInstance();
                 c.setTime(a);
                 c.add(Calendar.DATE, 1);
                 Date newDate = c.getTime();
+                //if date isnt out of range
                 if(!(newDate.getYear() + 1900 == date.getYear() + 1901 & newDate.getDate() == 28 & newDate.getMonth() == resetMonth)) {
                     if (newDate.getYear() == date.getYear()) {
                         year = 2;
@@ -314,6 +314,7 @@ public class Day_View_activity extends AppCompatActivity implements GestureDetec
 
     }
 
+    //what happens when you swipe to right
     public void swipeRight(){
         ImportDates id = new ImportDates();
         List<Date> dates = id.defineDateinterval();
@@ -321,11 +322,13 @@ public class Day_View_activity extends AppCompatActivity implements GestureDetec
         int day = Integer.parseInt(trim[0]);
         int month = resetMonth;
         for(Date a:dates){
+            //get the right date
             if(a.getDate() == day & a.getMonth() == resetMonth & a.getYear() + 1900 == year){
                 Calendar c = Calendar.getInstance();
                 c.setTime(a);
                 c.add(Calendar.DATE, -1);
                 Date newDate = c.getTime();
+                //if date is in range
                 if(!(newDate.getYear() + 1900 == date.getYear() + 1899 & newDate.getDate() == 1 & newDate.getMonth() == resetMonth)) {
                     if (newDate.getYear() == date.getYear()) {
                         year = 2;
@@ -345,6 +348,7 @@ public class Day_View_activity extends AppCompatActivity implements GestureDetec
 
     }
 
+    //format the date string for usages in db
     public String getFormattedString(){
         if (resetYear == 2) {
             year = date.getYear() + 1900;
@@ -372,16 +376,17 @@ public class Day_View_activity extends AppCompatActivity implements GestureDetec
         }
     }
 
+    //if the user clicks on a todo
     public void onClickListElement(String title) {
         String dateGetToDos = getFormattedString();
         try {
-            Thread_GetToDoByTitle thread_getToDoByTitle = new Thread_GetToDoByTitle(dateGetToDos, title, this);
+            ThreadGetToDoByTitle thread_getToDoByTitle = new ThreadGetToDoByTitle(dateGetToDos, title, this);
             thread_getToDoByTitle.start();
             thread_getToDoByTitle.join();
             todo = thread_getToDoByTitle.getAll();
             if (todo != null) {
                 if (todo.isPrivacy() == false) {
-                    Intent intent = new Intent(Day_View_activity.this, ToDoDescribtion.class);
+                    Intent intent = new Intent(DayActivity.this, ToDoDescribtion.class);
                     intent.putExtra("Title", todo.getTitle());
                     intent.putExtra("Description", todo.getDescription());
                     intent.putExtra("Date", todo.getDate());
@@ -399,30 +404,34 @@ public class Day_View_activity extends AppCompatActivity implements GestureDetec
         }
     }
 
+    //initialize the add button
     public void initFloatButton() {
         FloatingActionButton button = (FloatingActionButton) findViewById(R.id.floatday);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), Create_Todo_Activity.class);
+                Intent intent = new Intent(v.getContext(), CreateToDoActivity.class);
                 intent.putExtra("Activity", "day");
                 startActivity(intent);
             }
         });
     }
 
+    //open this dialog
     public void openDialog() {
         dialog = new FingerprintDialog();
         dialog.show(getSupportFragmentManager(), "NoticeDialogFragment");
     }
 
+    //updating the dialog for the fingerprint sensor
     public void updateFingerprintSensor(String ident, String text, FingerprintDialog dialog) {
         this.dialog = dialog;
         this.dialog.updateStatus(ident, text);
     }
 
+    //if authentification was true
     public void startDescriptActivity() {
-        Intent intent = new Intent(Day_View_activity.this, ToDoDescribtion.class);
+        Intent intent = new Intent(DayActivity.this, ToDoDescribtion.class);
         intent.putExtra("Title", todo.getTitle());
         intent.putExtra("Description", todo.getDescription());
         intent.putExtra("Date", todo.getDate());
@@ -432,6 +441,7 @@ public class Day_View_activity extends AppCompatActivity implements GestureDetec
         startActivity(intent);
     }
 
+    //control if user has all things for fingerprint and manage whole authentification
     public void controlFingerprint() {
         if (Build.VERSION.SDK_INT >= 23) {
             fingerprintManager = (FingerprintManager) getSystemService(FINGERPRINT_SERVICE);
@@ -472,6 +482,7 @@ public class Day_View_activity extends AppCompatActivity implements GestureDetec
         }
     }
 
+    // generate a key and get access to the keystore
     private void generateKey() throws FingerprintException {
         try {
             keyStore = KeyStore.getInstance("AndroidKeyStore");
@@ -494,7 +505,7 @@ public class Day_View_activity extends AppCompatActivity implements GestureDetec
         }
     }
 
-
+    //initialize a cypher for en- and decrypt
     public boolean initCipher() {
         try {
             cipher = Cipher.getInstance(KeyProperties.KEY_ALGORITHM_AES + "/" + KeyProperties.BLOCK_MODE_CBC + "/" + KeyProperties.ENCRYPTION_PADDING_PKCS7);
@@ -564,11 +575,13 @@ public class Day_View_activity extends AppCompatActivity implements GestureDetec
                 swipeRight();
             }
             else if(velocityY > this.SWIPE_MIN_DISTANCEUP & Math.abs(e1.getY() - e2.getY()) > this.SWIPE_MIN_DISTANCEUP){
+                //up swipe
                 if(e1.getY() > e2.getY()){
                     return true;
                 }
+                //down swipe
                 else{
-                    Intent intentset = new Intent(Day_View_activity.this, wocheActivity.class);
+                    Intent intentset = new Intent(DayActivity.this, WeekActivity.class);
                     intentset.putExtra("Year", resetYear);
                     intentset.putExtra("Month", resetMonth);
                     intentset.putExtra("Week", resetWeek);
@@ -594,7 +607,7 @@ public class Day_View_activity extends AppCompatActivity implements GestureDetec
         todosOfTodayID.remove(drag);
         todosOfToday.notifyDataSetChanged();
         list.deferNotifyDataSetChanged();
-        Thread_DeleteTodo thread_deleteTodo = new Thread_DeleteTodo(this, id);
+        ThreadDeleteTodo thread_deleteTodo = new ThreadDeleteTodo(this, id);
         thread_deleteTodo.start();
         try{
             thread_deleteTodo.join();

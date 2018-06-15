@@ -4,25 +4,18 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.TypedArray;
 import android.support.constraint.ConstraintLayout;
-import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import net.ictcampus.weberyo.todo.net.ictcampus.weberyo.todo.threads.Thread_GetTodayTodosLimit4;
+import net.ictcampus.weberyo.todo.net.ictcampus.weberyo.todo.threads.ThreadGetTodayTodosLimit4;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -30,7 +23,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-public class wocheActivity extends AppCompatActivity implements GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener {
+public class WeekActivity extends AppCompatActivity implements GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener {
     private static final int SWIPE_MIN_DISTANCE = 120;
     private static final int SWIPE_MIN_DISTANCEUP = 50;
     private static final int SWIPE_THRESHOLD_VELOCITY = 200;
@@ -4002,7 +3995,7 @@ public class wocheActivity extends AppCompatActivity implements GestureDetector.
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), Create_Todo_Activity.class);
+                Intent intent = new Intent(v.getContext(), CreateToDoActivity.class);
                 intent.putExtra("Activity", "week");
                 startActivity(intent);
             }
@@ -4032,7 +4025,7 @@ public class wocheActivity extends AppCompatActivity implements GestureDetector.
         TextView prio3 = (TextView) layout3.getChildAt(1);
         TextView prio4 = (TextView) layout4.getChildAt(1);
 
-        Thread_GetTodayTodosLimit4 getTodayTodos = new Thread_GetTodayTodosLimit4(dateOfLayout, this);
+        ThreadGetTodayTodosLimit4 getTodayTodos = new ThreadGetTodayTodosLimit4(dateOfLayout, this);
 
         try {
             getTodayTodos.start();
@@ -4236,7 +4229,7 @@ public class wocheActivity extends AppCompatActivity implements GestureDetector.
             else if(trim2[2].equals("December")){
                 month = 11;
             }
-            Intent intentset = new Intent(wocheActivity.this, Day_View_activity.class);
+            Intent intentset = new Intent(WeekActivity.this, DayActivity.class);
             intentset.putExtra("Year", year);
             intentset.putExtra("Month", month);
             intentset.putExtra("Week", resetWeek);
@@ -4296,7 +4289,7 @@ public class wocheActivity extends AppCompatActivity implements GestureDetector.
             }
             else if(velocityY > this.SWIPE_MIN_DISTANCEUP & Math.abs(e1.getY() - e2.getY()) > this.SWIPE_MIN_DISTANCEUP){
                 if(e1.getY() > e2.getY()){
-                    Intent intentset = new Intent(wocheActivity.this, Day_View_activity.class);
+                    Intent intentset = new Intent(WeekActivity.this, DayActivity.class);
                     intentset.putExtra("Year", resetYear);
                     intentset.putExtra("Month", resetMonth);
                     intentset.putExtra("Week", resetWeek);
@@ -4304,7 +4297,7 @@ public class wocheActivity extends AppCompatActivity implements GestureDetector.
                     startActivity(intentset);
                 }
                 else{
-                    Intent intentset = new Intent(wocheActivity.this, MainActivity.class);
+                    Intent intentset = new Intent(WeekActivity.this, MainActivity.class);
                     intentset.putExtra("Year", resetYear);
                     intentset.putExtra("Month", resetMonth);
                     intentset.putExtra("Week", resetWeek);

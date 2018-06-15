@@ -16,7 +16,7 @@ import net.ictcampus.weberyo.todo.Todo;
  * @privacy = privacy vom Todo
  * @priority = Priorität vom Todo
  */
-public class Thread_CreateTodo extends Thread  {
+public class ThreadCreateTodo extends Thread  {
     private AppDatabase db;
     private Context context;
     private String title;
@@ -29,7 +29,7 @@ public class Thread_CreateTodo extends Thread  {
     /**
      * Konstruktor. Hier werden die Instanzvariablen initialisiert & die DB wird abgerufen.
      */
-    public Thread_CreateTodo(String title, String description, String date, String theme, boolean privacy, int priority, Context context){
+    public ThreadCreateTodo(String title, String description, String date, String theme, boolean privacy, int priority, Context context){
         this.title = title;
         this.description = description;
         this.date = date;

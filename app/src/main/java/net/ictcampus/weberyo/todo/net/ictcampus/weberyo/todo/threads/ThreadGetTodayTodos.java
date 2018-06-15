@@ -11,7 +11,7 @@ import java.util.List;
  * In dieser Klasse werden alle todos mit dem mitgegebenen
  * Datum abgerufen.
  */
-public class Thread_GetTodayTodos extends Thread {
+public class ThreadGetTodayTodos extends Thread {
     private AppDatabase db;
     private Context context;
     private String date;
@@ -22,7 +22,7 @@ public class Thread_GetTodayTodos extends Thread {
      * @param date Datum für die Abfrage
      * @param context Inhalt der App
      */
-    public Thread_GetTodayTodos(String date, Context context){
+    public ThreadGetTodayTodos(String date, Context context){
         this.date = date;
         this.context = context;
         db = AppDatabase.getAppDatabase(context);
