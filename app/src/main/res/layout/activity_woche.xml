@@ -135,13 +135,20 @@ tools:context=".wocheActivity">
             android:clickable="false"/>
     </LinearLayout>
 
-    <net.ictcampus.weberyo.todo.FontAwesome
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/angle_right"
-        android:paddingLeft="15dp"
-        android:gravity="right|center_vertical"
-        android:clickable="false"/>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="right"
+        android:orientation="horizontal">
+        <net.ictcampus.weberyo.todo.FontAwesome
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/angle_right"
+            android:paddingRight="10dp"
+            android:paddingLeft="15dp"
+            android:layout_gravity="center_vertical"
+            android:clickable="false"/>
+    </LinearLayout>
 </LinearLayout>
 
 
@@ -256,12 +263,20 @@ tools:context=".wocheActivity">
             android:layout_height="3dp" />
     </LinearLayout>
 
-    <net.ictcampus.weberyo.todo.FontAwesome
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/angle_right"
-        android:paddingLeft="15dp"
-        android:gravity="right|center_vertical"/>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="right"
+        android:orientation="horizontal">
+        <net.ictcampus.weberyo.todo.FontAwesome
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/angle_right"
+            android:paddingRight="10dp"
+            android:paddingLeft="15dp"
+            android:layout_gravity="center_vertical"
+            android:clickable="false"/>
+    </LinearLayout>
 
 </LinearLayout>
 
@@ -376,12 +391,20 @@ tools:context=".wocheActivity">
             android:layout_height="3dp" />
     </LinearLayout>
 
-    <net.ictcampus.weberyo.todo.FontAwesome
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/angle_right"
-        android:paddingLeft="15dp"
-        android:gravity="right|center_vertical"/>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="right"
+        android:orientation="horizontal">
+        <net.ictcampus.weberyo.todo.FontAwesome
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/angle_right"
+            android:paddingRight="10dp"
+            android:paddingLeft="15dp"
+            android:layout_gravity="center_vertical"
+            android:clickable="false"/>
+    </LinearLayout>
 </LinearLayout>
 
 <LinearLayout
@@ -495,12 +518,20 @@ tools:context=".wocheActivity">
             android:layout_height="3dp" />
     </LinearLayout>
 
-    <net.ictcampus.weberyo.todo.FontAwesome
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/angle_right"
-        android:paddingLeft="15dp"
-        android:gravity="right|center_vertical"/>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="right"
+        android:orientation="horizontal">
+        <net.ictcampus.weberyo.todo.FontAwesome
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/angle_right"
+            android:paddingRight="10dp"
+            android:paddingLeft="15dp"
+            android:layout_gravity="center_vertical"
+            android:clickable="false"/>
+    </LinearLayout>
 
 </LinearLayout>
 
@@ -615,12 +646,20 @@ tools:context=".wocheActivity">
             android:layout_height="3dp" />
     </LinearLayout>
 
-    <net.ictcampus.weberyo.todo.FontAwesome
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/angle_right"
-        android:paddingLeft="15dp"
-        android:gravity="right|center_vertical"/>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="right"
+        android:orientation="horizontal">
+        <net.ictcampus.weberyo.todo.FontAwesome
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/angle_right"
+            android:paddingRight="10dp"
+            android:paddingLeft="15dp"
+            android:layout_gravity="center_vertical"
+            android:clickable="false"/>
+    </LinearLayout>
 </LinearLayout>
 
 <LinearLayout
@@ -734,12 +773,20 @@ tools:context=".wocheActivity">
             android:layout_height="3dp" />
     </LinearLayout>
 
-    <net.ictcampus.weberyo.todo.FontAwesome
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/angle_right"
-        android:paddingLeft="15dp"
-        android:gravity="right|center_vertical"/>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="right"
+        android:orientation="horizontal">
+        <net.ictcampus.weberyo.todo.FontAwesome
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/angle_right"
+            android:paddingRight="10dp"
+            android:paddingLeft="15dp"
+            android:layout_gravity="center_vertical"
+            android:clickable="false"/>
+    </LinearLayout>
 
 </LinearLayout>
 
@@ -854,12 +901,20 @@ tools:context=".wocheActivity">
             android:layout_height="3dp" />
     </LinearLayout>
 
-    <net.ictcampus.weberyo.todo.FontAwesome
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/angle_right"
-        android:paddingLeft="15dp"
-        android:gravity="right|center_vertical"/>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="right"
+        android:orientation="horizontal">
+        <net.ictcampus.weberyo.todo.FontAwesome
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/angle_right"
+            android:paddingRight="10dp"
+            android:paddingLeft="15dp"
+            android:layout_gravity="center_vertical"
+            android:clickable="false"/>
+    </LinearLayout>
 </LinearLayout>
 
     <android.support.design.widget.FloatingActionButton

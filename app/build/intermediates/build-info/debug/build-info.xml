@@ -2,13 +2,13 @@
 <instant-run
     abi="x86"
     api-level="24"
-    build-mode="COLD"
-    density="420dpi"
+    build-mode="HOT_WARM"
+    density="560dpi"
     format="10"
     plugin-version="3.1.2"
-    timestamp="1528995321614"
-    token="-1712631271982404349"
-    verifier="COLD_SWAP_REQUESTED" >
+    timestamp="1529041953269"
+    token="3719747092568320158"
+    verifier="COMPATIBLE" >
 
     <task
         name="javac"
@@ -23,86 +23,66 @@
         name="verifier"
         duration="0" />
 
+    <artifact
+        location="C:\Users\weberyo\AndroidStudioProjects\ToDo\app\build\intermediates\instant-run-resources\resources-debug.ir.ap_"
+        type="RESOURCES" />
+
     <build
         build-mode="FULL"
-        timestamp="1528993173477"
+        timestamp="1529041176549"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
-            location="C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\build\intermediates\split-apk\debug\dep\dependencies.apk"
+            location="C:\Users\weberyo\AndroidStudioProjects\ToDo\app\build\intermediates\split-apk\debug\dep\dependencies.apk"
             type="SPLIT" />
         <artifact
-            location="C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
+            location="C:\Users\weberyo\AndroidStudioProjects\ToDo\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
             type="SPLIT" />
         <artifact
-            location="C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
+            location="C:\Users\weberyo\AndroidStudioProjects\ToDo\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
             type="SPLIT" />
         <artifact
-            location="C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
+            location="C:\Users\weberyo\AndroidStudioProjects\ToDo\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
             type="SPLIT" />
         <artifact
-            location="C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
+            location="C:\Users\weberyo\AndroidStudioProjects\ToDo\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
             type="SPLIT" />
         <artifact
-            location="C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
+            location="C:\Users\weberyo\AndroidStudioProjects\ToDo\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
             type="SPLIT" />
         <artifact
-            location="C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
+            location="C:\Users\weberyo\AndroidStudioProjects\ToDo\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
             type="SPLIT" />
         <artifact
-            location="C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\build\intermediates\split-apk\debug\slices\slice_6.apk"
+            location="C:\Users\weberyo\AndroidStudioProjects\ToDo\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
             type="SPLIT" />
         <artifact
-            location="C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
+            location="C:\Users\weberyo\AndroidStudioProjects\ToDo\app\build\intermediates\split-apk\debug\slices\slice_6.apk"
             type="SPLIT" />
         <artifact
-            location="C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
+            location="C:\Users\weberyo\AndroidStudioProjects\ToDo\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
             type="SPLIT" />
         <artifact
-            location="C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
+            location="C:\Users\weberyo\AndroidStudioProjects\ToDo\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
             type="SPLIT" />
         <artifact
-            location="C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\build\intermediates\instant-run-apk\debug\app-debug.apk"
+            location="C:\Users\weberyo\AndroidStudioProjects\ToDo\app\build\intermediates\instant-run-apk\debug\app-debug.apk"
             type="SPLIT_MAIN" />
     </build>
     <build
         build-mode="COLD"
-        ir-eligibility="R_CLASS_CHANGE"
-        timestamp="1528994487757"
+        timestamp="1529041683545"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
-            location="C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
-            type="SPLIT" />
-        <artifact
-            location="C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
-            type="SPLIT" />
-        <artifact
-            location="C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
-            type="SPLIT" />
-        <artifact
-            location="C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
-            type="SPLIT" />
-        <artifact
-            location="C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
-            type="SPLIT" />
-        <artifact
-            location="C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
-            type="SPLIT" />
-        <artifact
-            location="C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\build\intermediates\instant-run-apk\debug\app-debug.apk"
+            location="C:\Users\weberyo\AndroidStudioProjects\ToDo\app\build\intermediates\instant-run-apk\debug\app-debug.apk"
             type="SPLIT_MAIN" />
     </build>
     <build
-        build-mode="COLD"
-        ir-eligibility="METHOD_DELETED"
-        timestamp="1528995294760"
-        verifier="COLD_SWAP_REQUESTED" >
+        build-mode="HOT_WARM"
+        timestamp="1529041953269"
+        verifier="COMPATIBLE" >
         <artifact
-            location="C:\Users\beera\AndroidStudioProjects\ToDo4Real\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
-            type="SPLIT" />
+            location="C:\Users\weberyo\AndroidStudioProjects\ToDo\app\build\intermediates\instant-run-resources\resources-debug.ir.ap_"
+            type="RESOURCES" />
     </build>
-    <build
-        build-mode="COLD"
-        timestamp="1528995321614"
-        verifier="COLD_SWAP_REQUESTED" />
 
 </instant-run>
