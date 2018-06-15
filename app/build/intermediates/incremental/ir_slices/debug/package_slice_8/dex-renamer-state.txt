@@ -1,4 +1,4 @@
-#Fri Jun 15 11:20:12 CEST 2018
-base.0=C\:\\Users\\weberyo\\AndroidStudioProjects\\ToDo\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\26
+#Fri Jun 15 11:23:29 CEST 2018
+base.0=C\:\\Users\\weberyo\\AndroidStudioProjects\\ToDo\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\9
 path.0=classes.dex
 renamed.0=classes.dex

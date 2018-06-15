@@ -15,9 +15,9 @@ import android.widget.TextView;
 
 import org.junit.Test;
 
-public class CreateTodoActivityTest extends ActivityInstrumentationTestCase2<Create_Todo_Activity> {
+public class CreateTodoActivityTest extends ActivityInstrumentationTestCase2<CreateToDoActivity> {
     public CreateTodoActivityTest() {
-        super(Create_Todo_Activity.class);
+        super(CreateToDoActivity.class);
     }
 
     @Override

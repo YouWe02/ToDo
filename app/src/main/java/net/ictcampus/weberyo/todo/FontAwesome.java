@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+//initialize font on textview, so that icons can get displayed
 public class FontAwesome extends android.support.v7.widget.AppCompatTextView {
 
     public FontAwesome(Context context, AttributeSet attrs, int defStyle){
@@ -25,7 +26,6 @@ public class FontAwesome extends android.support.v7.widget.AppCompatTextView {
     }
 
     private void init(){
-
         Typeface tf = Typeface.createFromAsset(getContext().getAssets(), "fontawesome.otf");
         setTypeface(tf);
     }

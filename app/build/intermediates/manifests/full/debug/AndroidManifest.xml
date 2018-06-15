@@ -20,12 +20,12 @@
         android:testOnly="true"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="net.ictcampus.weberyo.todo.Create_Todo_Activity"
+            android:name="net.ictcampus.weberyo.todo.CreateToDoActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" />
-        <activity android:name="net.ictcampus.weberyo.todo.wocheActivity" />
+        <activity android:name="net.ictcampus.weberyo.todo.WeekActivity" />
         <activity
-            android:name="net.ictcampus.weberyo.todo.Day_View_activity"
+            android:name="net.ictcampus.weberyo.todo.DayActivity"
             android:label="ToDo"
             android:theme="@style/AppTheme" />
         <activity

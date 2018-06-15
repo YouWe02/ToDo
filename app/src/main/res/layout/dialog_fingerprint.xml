@@ -30,11 +30,11 @@
                     app:srcCompat="@drawable/baseline_fingerprint_black_48" />
 
                 <TextView
+                    android:id="@+id/textViewFingerprint"
                     android:layout_width="wrap_content"
-                    android:layout_height="60dp"
+                    android:layout_height="wrap_content"
                     android:text="Verify yourself with your Fingerprint!"
-                    android:textSize="15dp"
-                    android:id="@+id/textViewFingerprint"/>
+                    android:textSize="15dp" />
             </LinearLayout>
         </FrameLayout>
     </FrameLayout>
